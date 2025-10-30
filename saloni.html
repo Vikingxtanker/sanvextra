@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANVEXTRA INDUSTRIES - Innovating Health, Connecting Lives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .font-primary {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Purple Color Scheme */
+        .gradient-primary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+        }
+        
+        .gradient-secondary {
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+        }
+        
+        .gradient-accent {
+            background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+        }
+        
+        .gradient-hero {
+            background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 50%, #a855f7 100%);
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(109, 40, 217, 0.9) 0%, rgba(139, 92, 246, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1920&h=1080&fit=crop&auto=format&q=80') center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+        }
+
+        /* Navigation Styling */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #8b5cf6;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, #8b5cf6, #a855f7);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #8b5cf6;
+            border: 2px solid #8b5cf6;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background: #8b5cf6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Animations */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Counter */
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Product Cards */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #a855f7);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Service Icons */
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+        .service-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Team Cards */
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #a855f7);
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #8b5cf6, #a855f7);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        .team-card:hover .team-avatar {
+            transform: scale(1.1);
+        }
+
+        /* Contact Form */
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0 60px;
+            }
+            .stat-card {
+                padding: 20px 15px;
+            }
+            .product-card, .team-card {
+                padding: 20px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-dots {
+            display: inline-block;
+        }
+        .loading-dots::after {
+            content: '';
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.8);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="w-14 h-14 gradient-primary rounded-xl flex items-center justify-center shadow-lg">
+                            <span class="text-white font-bold text-2xl font-display">S</span>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <h1 class="text-2xl font-bold text-gray-800 font-primary">SANVEXTRA</h1>
+                        <p class="text-sm text-purple-600 font-medium font-primary">Innovating Health, Connecting Lives</p>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-semibold font-primary">Home</a>
+                        <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-semibold font-primary">About</a>
+                        <a href="#products" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-semibold font-primary">Products</a>
+                        <a href="#services" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-semibold font-primary">Services</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-semibold font-primary">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-purple-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M0 0" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-purple-600 font-medium">About</a>
+                <a href="#products" class="block px-3 py-2 text-gray-700 hover:text-purple-600 font-medium">Products</a>
+                <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-purple-600 font-medium">Services</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-screen flex items-center relative">
+        <div class="hero-pattern"></div>
+        <div class="relative z-10 w-full">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Content -->
+                    <div class="text-white">
+                        <div class="mb-6">
+                            <span class="inline-block bg-white bg-opacity-20 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                                Leading Pharmaceutical Company
+                            </span>
+                        </div>
+                        <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight font-display">
+                            Innovating Health,
+                            <span class="text-purple-200">Connecting Lives</span>
+                        </h1>
+                        <p class="text-xl mb-8 text-purple-100 leading-relaxed">
+                            SANVEXTRA INDUSTRIES is committed to delivering high-quality pharmaceutical products 
+                            through strategic partnerships and innovative solutions for better patient outcomes.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                            <button onclick="scrollToSection('products')" class="btn-primary">
+                                Explore Products
+                            </button>
+                            <button onclick="scrollToSection('contact')" class="btn-outline text-white border-white hover:bg-white hover:text-purple-600">
+                                Partner With Us
+                            </button>
+                        </div>
+                        
+                        <!-- Stats -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="stat-card">
+                                <div class="text-3xl font-bold text-white mb-2" data-target="2025">0</div>
+                                <div class="text-purple-200 text-sm">Founded</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="text-3xl font-bold text-white mb-2" data-target="100">0</div>
+                                <div class="text-purple-200 text-sm">Quality %</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="text-3xl font-bold text-white mb-2" data-target="24">0</div>
+                                <div class="text-purple-200 text-sm">Hours Support</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="text-3xl font-bold text-white mb-2" data-target="5">0</div>
+                                <div class="text-purple-200 text-sm">Certifications</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Content - Visual Element -->
+                    <div class="relative">
+                        <div class="relative z-10">
+                            <!-- Medical/Pharmaceutical Visual -->
+                            <div class="flex justify-center items-center">
+                                <div class="relative">
+                                    <!-- Medical imagery overlay -->
+                                    <div class="w-80 h-80 bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl flex items-center justify-center shadow-2xl overflow-hidden">
+                                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=400&fit=crop&auto=format&q=80" alt="Medical Research" class="w-full h-full object-cover rounded-3xl opacity-80">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent rounded-3xl"></div>
+                                        <div class="absolute bottom-6 left-6 right-6 text-white text-center">
+                                            <div class="text-lg font-bold">Advanced Research</div>
+                                            <div class="text-sm opacity-90">Quality Healthcare Solutions</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Floating elements -->
+                                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl flex items-center justify-center animate-pulse">
+                                        <span class="text-2xl">💊</span>
+                                    </div>
+                                    <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-white bg-opacity-15 backdrop-blur-lg rounded-xl flex items-center justify-center animate-bounce">
+                                        <span class="text-xl">🔬</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M0 0"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1920&h=1080&fit=crop&auto=format&q=80" alt="Laboratory Background" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    About SANVEXTRA
+                </span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6 font-display">
+                    Leading Healthcare Innovation
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Founded in 2025 with a clear mission to innovate and deliver high-quality pharmaceutical products 
+                    through strategic partnerships and ethical practices.
+                </p>
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="grid lg:grid-cols-2 gap-12 mb-20">
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl border border-purple-100">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 font-primary">Our Mission</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        To market high-quality and innovative pharmaceutical products through strong partnerships, 
+                        ensuring ethical practices and wider healthcare access for improved
+
+</div>
+
+<div class="card-hover bg-gradient-to-br from-purple-50 to-white p-8 rounded-
+
+2xl border border-purple-100">
+
+<h3 class="text-2xl font-bold text-gray-800 mb-4 font-primary">Our
+
+Vision</h3>
+
+<p class="text-gray-600 leading-relaxed text-lg">
+
+To become a trusted leader in pharmaceutical marketing by delivering high-quality and innovative solutions that improve patient well-being and strengthen healthcare
+
+access.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Leadership Team
+
+<div class="mb-16">
+
+<div class="text-center mb-12">
+
+<h3 class="text-3xl font-bold text-gray-800 mb-4 font-display">Leadership
+
+Team</h3>
+
+<p class="text-lg text-gray-600">Meet the visionaries driving our
+
+success</p>
+
+</div>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<!-- Managing Director -->
+
+<div class="team-card">
+
+<img src="https://images.unsplash.com/photo-1507003211169-
+
+0a1dd7228f2d?w=200&h=200&fit=crop&crop=face&auto=format&q=80" alt="Mr. Rameshwar Shinde"
+
+class="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg">
+
+<h4 class="text-xl font-bold text-gray-800 mb-2 font-primary">Mr.
+
+Rameshwar Shinde</h4>
+
+<p class="text-purple-600 font-semibold mb-3">Managing Director</p>
+
+<p class="text-gray-600 text-sm leading-relaxed">
+
+Strategic leader driving operational excellence and business
+
+growth with extensive industry experience.
+
+</p>
+
+<div class="mt-4 flex justify-center space-x-2">
+
+<span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full
+
+text-xs font-semibold">Strategy</span>
+
+<span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full
+
+text-xs font-semibold">Growth</span>
+
+</div>
+
+</div>
+<!-- CEO -->
+
+<div class="team-card">
+
+<img src="https://images.unsplash.com/photo-1612349317150-
+
+e413f6a5b16d?w=200&h=200&fit=crop&crop=face&auto=format&q=80" alt="Dr. Abhay Rameshwar Shinde" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg">
+
+<h4 class="text-xl font-bold text-gray-800 mb-2 font-primary">Dr.
+
+Abhay Rameshwar Shinde</h4>
+
+<p class="text-purple-600 font-semibold mb-3">Founder & CEO</p>
+
+<p class="text-gray-600 text-sm leading-relaxed">
+
+A seasoned pharmaceutical professional with a passion for patient
+
+care,
+
+innovative drug delivery & research excellence.
+
+</p>
+
+<div class="mt-4 flex justify-center space-x-2">
+
+<span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full
+
+text-xs font-semibold">15+ Years</span> <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full
+
+</div>
+
+text-xs font-semibold">PhD</span>
+
+</div>
+
+<!-- CFO..>
+
+<div class="team-card">
+
+<img src="https://images.unsplash.com/photo-1580489944761-
+
+15a19d654956?w=200&h=200&fit=crop&crop=face&auto=format&q=80" alt="Ms. Komal" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg">
+
+<h4 class="text-xl font-bold text-gray-800 mb-2 font-primary">Ms.
+
+Komal</h4>
+
+<p class="text-purple-600 font-semibold mb-3">Chief Financial
+
+Officer</p>
+
+<p class="text-gray-600 text-sm leading-relaxed">
+
+Financial strategist ensuring sustainable growth and fiscal
+
+responsibility
+
+with expertise in pharmaceutical finance.
+
+</p>
+
+<div class="mt-4 flex justify-center space-x-2">
+
+<span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full
+
+text-xs font-semibold">Finance</span> <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full
+
+text-xs font-semibold">Strategy</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- Core Values -->
+
+<div class="bg-gradient-to-br from-purple-50 to-white p-12 rounded-3xl">
+
+<div class="text-center mb-12">
+
+Values</h3>
+
+<h3 class="text-3xl font-bold text-gray-800 mb-4 font-display">Our Core
+
+do</p>
+
+<p class="text-lg text-gray-600">The principles that guide everything we
+
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<div class="text-center">
+
+<h4 class="text-xl font-bold text-gray-800 mb-3 font-
+
+primary">Integrity</h4>
+
+<p class="text-gray-600">Unwavering commitment to ethical practices
+
+and transparent operations</p>
+
+</div>
+
+<div class="text-center">
+
+<h4 class="text-xl font-bold text-gray-800 mb-3 font-
+
+primary">Innovation</h4>
+
+<p class="text-gray-600">Continuous pursuit of breakthrough solutions
+
+and cutting-edge technologies</p>
+
+</div>
+
+<div class="text-center">
+
+<h4 class="text-xl font-bold text-gray-800 mb-3 font-
+
+primary">Excellence</h4>
+
+<p class="text-gray-600">Striving for perfection in every aspect of
+
+our operations</p>
+
+</div>
+
+<div class="text-center">
+
+Care</h4>
+
+<h4 class="text-xl font-bold text-gray-800 mb-3 font-primary">Patient
+
+everything we do</p>
+
+<p class="text-gray-600">Putting patient well-being at the center of
+
+</div>
+
+<div class="text-center">
+
+<h4 class="text-xl font-bold text-gray-800 mb-3 font-
+
+primary">Collaboration</h4>
+
+<p class="text-gray-600">Building strong partnerships for mutual
+
+success and growth</p>
+
+</div>
+
+<div class="text-center">
+
+<h4 class="text-xl font-bold text-gray-800 mb-3 font-
+
+primary">Sustainability</h4>
+
+<p class="text-gray-600">Committed to environmental responsibility and
+
+sustainable practices</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- Products Section -->
+
+<section id="products" class="py-20 bg-gray-50">
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<div class="text-center mb-16">
+
+<span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full
+
+text-sm font-semibold mb-4">
+
+Our Products
+
+</span>
+
+<h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6 font-display">
+
+Our Products
+
+</h2>
+
+class="text-x1 text-gray-600 max-w-3xl mx-auto leading-relaxed">
+
+<p>
+
+</div>
+
+<div class="grid lg:grid-cols-3 gap-8 mb-16">
+
+<!-- Featured Product-->
+
+<div class="lg:col-span-2">
+
+<div class="product-card h-full">
+
+<div class="flex flex-col lg:flex-row items-center gap-8">
+
+<div class="flex-shrink-0">
+
+<div class="w-32 h-32 gradient-primary rounded-3xl flex items-
+
+center justify-center shadow-xl">
+
+<span class="text-white text-2xl font-bold">CCS</span>
+
+</div>
+
+<div class="flex justify-center text-yellow-400 mb-2">
+
+<div class="text-center mt-4">
+
+</div>
+
+<span class="text-sm text-gray-600">(4.9/5 Rating)</span>
+
+</div>
+
+</div>
+
+<div class="flex-1">
+
+<div class="flex items-center gap-3 mb-4">
+
+<h3 class="text-2xl font-bold text-gray-800 font-
+
+primary">Chocolate Calcium Suspension</h3>
+
+<span class="bg-purple-500 text-white px-3 py-1 rounded-
+
+full text-xs font-bold">BESTSELLER</span>
+
+</div>
+
+<p class="text-gray-600 mb-6 leading-relaxed">
+
+Delicious chocolate-flavored calcium supplement designed
+
+for optimal absorption
+
+and patient compliance. Perfect for children and adults
+
+who need calcium supplementation.
+
+</p>
+<div class="grid md:grid-cols-2 gap-4 mb-6">
+
+<div>
+
+<h4 class="font-semibold text-purple-600 mb-2">Product
+
+Details</h4>
+
+<ul class="text-sm text-gray-600 space-y-1">
+
+<li> Oral Suspension</li>
+
+<li> Chocolate Flavor</li>
+
+<li> Multiple Sizes</li>
+
+<li> WHO-GMP Certified</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h4 class="font-semibold text-purple-600 mb-
+
+<ul class="text-sm text-gray-600 space-y-1">
+
+<li> Calcium Deficiency</li>
+
+<li> Bone Health Support</li>
+
+<li> Growing Children</li>
+
+<li> Pregnancy & Lactation</li>
+
+2">Indications</h4>
+
+</ul>
+
+</div>
+
+</div>
+
+<button onclick="showProductDetails('calcium')" class="btn-
+
+View Full Details
+
+primary">
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Coming Soon -->
+
+<div class="product-card text-center">
+
+<div class="w-24 h-24 bg-gray-200 rounded-3xl mx-auto mb-6 flex items-
+
+center justify-center">
+
+<span class="text-gray-500 text-2xl font-bold">+</span>
+
+</div>
+
+<h3 class="text-xl font-bold text-gray-800 mb-4 font-primary">More
+
+Products Coming Soon</h3>
+
+<p class="text-gray-600 mb-6">
+
+We're continuously expanding our product portfolio with innovative
+
+solutions.
+
+</p>
+
+<div class="bg-purple-50 p-4 rounded-xl">
+
+<p class="text-purple-600 font-semibold text-sm">Stay tuned for
+
+exciting new launches!</p>
+
+</div>
+
+</div>
+
+</div>
+<!-- Product Categories-->
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+purple-100">
+
+<div class="card-hover bg-white p-6 rounded-2xl text-center border border-
+
+<h4 class="font-bold text-gray-800 mb-2 font-primary">Tablets</h4>
+
+<p class="text-gray-600 text-sm">High-quality tablet formulations</p>
+
+</div>
+
+<div class="card-hover bg-white p-6 rounded-2xl text-center border border-
+
+purple-100">
+
+<h4 class="font-bold text-gray-800 mb-2 font-primary">Suspensions</h4>
+
+<p class="text-gray-600 text-sm">Liquid formulations for easy
+
+administration</p>
+
+</div>
+
+<div class="card-hover bg-white p-6 rounded-2xl text-center border border-
+
+purple-100">
+
+<h4 class="font-bold text-gray-800 mb-2 font-primary">Injectables</h4>
+
+<p class="text-gray-600 text-sm">Sterile injectable solutions</p>
+
+</div>
+
+<div class="card-hover bg-white p-6 rounded-2xl text-center border border-
+
+purple-100">
+
+<h4 class="font-bold text-gray-800 mb-2 font-primary">Capsules</h4>
+
+<p class="text-gray-600 text-sm">Precision-filled capsule formulations</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Services Section -->
+
+<section id="services" class="py-20 bg-white">
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<div class="text-center mb-16">
+
+<span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full
+
+text-sm font-semibold mb-4">
+
+Our Services
+
+</span>
+
+<h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6 font-display">
+
+Our Services
+
+</h2>
+
+<p class="text-x1 text-gray-600 max-w-3xl mx-auto leading-relaxed">
+
+We offer comprehensive pharmaceutical services focused on distribution and
+
+marketing support
+
+</p>
+
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+
+<div class="card-hover bg-gradient-to-br from-purple-50 to-white p-8 rounded-
+
+2xl text-center border border-purple-100">
+
+<h3 class="text-xl font-bold text-gray-800 mb-4 font-primary">Distribution
+
+Support</h3>
+<p class="text-gray-600 leading-relaxed mb-6">
+
+penetration.
+
+Comprehensive distribution network ensuring timely delivery and market
+
+</p>
+
+<div class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs
+
+font-bold inline-block">
+
+Global Network
+
+</div>
+
+</div>
+
+<div class="card-hover bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl text-center border border-purple-100">
+
+<h3 class="text-xl font-bold text-gray-800 mb-4 font-primary">Marketing
+
+Support</h3>
+
+<p class="text-gray-600 leading-relaxed mb-6">
+
+Strategic marketing solutions to help partners reach their target
+
+markets effectively.
+
+</p>
+
+<div class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs
+
+font-bold inline-block">
+
+Market Focused
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Certifications -->
+
+<div class="mt-16 bg-gradient-to-br from-purple-50 to-white p-12 rounded-3xl">
+
+<div class="text-center mb-8">
+
+<h3 class="text-2xl font-bold text-gray-800 mb-4 font-display">Assured
+
+Quality Certifications</h3>
+
+<p class="text-gray-600">Maintaining the highest international
+
+standards</p>
+
+</div>
+
+<div class="flex flex-wrap justify-center items-center gap-6">
+
+<div class="bg-white px-6 py-3 rounded-xl shadow-sm border border-purple-
+
+100">
+
+<span class="font-bold text-purple-600">WHO-GMP Certified</span>
+
+</div>
+
+<div class="bg-white px-6 py-3 rounded-xl shadow-sm border border-purple-
+
+100">
+
+<span class="font-bold text-purple-600">FSSAI Licensed</span>
+
+</div>
+
+<div class="bg-white px-6 py-3 rounded-xl shadow-sm border border-purple-
+
+100">
+
+<span class="font-bold text-purple-600">ISO-9001:2015</span>
+
+</div>
+
+<div class="bg-white px-6 py-3 rounded-xl shadow-sm border border-purple-
+
+100">
+
+<span class="font-bold text-purple-600">FDA Compliant</span>
+
+</div>
+
+<div class="bg-white px-6 py-3 rounded-xl shadow-sm border border-purple-
+
+100">
+
+<span class="font-bot-purple-600">CDSCO Approved</span>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Contact Section -->
+
+<section id="contact" class="py-20 bg-gray-50">
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<div class="text-center mb-16">
+
+<span class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full
+
+text-sm font-semibold mb-4">
+
+Contact Us
+
+</span>
+
+<h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6 font-display">
+
+Let's Connect
+
+</h2>
+
+<p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+
+Ready to partner with us? Get in touch for inquiries, collaborations, or
+
+more information
+
+</p>
+
+</div>
+
+<div class="grid lg:grid-cols-2 gap-12">
+
+<!-- Contact Information -->
+
+<div class="space-y-8">
+
+<div class="card-hover bg-white p-8 rounded-2xl border border-purple-100">
+
+<h3 class="text-2xl font-bold text-gray-800 mb-6 font-primary">Get In
+
+Touch</h3>
+
+<div class="space-y-6">
+
+<div class="flex items-start">
+
+<div class="w-12 h-12 gradient-primary rounded-xl flex items-
+
+center justify-center mr-4 flex-shrink-0">
+
+<svg class="w-6 h-6 text-white" fill="none"
+
+stroke="currentColor" viewBox="0 0 24 24">
+
+<path stroke-linecap="round" stroke-linejoin="round"
+
+stroke-width="2" d="M0 0"></path>
+
+<path stroke-linecap="round" stroke-linejoin="round"
+
+stroke-width="2" d="M0 0"></path>
+
+</svg>
+
+</div>
+
+<div class="flex-1">
+
+<h4 class="font-bold text-gray-800 mb-2">Head Office</h4>
+
+<p class="text-gray-600" leading-relaxed">RH-16, Arjun
+
+Nagar, Pimparghavan Road<br>Ambika Chowk, Bee 1122</p>
+
+</div>
+</div>
+
+<div class="flex items-start">
+
+<div class="w-12 h-12 gradient-primary rounded-xl flex items-
+
+center justify-center mr-4 flex-shrink-0">
+
+<svg class="w-6 h-6 text-white" fill="none"
+
+stroke="currentColor" viewBox="0 0 24 24">
+
+<path stroke-linecap="round" stroke-linejoin="round"
+
+stroke-width="2" d="M0 0"></path>
+
+</svg>
+
+</div>
+
+<div class="flex-1">
+
+<h4 class="font-bold text-gray-800 mb-2">Phone</h4>
+
+<p class="text-gray-600">+91 8380827361</p>
+
+</div>
+
+</div>
+
+<div class="flex items-start">
+
+<div class="w-12 h-12 gradient-primary rounded-xl flex items-
+
+center justify-center mr-4 flex-shrink-0">
+
+<svg class="w-6 h-6 text-white" fill="none"
+
+stroke="currentColor" viewBox="0 0 24 24">
+
+path stroke-linecap="round" stroke-linejoin="round"
+
+< stroke-width="2" d="M3 817.89 4.26a2 2 0 002.22 OL21 8M5 19h14a2 2 0 002-2V7a2 20 00-2-2H5a2 2000-2 2v10a2 2 0 002 2z"></path>
+
+</svg>
+
+</div>
+
+<div class="flex-1">
+
+<h4 class="font-bold text-gray-800 mb-2">Email</h4>
+
+<p class="text-gray-600">sanvextra@gmail.com</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- Contact Form->
+
+<div class="card-hover bg-white p-8 rounded-2xl border border-purple-100">
+
+Message</h3>
+
+<h3 class="text-2xl font-bold text-gray-800 mb-6 font-primary">Send us a
+
+<form id="contact-form" class="space-y-6">
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div>
+
+<label for="name" class="block text-gray-700 font-semibold mb-
+
+2">Name *</label>
+
+<input type="text" id="name" name="name" required class="form-
+
+input">
+
+</div>
+
+<div>
+
+<label for="email" class="block text-gray-700 font-semibold
+
+mb-2">Email *</label>
+
+<input type="email" id="email" name="email" required
+
+class="form-input">
+
+</div>
+
+</div>
+
+<div>
+
+2">Phone</label>
+
+<label for="phone" class="block text-gray-700 font-semibold mb-
+
+<input type="tel" id="phone" name="phone" class="form-input">
+
+</div>
+
+<div>
+
+<label for="inquiry-type" class="block text-gray-700 font-semibold
+
+mb-2">Inquiry Type</label>
+
+<select id="inquiry-type" name="inquiry-type" class="form-input">
+
+<option>General Inquiry</option>
+
+<option>Product Information</option>
+
+<option>Business Partnership</option>
+
+<option>Distribution Inquiry</option>
+
+<option>R&D Collaboration</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label for="message" class="block text-gray-700 font-semibold mb-
+
+2">Message *</label>
+
+<textarea id="message" name="message" required rows="5"
+
+class="form-input"></textarea>
+
+</div>
+
+<button type="submit" class="btn-primary w-full">
+
+Send Message
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- Footer -->
+
+<footer class="bg-gray-900 text-white py-16">
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+
+<div class="lg:col-span-2">
+
+<div class="flex items-center mb-6">
+
+<div class="w-12 h-12 gradient-primary rounded-xl flex items-center
+
+justify-center mr-4">
+
+<span class="text-white font-bold text-x1">S</span>
+
+</div>
+
+<div>
+
+<h3 class="text-2xl font-bold font-primary">SANVEXTRA</h3>
+
+<p class="text-purple-300">Innovating Health, Connecting Lives</p>
+
+</div>
+
+</div>
+
+<p class="text-gray-400 leading-relaxed mb-6 max-w-md">
+
+Leading pharmaceutical company committed to delivering high-quality
+
+healthcare solutions
+
+through innovation, partnerships, and ethical practices.
+
+</p>
+
+<div class="flex space-x-4">
+
+<div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center
+
+justify-center hover:bg-purple-700 transition-colors cursor-pointer">
+
+<span class="text-sm text-white font-bold">@</span>
+
+</div>
+
+<div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center
+
+justify-center hover:bg-purple-700 transition-colors cursor-pointer">
+
+<span class="text-sm text-white font-bold">P</span>
+
+</div>
+
+<div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center
+
+justify-center hover:bg-purple-700 transition-colors cursor-pointer">
+
+<span class="text-sm text-white font-bold">W</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+<h4 class="text-lg font-semibold mb-6 font-primary">Quick Links</h4>
+
+<ul class="space-y-3 text-gray-400">
+
+<li><a href="#about" class="hover: text-purple-300 transition-
+
+colors">About Us</a></li>
+
+<li><a href="#products" class="hover: text-purple-300 transition-
+
+colors">Products</a></li>
+
+<li><a href="#services" class="hover: text-purple-300 transition-
+
+colors">Services</a></li>
+
+<li><a href="#contact" class="hover: text-purple-300 transition-
+
+colors">Contact</a></li>
+
+</ul>
+
+</div>
+<div>
+
+<h4 class="text-lg font-semibold mb-6 font-primary">Services</h4>
+
+<ul class="space-y-3 text-gray-400">
+
+<li>Contract Manufacturing</li>
+
+<li>Clinical Trials</li>
+
+<li>R&D Collaborations</li>
+
+<li>Distribution Support</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="border-t border-gray-800 pt-8">
+
+<div class="flex flex-col md:flex-row justify-between items-center">
+
+<p class="text-gray-400 mb-4 md:mb-0">
+
+&copy; 2025 SANVEXTRA INDUSTRIES PVT. LTD. All rights reserved.
+
+</p>
+
+<div class="flex space-x-6 text-sm text-gray-400">
+
+<span>Privacy Policy</span>
+
+<span>Terms of Service</span>
+
+<span>Disclaimer</span>
+
+</div>
+
+</div>
+
+<div class="mt-4 text-center text-sm text-gray-500">
+
+<p>
+
+<span class="font-semibold">Medical Disclaimer: </span> This website is
+
+for informational purposes only.
+
+</p>
+
+Please consult healthcare professionals for medical advice.
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+<!-- Product Details Modal -->
+
+<div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex
+
+items-center justify-center p-4">
+
+<div class="bg-white rounded-2xl max-w-3xl w-full max-h-90vh overflow-y-auto">
+
+<div class="p-8">
+
+<div class="flex justify-between items-center mb-6">
+
+<h3 class="text-3xl font-bold text-gray-800 font-display">Product
+
+Details</h3>
+
+2">
+
+<button onclick="closeModal()" class="text-gray-500 hover: text-gray-700 р-
+
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24
+
+24">
+
+<path stroke-linecap="round" stroke-linejoin="round" stroke-
+
+width="2" d="M0 0"></path>
+
+</svg>
+
+</button>
+</div>
+
+<div id="modal-content">
+
+<!-- Content will be populated by JavaScript -->
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+
+// Mobile menu toggle
+
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenu.classList.toggle('hidden');
+
+});
+
+// Smooth scrolling function
+
+function scrollToSection(sectionId) {
+
+document.getElementById(sectionId).scrollIntoView({
+
+behavior: 'smooth'
+
+});
+
+}
+
+// Add smooth scrolling to all navigation links
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+anchor.addEventListener('click', function (e) {
+
+e.preventDefault();
+
+const target = document.querySelector(this.getAttribute('href'));
+
+if (target) {
+
+target.scrollIntoView({
+
+behavior: 'smooth
+
+});
+
+}
+
+// Close mobile menu if open
+
+});
+
+}); document.getElementById('mobile-menu').classList.add('hidden');
+
+// Animated Counter for Stats
+
+function animateCounter(element, target, duration = 2000) {
+
+let start = 0;
+
+const increment = target / (duration/16);
+function updateCounter() {
+
+start += increment;
+
+if (start < target) {
+
+element.textContent = Math.floor(start);
+
+requestAnimationFrame(updateCounter);
+
+} else {
+
+element.textContent = target;
+
+}
+
+}
+
+updateCounter();
+
+// Intersection Observer for Stats Animation
+
+const statsObserver = new IntersectionObserver((entries) => {
+
+entries.forEach(entry => {
+
+if (entry.isIntersecting) {
+
+const statNumbers = entry.target.querySelectorAll('[data-target]');
+
+statNumbers.forEach(stat => {
+
+const target = parseInt(stat.getAttribute('data-target'));
+
+animateCounter(stat, target);
+
+});
+
+}
+
+statsObserver.unobserve(entry.target);
+
+});
+
+}, { threshold: 0.5));
+
+// Observe stats container
+
+const statsContainer document.querySelector('.grid.grid-cols-2.lg\\:grid-cols-4.gap-
+
+6');
+
+if (statsContainer) {
+  statsObserver.observe(statsContainer);
+}
+
+statsObserver.observe(statsContainer);
+
+// Contact form submission
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+
+e.preventDefault();
+
+const button = this.querySelector('button[type="submit"]');
+
+const originalText = button.textContent;
+
+// Show loading state
+
+button.innerHTML = '<span class="loading-dots">Sending</span>';
+
+button.disabled = true;
+/ Simulate form submission
+
+setTimeout(() => {
+
+button.textContent = 'Message Sent!';
+
+button.classList.remove('btn-primary');
+
+button.classList.add('bg-green-500', 'hover:bg-green-600');
+
+// Reset form after 3 seconds
+
+setTimeout(() => {
+
+this.reset();
+
+button.textContent = originalText;
+
+button.classList.add('btn-primary');
+
+button.classList.remove('bg-green-500', 'hover:bg-green-600');
+
+button.disabled = false;
+
+}, 3000);
+
+}, 2000);
+
+});
+
+// Product details modal
+
+function showProductDetails(productId) {
+
+const modal = document.getElementById('product-modal');
+
+const content = document.getElementById('modal-content');
+
+if (productId === 'calcium') {
+
+content.innerHTML = `
+
+<div class="space-y-6">
+
+<div class="gradient-primary text-white p-6 rounded-2xl">
+
+<div class="flex items-center gap-4">
+
+<div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex
+
+items-center justify-center">
+
+<span class="text-3xl"></span>
+
+</div>
+
+<div>
+
+<h4 class="text-2xl font-bold">Chocolate Calcium
+
+Suspension</h4>
+
+<p class="text-purple-100">Delicious and nutritious
+
+calcium supplement</p>
+
+</div>
+
+</div>
+
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="bg-purple-50 p-6 rounded-xl">
+
+<h5 class="font-bold text-purple-800 mb-4 text-lg">Product
+
+Information</h5>
+
+<ul class="space-y-2 text-gray-700">
+
+<li class="flex justify-between">
+
+<span class="font-medium">Brand Name:</span>
+
+<span>Chocolate Calcium Suspension</span>
+
+</li>
+
+<li class="flex justify-between">
+
+<span class="font-medium">Dosage Form:</span>
+
+<span>Oral Suspension</span>
+
+</li>
+
+<li class="flex justify-between">
+
+<span class="font-medium">Flavor:</span>
+
+<span>Chocolate</span>
+
+</li>
+
+<li class="flex justify-between">
+
+<span class="font-medium">Packaging:</span>
+
+<span>Multiple sizes</span>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="bg-purple-50 p-6 rounded-xl">
+
+<h5 class="font-bold text-purple-800 mb-4 text-
+
+lg">Indications</h5>
+
+<ul class="space-y-2 text-gray-700">
+
+<li class="flex items-center">
+
+<span class="w-2 h-2 bg-purple-500 rounded-full mr-3">
+
+</span>
+
+Calcium deficiency
+
+</li>
+
+<li class="flex items-center">
+
+<span class="w-2 h-2 bg-purple-500 rounded-full mr-3">
+
+</span>
+
+Bone health support
+
+</li>
+
+<li class="flex items-center">
+
+<span class="w-2 h-2 bg-purple-500 rounded-full mr-3">
+
+</span>
+
+Growing children
+
+</li>
+
+<li class="flex items-center">
+
+<span class="w-2 h-2 bg-purple-500 rounded-full mr-3">
+
+</span>
+
+Pregnancy and lactation
+
+</li>
+
+</ul>
+
+</div>
+</div>
+
+<div class="bg-yellow-50 border border-yellow-200 p-6 rounded-xl">
+
+<h5 class="font-bold text-yellow-800 mb-3 flex items-center">
+
+<span class="mr-2">▲</span>
+
+Safety Information
+
+</h5>
+
+<p class="text-yellow-700 leading-relaxed">
+
+<span class="font-medium">Important:</span> Please consult
+
+your healthcare provider before use.
+
+not exceed recommended dosage..
+
+Keep out of reach of children. Store in a cool, dry place. Do
+
+</p>
+
+</div>
+
+<div class="bg-green-50 p-6 rounded-xl">
+
+<h5 class="font-bold text-green-800 mb-4">Availability &
+
+Certifications</h5>
+
+<div class="flex flex-wrap gap-3">
+
+<span class="bg-green-200 text-green-800 px-4 py-2 rounded-
+
+full text-sm font-semibold">Domestic Market</span>
+
+<span class="bg-blue-200 text-blue-800 px-4 py-2 rounded-full
+
+text-sm font-semibold">International Market</span>
+
+<span class="bg-purple-200 text-purple-800 px-4 ру-2 rounded-
+
+full text-sm font-semibold">WHO-GMP Certified</span>
+
+<span class="bg-orange-200 text-orange-800 px-4 py-2 rounded-
+
+full text-sm font-semibold">FSSAI Licensed</span>
+
+</div>
+
+</div>
+
+</div>
+
+}
+
+}
+
+modal.classList.remove('hidden');
+
+function closeModal() {
+  document.getElementById('product-modal').classList.add('hidden');
+}
+
+document.getElementById('product-modal').classList.add('hidden');
+
+// Close modal when clicking outside
+
+document.getElementById('product-modal').addEventListener('click', function(e) {
+
+if (e.target === this) {
+
+closeModal();
+
+}
+
+});
+// Add fade-in animation to sections on scroll
+
+const const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px 50px 0px'
+};
+
+const observer new IntersectionObserver(function(entries) {
+
+entries.forEach(entry => {
+
+if (entry.isIntersecting) {
+
+entry.target.classList.add('fade-in');
+
+}
+
+});
+
+}, observerOptions);
+
+// Observe all sections
+
+document.querySelectorAll('section').forEach(section => {
+
+observer.observe(section);
+
+});
+
+// Enhanced button interactions
+
+document.querySelectorAll('.btn-primary, .btn-outline').forEach(button => {
+
+button.addEventListener('mouseenter', function() {
+
+this.style.transform = 'translateY(-2px) scale(1.02)';
+
+});
+
+button.addEventListener('mouseleave', function() {
+
+this.style.transform = 'translateY(0) scale(1)';
+
+});
+
+});
+
+// Parallax effect for hero section
+
+window.addEventListener('scroll', () => {
+
+const scrolled = window.pageYOffset;
+
+const heroPattern = document.querySelector('.hero-pattern');
+
+if (heroPattern) {
+
+heroPattern.style.transform = 'translateY(' + (scrolled * 0.5) + 'px)';
+
+}
+
+});
+// Initialize animations on page load
+
+window.addEventListener('load', () => {
+
+// Add entrance animations to hero elements
+
+const heroElements = document.querySelectorAll('.hero-section .text-white > *');
+
+heroElements.forEach((element, index) => {
+
+element.style.opacity = '0';
+
+element.style.transform = 'translateY(30px)';
+
+element.style.transition = 'all 0.8s ease-out';
+
+setTimeout(() => {
+
+element.style.opacity = '1';
+
+element.style.transform = 'translateY(0)';
+
+}, index * 200 + 300);
+
+});
+
+});
+
+</script>
+
+<script><!-- Cloudflare script removed for safety -->$params=
+
+(г:19968580274753a37',t: 'MTc2MTgwMDM3M14wMDAwMDA='); var
+
+a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-
+
+platform/scripts/jsd/main.js'; document.getElementsByTagName('head')
+
+[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var
+
+a=document.createElement('iframe'); a.height=1;a.width=1;a.style.position='absolute';a.style.to
+
+p=0;a.style.left=0;a.style.border='none'; a.style.visibility='hidden'; document.body.appendChild
+
+(a); if('loading'!==document.readyState)c(); else
+
+if(window.addEventListener)document.addEventListener('DOMContentLoaded', c);else{var
+
+e-document.onreadystatechange||function(){}; document.onreadystatechange function(b)
+
+{e(b); 'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+</body>
+
+</html>
