@@ -2,367 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sanvextra — Innovation in Everyday Healthcare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanvextra Industries — Innovating Health, Connecting Lives</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --purple-1:#8a6daf;
+      --purple-2:#a875f7;
+      --accent-grad:linear-gradient(135deg,var(--purple-1),var(--purple-2));
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#fff;color:#1f2937;line-height:1.6;}
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    /* Navbar */
+    .topbar{background:#fff;box-shadow:0 6px 20px rgba(15,23,42,0.06);position:sticky;top:0;z-index:60;}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:84px;max-width:1200px;margin:0 auto;padding:0 24px;}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand .logo{width:56px;height:56px;border-radius:12px;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:Cardo,serif;font-size:22px;}
+    .nav-links{display:flex;gap:22px;align-items:center}
+    .nav-links a{font-weight:600;color:#374151;padding:8px 10px;border-radius:8px;text-decoration:none;}
+    .nav-links a:hover{color:var(--purple-2);background:rgba(139,92,246,0.06)}
 
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    /* Hero Section */
+    .hero{position:relative;min-height:90vh;display:flex;align-items:flex-start;overflow:hidden;color:#fff;}
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(138,109,175,0.85) 0%, rgba(168,117,247,0.55) 60%, rgba(24,6,63,0.25) 100%);
+      z-index:1;
+    }
+    .hero-bg{
+      position:absolute;inset:0;
+      background:url('https://cledrallifesciences.com/wp-content/uploads/2025/02/two-pharmacists-working-together-at-pharmacy.jpg') center/cover no-repeat;
+      z-index:0;filter:brightness(0.65);
+    }
+    .hero-content{
+      position:relative;z-index:5;max-width:1200px;margin:0 auto;
+      padding:180px 24px 0; /* adjust this value to lower/raise hero text */
+      display:flex;flex-direction:column;align-items:center;text-align:center;
+    }
+    .hero h1{font-family:Cardo,serif;font-size:50px;line-height:1.1;margin-bottom:16px;}
+    .hero p{max-width:600px;margin-bottom:24px;color:rgba(255,255,255,0.9);font-size:18px;}
+    .hero .hero-cta{display:flex;gap:14px;justify-content:center;}
+    .btn{padding:16px 30px;border-radius:999px;font-weight:700;cursor:pointer;border:none;font-size:17px;}
+    .btn-primary{background:var(--accent-grad);color:#fff;}
+    .btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.3);color:#fff;}
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+    /* Hero Wave */
+    .hero-wave{position:absolute;bottom:-1px;left:0;width:100%;overflow:hidden;line-height:0;z-index:5;}
+    .hero-wave svg{position:relative;display:block;width:calc(100% + 1.3px);height:200px;}
+    .hero-wave path{fill:#ffffff;}
+
+    /* Feature Cards */
+    .features{position:relative;z-index:10;margin-top:-260px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1100px;margin-left:auto;margin-right:auto;padding:40px 24px 0;}
+    .feature-card{background:#fff;border-radius:16px;padding:24px;text-align:center;box-shadow:0 8px 24px rgba(17,24,39,0.08);transition:all 0.3s ease;}
+    .feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(17,24,39,0.12);}
+    .feature-card h3{margin:10px 0 6px;font-size:18px;font-weight:700;}
+    .feature-card p{color:#475569;font-size:14.5px;}
+    .feature-card span{font-size:36px;color:var(--purple-1);display:block;margin-bottom:8px;}
+
+    /* About Section */
+    #about{background:#fff;padding:100px 24px;}
+    .about-inner{max-width:1100px;margin:0 auto;text-align:center;}
+    .about-inner h2{font-family:Cardo,serif;font-size:32px;margin-bottom:16px;}
+    .about-inner p{max-width:700px;color:#374151;margin:0 auto;}
+
+    @media(max-width:900px){
+      .hero h1{font-size:42px;}
+      .features{margin-top:-180px;}
+    }
+    @media(max-width:600px){
+      .hero-content{padding-top:80px;}
+      .features{grid-template-columns:1fr;}
+    }
+  </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="nav">
+		<div class="brand">
+			<img src="brand_icon.jpg" alt="Sanvextra Icon" style="height:56px;width:56px;border-radius:10px;">
+			<div style="display:flex;flex-direction:column;align-items:flex-start;">
+				<img src="brand_text.jpg" alt="Sanvextra Logo" style="height:35px;">
+				<div style="font-size:8px;color:var(--purple-2);font-weight:600;margin-top:1px;">Innovating Health, Connecting Lives</div>
+			</div>
+		</div>
 
-  <!-- NAV -->
-  <header class="fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <img id="logo-wordmark" src="IMG-20251029-WA0048.jpg" alt="Sanvextra Industries" class="h-9 object-contain" />
-      </a>
-
-      <nav class="hidden md:flex items-center gap-8 text-sm text-gray-300">
-        <a href="#products" class="hover:text-white transition-colors">Products</a>
-        <a href="#about" class="hover:text-white transition-colors">About</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-        <a href="#shop" class="ml-4 px-4 py-2 rounded-full bg-[color:var(--brand)] text-white font-semibold shadow-lg hover:opacity-95 transition">Partner With Us</a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </nav>
-
-      <!-- mobile menu -->
-      <button id="mobile-toggle" class="md:hidden p-2 rounded-lg bg-white/3">
-        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
     </div>
-    <!-- mobile menu panel -->
-    <div id="mobile-panel" class="hidden md:hidden bg-black/60 border-t border-white/6">
-      <div class="px-6 py-4 flex flex-col gap-3">
-        <a href="#products" class="py-2 rounded hover:bg-white/5 px-3">Products</a>
-        <a href="#about" class="py-2 rounded hover:bg-white/5 px-3">About</a>
-        <a href="#contact" class="py-2 rounded hover:bg-white/5 px-3">Contact</a>
-        <a href="#shop" class="py-2 text-center rounded bg-[color:var(--brand)] text-white font-semibold">Partner With Us</a>
+  </div>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Innovating Health,<br><span style="color:var(--purple-2)">Connecting Lives</span></h1>
+      <p>Sanvextra Industries is committed to delivering high-quality pharmaceutical products through strategic partnerships and innovative solutions for better patient outcomes.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary">Explore Products</button>
+        <button class="btn btn-outline">Partner With Us</button>
       </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+        <path d="M0,80 C300,180 900,0 1200,100 L1200,200 L0,200 Z"></path>
+      </svg>
     </div>
   </header>
 
-  <!-- BIG decorative blobs we keep for main motion -->
-  <div id="blob-a" class="blob static-blob" aria-hidden="true"></div>
-  <div id="blob-b" class="blob static-blob" aria-hidden="true"></div>
-  <div id="blob-c" class="blob static-blob" aria-hidden="true"></div>
+  <!-- FEATURE CARDS -->
+  <section class="features">
+    <div class="feature-card"><span>⚕️</span><h3>Quality & Safety</h3><p>Trusted suppliers and high manufacturing standards ensure our consistent product quality.</p></div>
+    <div class="feature-card"><span>💊</span><h3>General Medicine</h3><p>Comprehensive treatment and prevention solutions across various therapeutic areas.</p></div>
+    <div class="feature-card"><span>🩺</span><h3>Pharmacy Support</h3><p>Advisory and guidance for dosage, storage, and pharmaceutical care optimization.</p></div>
+    <div class="feature-card"><span>🧴</span><h3>Multivitamin</h3><p>Pharma Third Party Manufacturing for high-quality multivitamin products.</p></div>
+  </section>
 
-  <!-- Container for many small blobs (dynamically created) -->
-  <div id="small-blob-container" class="pointer-events-none" aria-hidden="true"></div>
-
-  <!-- HERO -->
-  <main class="relative z-10">
-    <section id="hero" class="min-h-screen flex items-center">
-      <div class="max-w-7xl mx-auto px-6 py-28 flex flex-col-reverse md:flex-row items-center gap-12">
-        <!-- left: text -->
-        <div class="md:w-6/12 text-center md:text-left">
-          <h2 class="text-[38px] md:text-[56px] leading-tight font-extrabold text-white drop-shadow-lg" id="hero-title">
-            Innovation in Everyday Healthcare.
-          </h2>
-          <p class="mt-6 text-gray-300 text-lg max-w-xl" id="hero-sub">
-            Making wellness simple and unique with research-driven pharmaceutical and nutraceutical solutions.
-          </p>
-
-          <div class="mt-8 flex justify-center md:justify-start gap-4">
-            <a href="#products" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[color:var(--brand)] font-semibold shadow-xl hover:scale-[1.02] transform transition">
-              Our Products
-            </a>
-            <a href="#contact" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/6 border border-white/6 text-white hover:bg-white/8 transition">
-              Partner With Us
-            </a>
-          </div>
-
-          <div class="mt-8 flex gap-6 items-center text-sm text-gray-400">
-            <div class="flex items-center gap-3">
-              <div class="w-3 h-3 rounded-full bg-[color:var(--brand)]"></div>
-              <div>Chocolate Calcium Supplement</div>
-            </div>
-            <div class="flex items-center gap-3 opacity-70">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M12 20v-8"/></svg>
-              <div>Wholesale to dealers</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- right: hero artwork -->
-        <div class="md:w-6/12 flex justify-center md:justify-end relative">
-          <!-- symbol logo (uploaded) -->
-          <div id="logo-symbol-wrap" class="w-[320px] h-[320px] rounded-2xl glass flex items-center justify-center p-8 shadow-2xl transform-gpu">
-            <img id="logo-symbol" src="IMG-20251029-WA0047.jpg" alt="Sanvextra symbol" class="w-full h-full object-contain" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="py-24">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <h3 class="text-3xl font-bold">Our Core Offerings</h3>
-          <p class="text-gray-300 mt-3">A portfolio designed for trust, efficacy, and patient comfort.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- product card 1 -->
-          <article class="glass p-6 rounded-2xl tilt" data-tilt>
-            <div class="tilt-inner rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1627989122818-b2d8c3654854?q=80&w=1887&auto=format&fit=crop" alt="Chocolate Calcium Suspension" class="w-full h-48 object-cover"/>
-              <div class="mt-4">
-                <h4 class="font-semibold text-xl">Chocolate Calcium Suspension</h4>
-                <p class="mt-2 text-sm text-gray-300">First chocolate-flavored calcium suspension — palatable & kid-friendly.</p>
-                <div class="mt-4 flex gap-3">
-                  <button class="px-4 py-2 rounded-full border border-white/8 text-sm hover:bg-white/6 transition">Learn more</button>
-                  <button class="px-4 py-2 rounded-full bg-[color:var(--brand)] text-white text-sm hover:brightness-105 transition">Bulk Order</button>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- product card 2 -->
-          <article class="glass p-6 rounded-2xl tilt" data-tilt>
-            <div class="tilt-inner rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1618585253245-197379430a6d?q=80&w=1887&auto=format&fit=crop" alt="Analgesic Gel" class="w-full h-48 object-cover"/>
-              <div class="mt-4">
-                <h4 class="font-semibold text-xl">Rapid Relief Analgesic Gel</h4>
-                <p class="mt-2 text-sm text-gray-300">Dual action topical gel for quick pain relief.</p>
-                <div class="mt-4 flex gap-3">
-                  <button class="px-4 py-2 rounded-full border border-white/8 text-sm hover:bg-white/6 transition">Learn more</button>
-                  <button class="px-4 py-2 rounded-full bg-[color:var(--brand)] text-white text-sm hover:brightness-105 transition">Bulk Order</button>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- product card 3 -->
-          <article class="glass p-6 rounded-2xl tilt" data-tilt>
-            <div class="tilt-inner rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1607936442199-53629b38407a?q=80&w=1887&auto=format&fit=crop" alt="Antacid syrup" class="w-full h-48 object-cover"/>
-              <div class="mt-4">
-                <h4 class="font-semibold text-xl">Cooling Action Antacid Syrup</h4>
-                <p class="mt-2 text-sm text-gray-300">Sugar-free antacid for instant cooling relief.</p>
-                <div class="mt-4 flex gap-3">
-                  <button class="px-4 py-2 rounded-full border border-white/8 text-sm hover:bg-white/6 transition">Learn more</button>
-                  <button class="px-4 py-2 rounded-full bg-[color:var(--brand)] text-white text-sm hover:brightness-105 transition">Bulk Order</button>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- IMPACT -->
-    <section id="impact" class="py-20">
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <h3 class="text-3xl font-bold">Our Growing Impact</h3>
-        <p class="text-gray-300 mt-3">We measure our success by the trust we build and the wellness we deliver.</p>
-
-        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="glass p-6 rounded-2xl">
-            <div class="text-[28px] font-extrabold text-[color:var(--brand)]">35% <span class="text-sm align-top text-green-400">▲</span></div>
-            <div class="mt-2 text-sm text-gray-300">Increase in Retailer Orders</div>
-          </div>
-          <div class="glass p-6 rounded-2xl">
-            <div class="text-[28px] font-extrabold text-[color:var(--brand)]">500+</div>
-            <div class="mt-2 text-sm text-gray-300">Engaged Healthcare Professionals</div>
-          </div>
-          <div class="glass p-6 rounded-2xl">
-            <div class="text-[28px] font-extrabold text-[color:var(--brand)]">98%</div>
-            <div class="mt-2 text-sm text-gray-300">Patient Satisfaction Rate</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="py-24">
-      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <img src="https://images.unsplash.com/photo-1622253692010-333f2da60710?q=80&w=1964&auto=format&fit=crop" alt="Founder" class="rounded-2xl shadow-2xl"/>
-        </div>
-        <div>
-          <h3 class="text-2xl font-bold">Our Story</h3>
-          <p class="mt-4 text-gray-300">Founded by <strong>Dr. Abhay Shinde</strong>, Sanvextra Industries is built on the vision of making healthcare accessible, innovative, and consumer-friendly. We combine pharmaceutical integrity with creative formulation.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <span class="px-4 py-2 rounded-full bg-white/6 text-sm">WHO-GMP Certified</span>
-            <span class="px-4 py-2 rounded-full bg-white/6 text-sm">FSSAI Licensed</span>
-            <span class="px-4 py-2 rounded-full bg-white/6 text-sm">ISO 9001:2015</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="py-24 bg-gradient-to-b from-transparent to-black/40">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <h3 class="text-2xl font-bold">Contact & Partnerships</h3>
-        <p class="text-gray-300 mt-3">We welcome inquiries from distributors, pharmacies, and healthcare professionals.</p>
-
-        <div class="mt-8 grid md:grid-cols-2 gap-6">
-          <form class="glass p-6 rounded-2xl" onsubmit="event.preventDefault(); alert('Thanks — form stub');">
-            <label class="sr-only" for="name">Full name</label>
-            <input id="name" placeholder="Full name" class="w-full bg-transparent border border-white/6 rounded-md px-3 py-2 text-white mb-3" />
-            <input id="email" placeholder="Email" class="w-full bg-transparent border border-white/6 rounded-md px-3 py-2 text-white mb-3" />
-            <textarea id="message" placeholder="Your inquiry" class="w-full bg-transparent border border-white/6 rounded-md px-3 py-2 text-white mb-3"></textarea>
-            <button class="w-full px-4 py-3 rounded-full bg-[color:var(--brand)] text-white font-semibold">Send Message</button>
-          </form>
-
-          <div class="p-6 rounded-2xl glass">
-            <h4 class="font-semibold">Direct Contact</h4>
-            <p class="mt-3 text-gray-300">sanvextra@gmail.com<br/>+91 8380827361<br/>Beed, Maharashtra, India</p>
-
-            <div class="mt-6 flex gap-3">
-              <a href="#" class="px-3 py-2 rounded-full bg-white/6">LinkedIn</a>
-              <a href="#" class="px-3 py-2 rounded-full bg-white/6">Instagram</a>
-              <a href="#" class="px-3 py-2 rounded-full bg-white/6">YouTube</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="py-8 text-center text-sm text-gray-400">
-      © <span id="year"></span> Sanvextra Industries Pvt. Ltd. All rights reserved.
-    </footer>
-  </main>
-
-  <!-- SCRIPTS: interactions, GSAP timelines, mouse parallax -->
-  <script>
-    // update year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // mobile menu toggle
-    const mBtn = document.getElementById('mobile-toggle');
-    const mPanel = document.getElementById('mobile-panel');
-    mBtn.addEventListener('click', ()=> mPanel.classList.toggle('hidden'));
-
-    // GSAP register
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero intro timeline
-    const heroTl = gsap.timeline();
-    heroTl.from('#logo-wordmark', {y:-8, opacity:0, duration:0.7, ease:'power2.out'});
-    heroTl.from('#hero-title', {y:30, opacity:0, duration:0.9, ease:'expo.out'}, "-=0.3");
-    heroTl.from('#hero-sub', {y:20, opacity:0, duration:0.8, ease:'expo.out'}, "-=0.5");
-    heroTl.from('#hero .inline-flex', {y:12, opacity:0, duration:0.6, stagger:0.12, ease:'power2.out'}, "-=0.4");
-
-    // Scroll reveal for sections and cards
-    gsap.utils.toArray('section, .glass').forEach(el => {
-      gsap.fromTo(el, {y:40, opacity:0}, {
-        y:0, opacity:1, duration:0.9, ease:'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        }
-      });
-    });
-
-    // Large static blobs loop (these match the #blob-a/b/c set in CSS)
-    gsap.to("#blob-a", { x:40, y:30, rotation:5, duration:9, repeat:-1, yoyo:true, ease:"sine.inOut" });
-    gsap.to("#blob-b", { x:-60, y:-10, rotation:-6, duration:12, repeat:-1, yoyo:true, ease:"sine.inOut" });
-    gsap.to("#blob-c", { x:20, y:-40, rotation:3, duration:14, repeat:-1, yoyo:true, ease:"sine.inOut" });
-
-    // logo symbol subtle float and pulse
-    gsap.to("#logo-symbol-wrap", { y:-8, duration:6, repeat:-1, yoyo:true, ease:"sine.inOut" });
-    gsap.to("#logo-symbol-wrap", { scale:1.02, duration:6, repeat:-1, yoyo:true, ease:"sine.inOut", delay:0.2 });
-
-    // Create many small animated blobs (dynamically) to achieve full-screen coverage
-    (function createSmallBlobs(){
-      const container = document.getElementById('small-blob-container');
-      const gradients = [
-        "linear-gradient(135deg, rgba(138,109,175,0.95), rgba(180,142,220,0.6))",
-        "linear-gradient(135deg, rgba(120,95,200,0.9), rgba(220,180,245,0.5))",
-        "linear-gradient(135deg, rgba(120,180,215,0.9), rgba(170,220,200,0.45))",
-        "linear-gradient(135deg, rgba(250,170,170,0.9), rgba(255,220,200,0.45))",
-        "linear-gradient(135deg, rgba(200,170,220,0.9), rgba(138,109,175,0.45))",
-        "linear-gradient(135deg, rgba(120,140,240,0.9), rgba(160,200,255,0.45))",
-      ];
-      const num = 22; // number of small blobs
-      for(let i=0;i<num;i++){
-        const b = document.createElement('div');
-        b.className = 'blob small-blob';
-        b.style.background = gradients[Math.floor(Math.random()*gradients.length)];
-        // random starting position across the viewport
-        b.style.left = (Math.random()*100) + '%';
-        b.style.top  = (Math.random()*100) + '%';
-        const size = 60 + Math.random()*220;
-        b.style.width = size + 'px';
-        b.style.height = size + 'px';
-        b.style.opacity = 0.45 + Math.random()*0.25;
-        container.appendChild(b);
-
-        // animate via GSAP with long slow cycles for cross-screen movement
-        gsap.to(b, {
-          x: gsap.utils.random(-600, 600),
-          y: gsap.utils.random(-600, 600),
-          scale: gsap.utils.random(0.7, 1.3),
-          rotate: gsap.utils.random(-12,12),
-          duration: gsap.utils.random(6, 14),
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-          delay: gsap.utils.random(0,6)
-        });
-      }
-    })();
-
-    // Mouse parallax: map mouse to small transforms for blobs and logo
-    const parallaxTargets = [
-      {el: document.getElementById('blob-a'), factor: 0.02},
-      {el: document.getElementById('blob-b'), factor: 0.015},
-      {el: document.getElementById('blob-c'), factor: 0.01},
-      {el: document.getElementById('logo-symbol-wrap'), factor: 0.03},
-      {el: document.getElementById('logo-wordmark'), factor: 0.02},
-    ];
-
-    window.addEventListener('pointermove', (e) => {
-      const cx = window.innerWidth/2;
-      const cy = window.innerHeight/2;
-      const dx = (e.clientX - cx);
-      const dy = (e.clientY - cy);
-      parallaxTargets.forEach(t=>{
-        if(!t.el) return;
-        const moveX = dx * t.factor;
-        const moveY = dy * t.factor;
-        gsap.to(t.el, { x: moveX, y: moveY, rotation: moveX * 0.02, duration: 0.9, ease: 'power3.out' });
-      });
-    });
-
-    // tilt effect on product cards (mouse-follow)
-    document.querySelectorAll('[data-tilt]').forEach(card => {
-      const inner = card.querySelector('.tilt-inner');
-      card.addEventListener('pointermove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const px = (e.clientX - rect.left) / rect.width;
-        const py = (e.clientY - rect.top) / rect.height;
-        const rx = (py - 0.5) * 8; // rotateX
-        const ry = (px - 0.5) * -10; // rotateY
-        inner.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px)`;
-        inner.style.boxShadow = `${-ry*2}px ${rx*2}px 30px rgba(0,0,0,0.45)`;
-      });
-      card.addEventListener('pointerleave', () => {
-        inner.style.transform = 'none';
-        inner.style.boxShadow = 'none';
-      });
-    });
-
-    // Improve ScrollTrigger refresh on resize (useful if layout changes)
-    window.addEventListener('resize', () => { ScrollTrigger.refresh(); });
-
-    // Accessibility: reduce animation motion if user prefers reduced motion
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if(mq.matches){
-      gsap.globalTimeline.timeScale(2); // speed up/limit some motion
-      gsap.set(['#blob-a','#blob-b','#blob-c'], {clearProps:'all'});
-      document.querySelectorAll('.small-blob').forEach(b => gsap.set(b,{clearProps:'all'}));
-    }
-  </script>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <h2>About Sanvextra</h2>
+      <p>Founded in 2025, Sanvextra Industries delivers high-quality pharmaceutical products through strong partnerships and innovation. We prioritize patient well-being and healthcare accessibility through reliable and ethical business practices.</p>
+    </div>
+  </section>
 </body>
 </html>
