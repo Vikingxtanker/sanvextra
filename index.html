@@ -5,87 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sanvextra Industries — Innovating Health, Connecting Lives</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --purple-1:#8a6daf;
-      --purple-2:#a875f7;
-      --accent-grad:linear-gradient(135deg,var(--purple-1),var(--purple-2));
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#fff;color:#1f2937;line-height:1.6;}
-
-    /* Navbar */
-    .topbar{background:#fff;box-shadow:0 6px 20px rgba(15,23,42,0.06);position:sticky;top:0;z-index:60;}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:84px;max-width:1200px;margin:0 auto;padding:0 24px;}
-    .brand{display:flex;align-items:center;gap:14px}
-    .brand .logo{width:56px;height:56px;border-radius:12px;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:Cardo,serif;font-size:22px;}
-    .nav-links{display:flex;gap:22px;align-items:center}
-    .nav-links a{font-weight:600;color:#374151;padding:8px 10px;border-radius:8px;text-decoration:none;}
-    .nav-links a:hover{color:var(--purple-2);background:rgba(139,92,246,0.06)}
-
-    /* Hero Section */
-    .hero{position:relative;min-height:90vh;display:flex;align-items:flex-start;overflow:hidden;color:#fff;}
-    .hero::before{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg,rgba(138,109,175,0.85) 0%, rgba(168,117,247,0.55) 60%, rgba(24,6,63,0.25) 100%);
-      z-index:1;
-    }
-    .hero-bg{
-      position:absolute;inset:0;
-      background:url('https://cledrallifesciences.com/wp-content/uploads/2025/02/two-pharmacists-working-together-at-pharmacy.jpg') center/cover no-repeat;
-      z-index:0;filter:brightness(0.65);
-    }
-    .hero-content{
-      position:relative;z-index:5;max-width:1200px;margin:0 auto;
-      padding:180px 24px 0; /* adjust this value to lower/raise hero text */
-      display:flex;flex-direction:column;align-items:center;text-align:center;
-    }
-    .hero h1{font-family:Cardo,serif;font-size:50px;line-height:1.1;margin-bottom:16px;}
-    .hero p{max-width:600px;margin-bottom:24px;color:rgba(255,255,255,0.9);font-size:18px;}
-    .hero .hero-cta{display:flex;gap:14px;justify-content:center;}
-    .btn{padding:16px 30px;border-radius:999px;font-weight:700;cursor:pointer;border:none;font-size:17px;}
-    .btn-primary{background:var(--accent-grad);color:#fff;}
-    .btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.3);color:#fff;}
-
-    /* Hero Wave */
-    .hero-wave{position:absolute;bottom:-1px;left:0;width:100%;overflow:hidden;line-height:0;z-index:5;}
-    .hero-wave svg{position:relative;display:block;width:calc(100% + 1.3px);height:200px;}
-    .hero-wave path{fill:#ffffff;}
-
-    /* Feature Cards */
-    .features{position:relative;z-index:10;margin-top:-260px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1100px;margin-left:auto;margin-right:auto;padding:40px 24px 0;}
-    .feature-card{background:#fff;border-radius:16px;padding:24px;text-align:center;box-shadow:0 8px 24px rgba(17,24,39,0.08);transition:all 0.3s ease;}
-    .feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(17,24,39,0.12);}
-    .feature-card h3{margin:10px 0 6px;font-size:18px;font-weight:700;}
-    .feature-card p{color:#475569;font-size:14.5px;}
-    .feature-card span{font-size:36px;color:var(--purple-1);display:block;margin-bottom:8px;}
-
-    /* About Section */
-    #about{background:#fff;padding:100px 24px;}
-    .about-inner{max-width:1100px;margin:0 auto;text-align:center;}
-    .about-inner h2{font-family:Cardo,serif;font-size:32px;margin-bottom:16px;}
-    .about-inner p{max-width:700px;color:#374151;margin:0 auto;}
-
-    @media(max-width:900px){
-      .hero h1{font-size:42px;}
-      .features{margin-top:-180px;}
-    }
-    @media(max-width:600px){
-      .hero-content{padding-top:80px;}
-      .features{grid-template-columns:1fr;}
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <!-- moved styles to external file -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="topbar">
     <div class="nav">
-		<div class="brand">
-			<img src="brand_icon.jpg" alt="Sanvextra Icon" style="height:56px;width:56px;border-radius:10px;">
-			<div style="display:flex;flex-direction:column;align-items:flex-start;">
-				<img src="brand_text.jpg" alt="Sanvextra Logo" style="height:35px;">
-				<div style="font-size:8px;color:var(--purple-2);font-weight:600;margin-top:1px;">Innovating Health, Connecting Lives</div>
-			</div>
-		</div>
+      <div class="brand">
+        <img src="brand_icon.jpg" alt="Sanvextra Icon" class="brand-icon">
+        <div class="brand-text-wrapper">
+          <img src="brand_text.jpg" alt="Sanvextra Logo" class="brand-text-img">
+          <div class="brand-tagline">Innovating Health, Connecting Lives</div>
+        </div>
+      </div>
 
       <nav class="nav-links">
         <a href="#home">Home</a>
@@ -101,8 +34,8 @@
   <header id="home" class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1>Innovating Health,<br><span style="color:var(--purple-2)">Connecting Lives</span></h1>
-      <p>Sanvextra Industries is committed to delivering high-quality pharmaceutical products through strategic partnerships and innovative solutions for better patient outcomes.</p>
+      <h1>Innovating Health,<br><span class="accent-text">Connecting Lives</span></h1>
+      <p class="hero-sub">Sanvextra Industries is committed to delivering high-quality pharmaceutical products through strategic partnerships and innovative solutions for better patient outcomes.</p>
       <div class="hero-cta">
         <button class="btn btn-primary">Explore Products</button>
         <button class="btn btn-outline">Partner With Us</button>
@@ -124,11 +57,387 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about">
-    <div class="about-inner">
-      <h2>About Sanvextra</h2>
-      <p>Founded in 2025, Sanvextra Industries delivers high-quality pharmaceutical products through strong partnerships and innovation. We prioritize patient well-being and healthcare accessibility through reliable and ethical business practices.</p>
+  <section id="about" class="about-section">
+    <div class="about-inner-wrapper">
+      <div class="about-left">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/pharmacist-working-on-a-computer-while-female-pharmacist-is-giving-medications-to-senior-patient.jpg" 
+             alt="Sanvextra Team Working" class="about-left-img">
+      </div>
+
+      <div class="about-right">
+        <h2>About Sanvextra Industries</h2>
+        <p class="about-paragraph"><strong>Sanvextra Industries</strong> is a trusted provider of high-quality pharmaceutical and nutraceutical products. We collaborate with leading manufacturers to offer a diverse range of formulations that are safe, effective, and affordable.</p>
+        <p class="about-paragraph">Founded by <strong>Dr. Abhay Shinde</strong>, Sanvextra Industries is built on the vision of making healthcare accessible, innovative, and consumer-friendly. We combine pharmaceutical integrity with creative formulation to bring meaningful impact to people’s lives.</p>
+
+        <div class="certifications-list">
+          <div class="cert-pill">WHO-GMP Certified</div>
+          <div class="cert-pill">FSSAI Licensed</div>
+          <div class="cert-pill">ISO 9001:2015</div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- THIRD PARTY MANUFACTURING -->
+  <section id="third-party" class="third-party-section">
+    <div class="third-party-wrapper">
+      <div class="third-party-left">
+        <h2>Third Party Manufacturing</h2>
+        <p>To deliver premium-quality pharmaceutical and nutraceutical products, <strong>Sanvextra Industries</strong> collaborates with globally certified manufacturing partners to provide dependable <strong>Third Party Manufacturing</strong> solutions. Our dedication to quality ensures that every product meets the highest industry standards of safety, purity, and compliance.</p>
+        <p>Leveraging our vast expertise and network, we offer seamless end-to-end manufacturing services—enabling our partners to focus on marketing and distribution while we handle product formulation, quality control, and logistics. Every product is developed using top-grade raw materials and advanced technology for assured safety, efficacy, and affordability.</p>
+
+        <button class="cta-contact">Contact Us</button>
+      </div>
+
+      <div class="third-party-right">
+        <div class="stat-card">
+          <h3>Satisfied Clients</h3>
+          <div class="stat-number">789<span class="stat-plus">+</span></div>
+        </div>
+        <div class="stat-card">
+          <h3>Expert Pharmacists</h3>
+          <div class="stat-number">48<span class="stat-plus">+</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why-choose-us" class="why-choose-section">
+    <div class="why-choose-wrapper">
+      <div class="why-left">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/doctor-with-pills-2WVYUPD.png" alt="Pharma Expert" class="why-left-img">
+      </div>
+
+      <div class="why-right">
+        <h2>Why Top Pharma Businesses Choose Us</h2>
+        <p>At <strong>Sanvextra Industries</strong>, we take pride in our ability to deliver high-quality, reliable, and compliant products through a network of trusted partners and manufacturers. Our focus on innovation, consistency, and client satisfaction makes us a preferred choice among leading pharmaceutical and nutraceutical brands.</p>
+
+        <div class="icon-boxes">
+          <div class="icon-box">
+            <div class="icon-circle">🏅</div>
+            <div class="icon-box-content">
+              <h3>Top Quality Assurance</h3>
+              <p>We ensure world-class quality and safety standards in every formulation, from sourcing to packaging.</p>
+            </div>
+          </div>
+
+          <div class="icon-box">
+            <div class="icon-circle">💊</div>
+            <div class="icon-box-content">
+              <h3>Diverse Product Range</h3>
+              <p>We offer a wide portfolio of pharmaceutical and nutraceutical products across multiple therapeutic categories.</p>
+            </div>
+          </div>
+
+          <div class="icon-box">
+            <div class="icon-circle">🧬</div>
+            <div class="icon-box-content">
+              <h3>Top-Tier Safety Measures</h3>
+              <p>We maintain stringent safety and testing standards to ensure every product meets global compliance benchmarks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section id="mission-vision" class="mission-vision-section">
+    <div class="mission-vision-wrapper">
+      <div class="vision-card">
+        <h2>Our Vision</h2>
+        <p>To become a trusted leader in pharmaceutical marketing by delivering high-quality and innovative solutions that improve patient well-being and strengthen healthcare access.</p>
+      </div>
+
+      <div class="mission-card">
+        <h2>Our Mission</h2>
+        <p>To market high-quality and innovative pharmaceutical products through strong partnerships, ensuring ethical practices and wider healthcare access for improved outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER SECTION -->
+  <section id="partner" class="partner-section">
+    <div class="partner-wrapper">
+      <div class="partner-left">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/PCD-image.jpg" alt="Sanvextra Partnership" class="partner-left-img">
+      </div>
+
+      <div class="partner-right">
+        <h2>Your Trusted Partner in Pharmaceutical Marketing & Distribution</h2>
+        <p>Sanvextra Industries is your trusted partner in marketing and distribution, offering reliable and high-quality pharmaceutical products. We ensure seamless logistics, compliance, and customer satisfaction — empowering healthcare businesses to thrive with integrity and efficiency.</p>
+
+        <div class="partner-features">
+          <div class="partner-feature">
+            <div class="pf-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              <h3>Free Delivery</h3>
+              <p>Fast and secure delivery to your facility at no extra cost.</p>
+            </div>
+          </div>
+
+          <div class="partner-feature">
+            <div class="pf-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <h3>24/7 Support</h3>
+              <p>Dedicated assistance whenever you need it.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="partner-contact-link">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section id="products" class="products-section">
+    <div class="products-inner">
+      <h2>Our Products</h2>
+      <p>Our third-party and PCD products are manufactured in WHO-GMP certified units ensuring quality, safety, and compliance with international standards.</p>
+
+      <!-- Swiper -->
+      <div class="swiper productSwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Product Slide -->
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-06-at-10.42.17-PM.jpeg" alt="Amoxycillin">
+              <h3>Amoxycillin & Potassium Clavulanate IP</h3>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-06-at-10.42.19-PM.jpeg" alt="Pregabalin">
+              <h3>Pregabalin Capsules IP</h3>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/vitamin-A-syrup-2.jpg" alt="Vitamin A Syrup">
+              <h3>Vitamin A Syrup</h3>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-06-at-10.42.15-PM-2.jpeg" alt="Nimesulide">
+              <h3>Nimesulide & Paracetamol</h3>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="product-card">
+              <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-06-at-10.42.16-PM-1.jpeg" alt="Ferrous Ascorbate">
+              <h3>Ferrous Ascorbate, Folic Acid & Zinc</h3>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Swiper Controls -->
+        <div class="swiper-button-next product-next"></div>
+        <div class="swiper-button-prev product-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT REVIEWS SECTION -->
+  <section id="reviews" class="reviews-section">
+    <div class="reviews-inner">
+      <h2>What Our Clients Say</h2>
+      <p>Our partners and clients value Sanvextra Industries for our quality, professionalism, and commitment to timely delivery. Here’s what they have to say.</p>
+
+      <div class="swiper reviewSwiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-head">
+                <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/human-150x150.png" alt="" class="review-avatar">
+                <div>
+                  <strong>Amit Verma</strong><br>
+                  <span class="review-role">Pharmaceutical Distributor</span>
+                </div>
+              </div>
+              <p>“Sanvextra Industries has been a reliable partner for our distribution network. Their product quality and customer service are exceptional.”</p>
+              <div class="review-rating">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-head">
+                <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/man-150x150.png" alt="" class="review-avatar">
+                <div>
+                  <strong>Neha Sharma</strong><br>
+                  <span class="review-role">Retail Partner</span>
+                </div>
+              </div>
+              <p>“We’ve been working with Sanvextra for over a year. Their professionalism and ethical business approach make them a trusted partner.”</p>
+              <div class="review-rating">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-head">
+                <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/man-150x150.png" alt="" class="review-avatar">
+                <div>
+                  <strong>Priya Deshmukh</strong><br>
+                  <span class="review-role">Manufacturing Partner</span>
+                </div>
+              </div>
+              <p>“Sanvextra’s dedication to quality assurance and timely delivery helps us maintain strong relationships with our clients.”</p>
+              <div class="review-rating">★★★★☆</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Swiper Controls -->
+        <div class="swiper-button-next review-next"></div>
+        <div class="swiper-button-prev review-prev"></div>
+        <div class="swiper-pagination review-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-grid">
+
+        <div class="footer-about">
+          <h2>About</h2>
+          <p>Sanvextra Industries provides high-quality, ethical, and innovative pharmaceutical products through strong partnerships. We are committed to making healthcare accessible and consumer-friendly.</p>
+          <hr>
+          <h3>Social Media</h3>
+          <div class="social-icons">
+            <a href="#" class="social"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="#about">› About</a></li>
+            <li><a href="#products">› Products</a></li>
+            <li><a href="#contact">› Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-support">
+          <h2>Support</h2>
+          <ul>
+            <li><a href="#">› Privacy Policy</a></li>
+            <li><a href="#">› Terms & Conditions</a></li>
+            <li><a href="#contact">› Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h2>Contact</h2>
+          <ul>
+            <li>📍 Pune, Maharashtra, India</li>
+            <li>✉️ info@sanvextra.com</li>
+            <li>📞 +91 9876543210</li>
+            <li>🕒 Mon-Sat: 9:00 AM – 6:00 PM</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-certifications">
+      <h2>Certified By</h2>
+      <div class="cert-logos">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/who.png" alt="WHO Certification">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/gmp.png" alt="GMP Certification">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/iso.png" alt="ISO Certification">
+      </div>
+    </div>
+
+    <div class="footer-newsletter">
+      <h2>Subscribe to Newsletter</h2>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your Email" required class="newsletter-input">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+
+    <section class="elementor-section sanvextra-footer">
+      <div class="elementor-container">
+        <div class="left-copy">
+          <p>Copyright © 2025 <strong>Sanvextra Industries</strong>. All rights reserved.</p>
+        </div>
+        <div class="right-copy">
+          <p>Developed &amp; Designed By: <a href="#" target="_blank" class="dev-link">Gaurav Gaikwad & Kumkum Gaikwad</a></p>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+  <!-- Swiper CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/swiper.js"></script>
+
+<!-- Popup Dialog -->
+<div id="popupDialog" class="popup-overlay">
+  <div class="popup-box">
+    <button class="popup-close" id="closePopup">&times;</button>
+
+    <div class="popup-content">
+      <!-- Left Side Image -->
+      <div class="popup-image">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/happy-smiling-pharmacist-in-drugstore-C9R8PCC.jpg" 
+             alt="Pharmacist Working">
+      </div>
+
+      <!-- Right Side Form -->
+      <div class="popup-form-section">
+        <h2>Get in touch with us!</h2>
+        <form class="popup-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="tel" placeholder="Phone Number" required pattern="[0-9()#&+*-=.]+" title="Only numbers and phone characters are accepted.">
+          <input type="email" placeholder="Email Address" required>
+          <input type="text" placeholder="City">
+          <input type="text" placeholder="Company (Optional)">
+          <textarea rows="4" placeholder="Message"></textarea>
+          <button type="submit" class="popup-submit">Submit Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // Show popup when page loads
+  window.addEventListener("load", function() {
+    const popup = document.getElementById("popupDialog");
+    popup.style.display = "flex"; // show
+  });
+
+  // Close button logic
+  document.getElementById("closePopup").addEventListener("click", function() {
+    document.getElementById("popupDialog").style.display = "none";
+  });
+
+  // Click outside popup to close
+  document.getElementById("popupDialog").addEventListener("click", function(e) {
+    if (e.target === this) this.style.display = "none";
+  });
+</script>
+
+
 </body>
 </html>

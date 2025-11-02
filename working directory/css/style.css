@@ -1,0 +1,113 @@
+:root{
+  --purple-1:#8a6daf;
+  --purple-2:#a875f7;
+  --accent-grad:linear-gradient(135deg,var(--purple-1),var(--purple-2));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#fff;color:#1f2937;line-height:1.6;}
+
+/* Navbar */
+.topbar{background:#fff;box-shadow:0 6px 20px rgba(15,23,42,0.06);position:sticky;top:0;z-index:60;}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px;max-width:1200px;margin:0 auto;padding:0 24px;}
+.brand{display:flex;align-items:center;gap:14px}
+.brand .logo{width:56px;height:56px;border-radius:12px;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:Cardo,serif;font-size:22px;}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{font-weight:600;color:#374151;padding:8px 10px;border-radius:8px;text-decoration:none;}
+.nav-links a:hover{color:var(--purple-2);background:rgba(139,92,246,0.06)}
+
+/* Hero Section */
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-start;overflow:hidden;color:#fff;}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(138,109,175,0.85) 0%, rgba(168,117,247,0.55) 60%, rgba(24,6,63,0.25) 100%);
+  z-index:1;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://cledrallifesciences.com/wp-content/uploads/2025/02/two-pharmacists-working-together-at-pharmacy.jpg') center/cover no-repeat;
+  z-index:0;filter:brightness(0.65);
+}
+.hero-content{
+  position:relative;z-index:5;max-width:1200px;margin:0 auto;
+  padding:180px 24px 0; /* adjust this value to lower/raise hero text */
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.hero h1{font-family:Cardo,serif;font-size:50px;line-height:1.1;margin-bottom:16px;}
+.hero p{max-width:600px;margin-bottom:24px;color:rgba(255,255,255,0.9);font-size:18px;}
+.hero .hero-cta{display:flex;gap:14px;justify-content:center;}
+.btn{padding:16px 30px;border-radius:999px;font-weight:700;cursor:pointer;border:none;font-size:17px;}
+.btn-primary{background:var(--accent-grad);color:#fff;}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.3);color:#fff;}
+
+/* Hero Wave */
+.hero-wave{position:absolute;bottom:-1px;left:0;width:100%;overflow:hidden;line-height:0;z-index:5;}
+.hero-wave svg{position:relative;display:block;width:calc(100% + 1.3px);height:200px;}
+.hero-wave path{fill:#ffffff;}
+
+/* Feature Cards */
+.features{position:relative;z-index:10;margin-top:-260px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1100px;margin-left:auto;margin-right:auto;padding:40px 24px 0;}
+.feature-card{background:#fff;border-radius:16px;padding:24px;text-align:center;box-shadow:0 8px 24px rgba(17,24,39,0.08);transition:all 0.3s ease;}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(17,24,39,0.12);}
+.feature-card h3{margin:10px 0 6px;font-size:18px;font-weight:700;}
+.feature-card p{color:#475569;font-size:14.5px;}
+.feature-card span{font-size:36px;color:var(--purple-1);display:block;margin-bottom:8px;}
+
+/* About Section */ #about{background:#fff;padding:100px 24px;} .about-inner{max-width:1100px;margin:0 auto;text-align:center;} .about-inner h2{font-family:Cardo,serif;font-size:32px;margin-bottom:16px;} .about-inner p{max-width:700px;color:#374151;margin:0 auto 16px;} .founder{font-size:16px;color:#374151;max-width:700px;margin:16px auto 24px;} .certifications{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:16px;} .certifications div{ background:var(--accent-grad); color:#fff; padding:10px 20px; border-radius:999px; font-weight:600; font-size:14px; box-shadow:0 4px 14px rgba(138,109,175,0.25); }
+
+@media(max-width:900px){
+  .hero h1{font-size:42px;}
+  .features{margin-top:-180px;}
+}
+@media(max-width:600px){
+  .hero-content{padding-top:80px;}
+  .features{grid-template-columns:1fr;}
+}
+
+/* FOOTER STYLES */
+.sanvextra-footer {
+  background: #f9f6ff;
+  border-top: 1px solid rgba(138,109,175,0.2);
+  color: #333;
+  padding: 20px 0;
+  font-size: 15px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.sanvextra-footer .elementor-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sanvextra-footer p {
+  margin: 6px 0;
+  color: #555;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body > *:not(.sanvextra-footer) {
+  flex: 1 0 auto;
+}
+.sanvextra-footer {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .sanvextra-footer .elementor-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+}
