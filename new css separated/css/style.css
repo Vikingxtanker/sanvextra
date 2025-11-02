@@ -97,7 +97,7 @@ body{
 .hero::before{
   content:"";
   position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(60,30,90,0.8) 0%, rgba(90,40,150,0.6) 70%, rgba(0,0,0,0.45) 100%);
+  background:linear-gradient(180deg, rgba(138,109,175,0.85) 0%, rgba(168,117,247,0.55) 60%, rgba(24,6,63,0.25) 100%);
   z-index:1;
 }
 .hero-bg{
@@ -143,14 +143,6 @@ body{
 }
 .btn-primary{ background:var(--accent-grad); color:#fff; }
 .btn-outline{ background:transparent; border:2px solid rgba(255,255,255,0.3); color:#fff; }
-
-.btn {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(138,109,175,0.25);
-}
 
 /* Hero wave svg */
 .hero-wave{
@@ -500,68 +492,13 @@ body{
   opacity: 0.9;
 }
 
-/* ---------- Popup mobile optimization ---------- */
 @media (max-width: 768px) {
-  .popup-box {
-    max-width: 90%;          /* shrink width */
-    height: auto;            /* don't stretch to full height */
-    max-height: 90vh;        /* keep some space top/bottom */
-    overflow-y: auto;        /* allow scrolling inside if needed */
-    border-radius: 12px;     /* smaller corners */
+  .popup-content {
+    flex-direction: column;
   }
 
   .popup-image {
-    height: 180px;           /* smaller image area */
-  }
-
-  .popup-form-section {
-    padding: 24px 20px;      /* reduce padding for better fit */
-  }
-
-  .popup-form input,
-  .popup-form textarea {
-    font-size: 14px;
-    padding: 10px 12px;
-  }
-
-  .popup-submit {
-    padding: 10px;
-    font-size: 15px;
+    height: 220px;
   }
 }
 
-
-.topbar {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: background 0.3s ease;
-}
-
-section {
-  scroll-margin-top: 90px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-.popup-box {
-  animation: fadeInScale 0.3s ease forwards;
-}
-
-.sanvextra-footer {
-  background: linear-gradient(135deg, #f9f6ff, #f3e8ff);
-  border-top: 1px solid rgba(138,109,175,0.25);
-}
-.dev-link:hover {
-  color: #7e22ce;
-  text-decoration: underline;
-}
