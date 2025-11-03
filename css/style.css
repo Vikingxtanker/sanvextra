@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------
    Sanvextra consolidated style.css
    - All inline styles from previous index.html moved here
-   - Do NOT modify index.html or swiper.js per user's request
+   - Updated: added certificate/contact top strip styles (cledral copy)
    ------------------------------------------------------------------ */
 
 /* Colors / variables */
@@ -23,14 +23,91 @@ body{
   flex-direction:column;
 }
 
-/* ---------- NAVBAR / TOPBAR ---------- */
-.topbar{
-  background:#fff;
-  box-shadow:0 6px 20px rgba(15,23,42,0.06);
-  position:sticky;
-  top:0;
-  z-index:60;
+/* ---------- CERTIFICATES / CONTACT STRIP (new) ---------- */
+/* === FIXED CERT STRIP + NAVBAR AT TOP === */
+.cert-strip {
+	position: relative;
+	background: #ffffff;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
+.topbar {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* === CERT STRIP SCROLLS AWAY, MAIN NAVBAR FIXED THROUGHOUT === */
+
+/* Certificate strip scrolls normally */
+.cert-strip {
+  position: relative;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+/* Main navbar stays fixed on top */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+/* Push the hero/content down so it doesn’t hide behind navbar */
+body {
+  padding-top: 90px; /* height of navbar */
+}
+
+
+.cert-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:8px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.cert-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.cert-img{
+  height:36px;
+  display:block;
+  object-fit:contain;
+  opacity:0.98;
+}
+.cert-img.who{ height:34px; }
+.cert-img.gmp{ height:36px; }
+.cert-img.iso{ height:36px; }
+
+/* right side contact items */
+.cert-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.cert-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.cert-item a, .cert-item i { color:#4b5563; font-size:18px; display:inline-block; width:26px; text-align:center; }
+.cert-text{ display:flex; flex-direction:column; line-height:1; }
+.cert-label{ font-size:11px; color:#6b7280; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; }
+.cert-value{ font-size:13px; color:#111827; font-weight:600; }
+
+/* ---------- NAVBAR / TOPBAR ---------- */
+
 .nav{
   display:flex;
   align-items:center;
@@ -325,7 +402,7 @@ body{
 .footer-about p{ color:#475569; font-size:15px; line-height:1.6; }
 .footer-about hr{ margin:24px 0; border:none; border-top:1px solid #ddd; }
 
-/* social icons area */
+ /* social icons area */
 .social-icons{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; justify-items:center; margin-top:10px; }
 .social{ font-size:28px; text-decoration:none; }
 
@@ -378,9 +455,17 @@ body{
   .features{ grid-template-columns:1fr; }
   /* as original inline had nav hide on small screens - kept optional */
   .nav-links{ display:none; }
+  /* on small screens collapse cert-left visuals */
+  .cert-left{ display:none; }
+  .cert-right{ gap:10px; }
+  .cert-value{ font-size:12px; }
+  .cert-label{ font-size:9px; }
 }
 @media(max-width:768px){
   .sanvextra-footer .elementor-container{ flex-direction:column; text-align:center; gap:6px; }
+  .cert-inner{ padding:8px 12px; }
+  .cert-item { gap:6px; }
+  .cert-item a, .cert-item i { font-size:16px; width:22px; }
 }
 
 /* ---------- Helpful overrides (if you notice small diffs) ---------- */
@@ -393,7 +478,6 @@ body{
 .cert-pill{ box-shadow:0 4px 10px rgba(168,117,247,0.3) !important; }
 .swiper-button-next, .swiper-button-prev { color: var(--purple-1) !important; }
 */
-
 
 /* ---------- POPUP STYLES ---------- */
 .popup-overlay {
