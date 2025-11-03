@@ -13,7 +13,11 @@
 
 /* Reset / base */
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+html, body {
+	height:100%
+	width: 100%;
+	overflow-x: hidden;
+	}
 body{
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   background:#fff;
@@ -243,17 +247,20 @@ body {
 .hero-wave path{ fill:#ffffff; }
 
 /* ---------- Feature Cards (the small cards overlapping hero) ---------- */
-.features{
-  position:relative;
-  z-index:10;
-  margin-top:-260px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:24px;
-  max-width:1100px;
-  margin-left:auto;margin-right:auto;
-  padding:40px 24px 0;
+.features {
+  position: relative;
+  z-index: 10;
+  margin-top: -260px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 24px 0;
+  overflow: visible; /* allows pop-out images */
 }
+
 .feature-card{
   background:#fff;border-radius:16px;padding:24px;text-align:center;
   box-shadow:0 8px 24px rgba(17,24,39,0.08);
@@ -649,3 +656,86 @@ section.visible {
   color: #7e22ce;
   text-decoration: underline;
 }
+
+/* --- Updated Multivitamin Promo Card --- */
+.feature-card-promo {
+  position: relative;
+  overflow: visible; /* allow image to pop out */
+  background: #fff; /* restore your original white style */
+  color: #1f1f1f;
+  border-radius: 16px;
+  padding: 40px 24px 100px; /* bottom padding so text doesn’t overlap */
+  text-align: left; /* text alignment like in screenshot */
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
+  transition: all 0.35s ease;
+}
+
+.feature-card-promo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.12);
+}
+
+/* promo tag on top */
+.feature-card-promo .promo-badge {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  background: var(--purple-2);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(168, 117, 247, 0.3);
+}
+
+/* text */
+.feature-card-promo .feature-content {
+  position: relative;
+  z-index: 3;
+  padding-right: 100px; /* make space for image */
+}
+
+.feature-card-promo h3 {
+  font-size: 22px;
+  font-family: Cardo, serif;
+  margin-bottom: 6px;
+  color: #1f1f1f;
+}
+
+.feature-card-promo p {
+  color: #475569;
+  font-size: 15px;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* bottle image (bigger + more out of box) */
+.feature-card-promo .feature-img {
+  position: absolute;
+  bottom: -85px; /* pushes it further out of the box */
+  right: -80px;
+  width: 250px; /* bigger bottle */
+  height: auto;
+  transform: scale(1);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.feature-card-promo:hover .feature-img {
+  transform: scale(1.1) translateY(-10px);
+}
+
+.feature-card-promo::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  right: 40px;
+  width: 120px;
+  height: 25px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.25) 0%, transparent 70%);
+  z-index: 1;
+  filter: blur(6px);
+}
+
