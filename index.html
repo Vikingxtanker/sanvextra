@@ -502,6 +502,21 @@
 
       </div>
     </div>
+	
+	<!-- GOOGLE MAP LOCATION -->
+<div class="footer-map" style="margin: 40px auto; max-width: 100%; text-align: center;">
+  <h2>Our Location</h2>
+  <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.205582897498!2d75.755349!3d19.094200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb3ffa27e029af%3A0xa7cc60a7dd29dade!2sBeed%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000"
+      width="100%" 
+      height="350" 
+      style="border:0; border-radius:10px;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
 
     <div class="footer-newsletter">
       <h2>Subscribe to Newsletter</h2>
@@ -556,6 +571,102 @@
     </div>
   </div>
 </div>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a id="whatsapp-float"
+   href="https://wa.me/918380827361?text=Hello%20Sanvextra%20Industries%2C%20I%20would%20like%20more%20information"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat on WhatsApp">
+  <span class="wpa-cta">WhatsApp us</span>
+  <span class="wpa-icon" aria-hidden="true"><i class="fab fa-whatsapp"></i></span>
+</a>
+
+<style>
+  /* WhatsApp floating button */
+  #whatsapp-float {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 99999999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .15s ease;
+    pointer-events: auto;
+  }
+
+  /* CTA label (hidden on narrow screens) */
+  #whatsapp-float .wpa-cta {
+    display: none;
+    background: linear-gradient(180deg,#25d366,#20b038);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    box-shadow: 0 6px 18px rgba(32,176,56,0.18);
+    line-height: 1;
+    white-space: nowrap;
+    transform-origin: right center;
+  }
+
+  /* Icon circle */
+  #whatsapp-float .wpa-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(180deg,#25d366,#20b038);
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(2,60,27,0.18);
+    font-size: 22px;
+  }
+
+  /* Hover / active effects */
+  #whatsapp-float:hover { transform: translateY(-4px); }
+  #whatsapp-float:active { transform: translateY(-1px) scale(.99); }
+
+  /* Show CTA on medium+ screens */
+  @media (min-width: 640px) {
+    #whatsapp-float .wpa-cta { display: inline-block; }
+  }
+
+  /* Smaller icon on tiny screens */
+  @media (max-width: 360px) {
+    #whatsapp-float { right: 10px; bottom: 10px; }
+    #whatsapp-float .wpa-icon { height:44px; width:44px; font-size:20px; }
+  }
+
+  /* Optional pulse animation (subtle) */
+  @keyframes wpaPulse {
+    0% { box-shadow: 0 8px 22px rgba(32,176,56,0.18); transform: scale(1); }
+    70% { box-shadow: 0 18px 38px rgba(32,176,56,0.12); transform: scale(1.04); }
+    100% { box-shadow: 0 8px 22px rgba(32,176,56,0.18); transform: scale(1); }
+  }
+  #whatsapp-float.pulse .wpa-icon { animation: wpaPulse 2.8s infinite; }
+</style>
+
+<script>
+  // small behaviour helpers: add pulse for a little attention, remove after some time
+  (function(){
+    const btn = document.getElementById('whatsapp-float');
+    if(!btn) return;
+
+    // Add pulse for 8 seconds then remove
+    btn.classList.add('pulse');
+    setTimeout(()=> btn.classList.remove('pulse'), 8000);
+
+    // Optional: show a quick toast on first click (unobtrusive)
+    btn.addEventListener('click', function(){
+      // analytics or other logic could go here
+    });
+  })();
+</script>
+
 
 
 <script>
@@ -770,7 +881,6 @@ document.addEventListener('DOMContentLoaded', function () {
   observer.observe(section);
 });
 </script>
-
 
 </body>
 </html>
