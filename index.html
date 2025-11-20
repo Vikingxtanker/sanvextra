@@ -62,9 +62,9 @@
 
       <nav class="nav-links">
         <a href="#home">Home</a>
-        <a href="#about">About</a>
         <a href="#products">Products</a>
         <a href="#services">Services</a>
+		<a href="#about">About Us</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -120,39 +120,125 @@
         <h2>About Sanvextra Industries</h2>
         <p class="about-paragraph"><strong>Sanvextra Industries</strong> is a trusted provider of high-quality pharmaceutical and nutraceutical products. We collaborate with leading manufacturers to offer a diverse range of formulations that are safe, effective, and affordable.</p>
         <p class="about-paragraph">Founded by <strong>Dr. Abhay Shinde</strong>, Sanvextra Industries is built on the vision of making healthcare accessible, innovative, and consumer-friendly. We combine pharmaceutical integrity with creative formulation to bring meaningful impact to people’s lives.</p>
+      </div>
+	    <!-- ASSURED QUALITY CERTIFICATIONS (insert inside .about-inner-wrapper, after .about-left & .about-right) -->
+  <div class="assured-certifications">
+    <h3>Assured Quality Certifications</h3>
+    <p class="assured-sub">Maintaining the highest international standards.</p>
 
-        <div class="certifications-list">
-          <div class="cert-pill">WHO-GMP Certified</div>
-          <div class="cert-pill">FSSAI Licensed</div>
-          <div class="cert-pill">ISO 9001:2015</div>
-        </div>
+    <div class="cert-grid">
+      <div class="cert-box">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/who.png" class="cert-icon" alt="WHO Certification">
+        <div class="cert-name">WHO-GMP Certified</div>
+      </div>
+
+      <div class="cert-box">
+        <img src="https://images.seeklogo.com/logo-png/30/1/fssai-logo-png_seeklogo-304263.png" class="cert-icon" alt="FSSAI Certification">
+        <div class="cert-name">FSSAI Licensed</div>
+      </div>
+
+      <div class="cert-box">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/iso.png" class="cert-icon" alt="ISO Certification">
+        <div class="cert-name">ISO 9001:2015</div>
+      </div>
+
+      <div class="cert-box">
+        <img src="https://cdnbbsr.s3waas.gov.in/s3e14d02262d6510598edccb6180462efd/uploads/2025/05/202505142076008444.jpeg" class="cert-icon" alt="FDA Certification">
+        <div class="cert-name">FDA Compliant</div>
+      </div>
+
+      <div class="cert-box">
+        <img src="https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Image_folder/logo/cdscologo_lbg.png" class="cert-icon" alt="CDSCO Certification">
+        <div class="cert-name">CDSCO Approved</div>
       </div>
     </div>
-  </section>
-
-  <!-- THIRD PARTY MANUFACTURING -->
-  <section id="third-party" class="third-party-section">
-    <div class="third-party-wrapper">
-      <div class="third-party-left">
-        <h2>Third Party Manufacturing</h2>
-        <p>To deliver premium-quality pharmaceutical and nutraceutical products, <strong>Sanvextra Industries</strong> collaborates with globally certified manufacturing partners to provide dependable <strong>Third Party Manufacturing</strong> solutions. Our dedication to quality ensures that every product meets the highest industry standards of safety, purity, and compliance.</p>
-        <p>Leveraging our vast expertise and network, we offer seamless end-to-end manufacturing services—enabling our partners to focus on marketing and distribution while we handle product formulation, quality control, and logistics. Every product is developed using top-grade raw materials and advanced technology for assured safety, efficacy, and affordability.</p>
-
-        <button class="cta-contact">Contact Us</button>
-      </div>
-
-      <div class="third-party-right">
-        <div class="stat-card">
-          <h3>Satisfied Clients</h3>
-          <div class="stat-number">789<span class="stat-plus">+</span></div>
-        </div>
-        <div class="stat-card">
-          <h3>Expert Pharmacists</h3>
-          <div class="stat-number">48<span class="stat-plus">+</span></div>
-        </div>
-      </div>
+  </div>
+  <!-- END ASSURED QUALITY CERTIFICATIONS -->
     </div>
   </section>
+  
+<!-- LEADING HEALTHCARE INNOVATION (with scroll-triggered stats) -->
+<section id="third-party" class="third-party-section">
+  <div class="third-party-wrapper">
+
+    <div class="third-party-content">
+      <h2 class="lp-title">Leading Healthcare Innovation</h2>
+      <p class="lp-sub">Founded in 2025 with a clear mission to innovate &amp; deliver high-quality pharmaceutical products through strategic partnership and ethical practices.</p>
+
+      <div class="mission-vision-wrapper">
+        <div class="vision-card">
+          <h3>Our Vision</h3>
+          <p>To become a trusted leader in pharmaceutical marketing by delivering high-quality and innovative solutions that improve patient well-being and strengthen healthcare access.</p>
+        </div>
+
+        <div class="mission-card">
+          <h3>Our Mission</h3>
+          <p>To market high-quality and innovative pharmaceutical products through strong partnerships, ensuring ethical practices and wider healthcare access for improved outcomes.</p>
+        </div>
+      </div>
+
+      <!-- STATS (Satisfied Clients + Partnerships) -->
+      <div class="stats-wrapper">
+
+        <!-- Satisfied Clients (left) -->
+        <div class="stat-card clients-card" aria-labelledby="clients-title">
+          <h3 id="clients-title">Satisfied Clients</h3>
+
+          <div class="graph-area">
+            <svg id="clients-svg" viewBox="0 0 600 200" preserveAspectRatio="none" role="img" aria-label="Client growth chart">
+              <defs>
+                <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="#6b21a8" stop-opacity="0.7" />
+                </linearGradient>
+              </defs>
+
+              <!-- Bars behind curve -->
+              <g id="clients-bars-group" class="bars-group">
+                <rect class="bar-rect" data-value="50"></rect>
+                <rect class="bar-rect" data-value="120"></rect>
+                <rect class="bar-rect" data-value="200"></rect>
+                <rect class="bar-rect" data-value="300"></rect>
+                <rect class="bar-rect" data-value="380"></rect>
+                <rect class="bar-rect" data-value="489"></rect>
+              </g>
+
+              <!-- Smooth curve line -->
+              <path id="clients-path" class="clients-line" fill="none" stroke="#6b21a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+
+          <!-- Animated number -->
+          <div class="stat-number-wrap">
+            <div class="stat-number" aria-live="polite"><span id="clients-count">0</span></div>
+            <div class="stat-label">Total satisfied clients</div>
+          </div>
+        </div>
+
+        <!-- Partnerships (right) -->
+        <div class="stat-card partners-card" aria-labelledby="partners-title">
+          <h3 id="partners-title">Partnerships</h3>
+
+          <div class="partner-visual">
+            <svg class="partner-icon" viewBox="0 0 64 64" width="80" height="80" aria-hidden="true">
+              <path d="M32 6a10 10 0 1 0 0 20 10 10 0 1 0 0-20zM6 58c0-8.8 7.2-16 16-16h20c8.8 0 16 7.2 16 16" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="partner-number-wrap">
+            <div class="partner-number"><span id="partners-count">0</span><span class="plus">+</span></div>
+            <div class="stat-label">Trusted manufacturing partners</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- end stats-wrapper -->
+
+    </div>
+
+  </div>
+</section>
+<!-- END LEADING HEALTHCARE INNOVATION -->
 
   <!-- WHY CHOOSE US -->
   <section id="why-choose-us" class="why-choose-section">
@@ -498,6 +584,193 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.15 });
 document.querySelectorAll('section').forEach(sec => observer.observe(sec));
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const section = document.querySelector('#third-party');
+  if (!section) return;
+
+  // Data points (final 489)
+  const data = [50, 120, 200, 300, 380, 489];
+  const maxVal = Math.max(...data);
+
+  const svg       = document.getElementById('clients-svg');
+  const pathEl    = document.getElementById('clients-path');
+  const barsGroup = document.getElementById('clients-bars-group');
+  const barRects  = barsGroup ? Array.from(barsGroup.querySelectorAll('.bar-rect')) : [];
+
+  const clientsTarget  = 489;
+  const partnersTarget = 48;
+
+  let chartSetupDone = false;
+  let hasAnimated    = false;
+
+  // Build smooth curve path using quadratic segments
+  function buildSmoothPath(points){
+    if (points.length < 2) return '';
+    if (points.length === 2){
+      const p0 = points[0], p1 = points[1];
+      return `M ${p0.x} ${p0.y} L ${p1.x} ${p1.y}`;
+    }
+
+    let d = `M ${points[0].x} ${points[0].y}`;
+    for (let i = 1; i < points.length - 1; i++){
+      const p0 = points[i];
+      const p1 = points[i + 1];
+      const xc = (p0.x + p1.x) / 2;
+      const yc = (p0.y + p1.y) / 2;
+      d += ` Q ${p0.x} ${p0.y} ${xc} ${yc}`;
+    }
+    const pn_1 = points[points.length - 1];
+    const pn_2 = points[points.length - 2];
+    d += ` Q ${pn_1.x} ${pn_1.y} ${pn_1.x} ${pn_1.y}`;
+    return d;
+  }
+
+  // Prepare chart geometry (points, bars positions)
+  let points = [];
+  let barTargets = [];
+
+  function setupChart(){
+    if (chartSetupDone) return;
+    if (!svg || !pathEl) return;
+
+    const viewBox = svg.viewBox.baseVal;
+    const svgW = viewBox && viewBox.width  ? viewBox.width  : 600;
+    const svgH = viewBox && viewBox.height ? viewBox.height : 200;
+
+    const paddingTop    = 20;
+    const paddingBottom = 24;
+    const paddingLeft   = 24;
+    const paddingRight  = 24;
+
+    const innerW = svgW - paddingLeft - paddingRight;
+    const innerH = svgH - paddingTop - paddingBottom;
+
+    const stepX = innerW / (data.length - 1);
+
+    // Points for line
+    points = data.map((v, i) => {
+      const x = paddingLeft + i * stepX;
+      const y = paddingTop + (1 - v / maxVal) * innerH;
+      return { x, y, value: v };
+    });
+
+    // Apply smooth path
+    const d = buildSmoothPath(points);
+    pathEl.setAttribute('d', d);
+
+    // Bars behind curve
+    barTargets = [];
+    barRects.forEach((rect, i) => {
+      const value = Number(rect.getAttribute('data-value')) || 0;
+      const xCenter = paddingLeft + i * stepX;
+      const barWidth = Math.min(40, stepX * 0.5);
+      const height = (value / maxVal) * innerH;
+
+      const x = xCenter - barWidth / 2;
+      const y = paddingTop + (innerH - height);
+
+      rect.setAttribute('x', x);
+      rect.setAttribute('width', barWidth);
+      rect.setAttribute('y', paddingTop + innerH); // start from bottom (0 height)
+      rect.setAttribute('height', 0);
+
+      barTargets.push({ rect, x, y, height });
+    });
+
+    chartSetupDone = true;
+  }
+
+  // Animate curve drawing
+  function animatePath(duration = 1400){
+    const totalLen = pathEl.getTotalLength();
+    pathEl.style.strokeDasharray  = totalLen;
+    pathEl.style.strokeDashoffset = totalLen;
+    pathEl.getBoundingClientRect(); // force layout
+
+    const start = performance.now();
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      pathEl.style.strokeDashoffset = totalLen * (1 - t);
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // Animate bars up to their target heights
+  function animateBars(duration = 1400){
+    const start = performance.now();
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      barTargets.forEach(({ rect, y, height }) => {
+        const curH = height * t;
+        const curY = y + (height - curH);
+        rect.setAttribute('y', curY);
+        rect.setAttribute('height', curH);
+      });
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // Number counters
+  function animateCounter(id, target, duration = 1600){
+    const el = document.getElementById(id);
+    if (!el) return;
+    const start = performance.now();
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      const cur = Math.floor(target * t);
+      el.textContent = cur.toLocaleString('en-IN');
+      if (t < 1) requestAnimationFrame(frame);
+      else el.textContent = target.toLocaleString('en-IN');
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function animatePartnerCounter(id, target, duration = 1500){
+    const el = document.getElementById(id);
+    if (!el) return;
+    const start = performance.now();
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      const cur = Math.floor(target * t);
+      el.textContent = cur.toString();
+      if (t < 1) requestAnimationFrame(frame);
+      else el.textContent = target.toString();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // Combine everything, triggered when section is in view
+  function runStatsAnimation(){
+    if (hasAnimated) return;
+    hasAnimated = true;
+
+    setupChart();
+    animatePath(1400);
+    animateBars(1400);
+    animateCounter('clients-count',  clientsTarget, 1600);
+    animatePartnerCounter('partners-count', partnersTarget, 1500);
+  }
+
+  // IntersectionObserver to trigger when visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        runStatsAnimation();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.35
+  });
+
+  observer.observe(section);
+});
+</script>
+
 
 </body>
 </html>
