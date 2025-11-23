@@ -291,7 +291,7 @@ body {
 }
 .about-right{ flex:1; min-width:300px; }
 .about-right h2{ font-family:Cardo,serif; font-size:32px; margin-bottom:16px; }
-.about-paragraph{ color:#374151; margin-bottom:16px; }
+.about-paragraph{ color:#374151; margin-bottom:16px; text-align:justify; }
 .certifications-list{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
 .cert-pill{
   background:linear-gradient(135deg,#8a6daf,#a875f7);
@@ -331,7 +331,7 @@ body {
 .why-choose-wrapper{ max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px; }
 .why-left{ flex:1; min-width:320px; }
 .why-left-img{ width:100%; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,0.08); display:block; object-fit:cover; }
-.why-right{ flex:1; min-width:320px; }
+.why-right{ flex:1; min-width:320px; text-align:justify; }
 .icon-boxes{ display:flex; flex-direction:column; gap:20px; }
 .icon-box{ display:flex; align-items:flex-start; gap:16px; }
 .icon-circle{
@@ -356,7 +356,7 @@ body {
 .partner-left-img{
   width:100%; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1); display:block; object-fit:cover;
 }
-.partner-right{ flex:1; min-width:300px; }
+.partner-right{ flex:1; min-width:300px; text-align:justify; }
 .partner-features{ display:flex; gap:40px; flex-wrap:wrap; margin-bottom:32px; }
 .partner-feature{ flex:1; min-width:200px; display:flex; align-items:flex-start; gap:14px; }
 .pf-icon{ background:#f0f4ff; color:#2a4b8d; padding:12px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
@@ -406,7 +406,7 @@ body {
 .footer-about h2, .footer-links h2, .footer-support h2, .footer-contact h2{
   font-family:Cardo,serif; font-size:22px; margin-bottom:16px; color:#1f1f1f;
 }
-.footer-about p{ color:#475569; font-size:15px; line-height:1.6; }
+.footer-about p{ color:#475569; font-size:15px; line-height:1.6; text-align: justify; }
 .footer-about hr{ margin:24px 0; border:none; border-top:1px solid #ddd; }
 
  /* social icons area */
@@ -1363,3 +1363,166 @@ section.visible {
     text-align: center;
   }
 }
+
+/* ===== Mobile menu button & dropdown ===== */
+.menu-btn {
+  display: none;              /* shown only on small screens */
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #374151;
+  align-items: center;
+  justify-content: center;
+}
+.menu-btn i { display: inline-block; }
+
+/* focus style */
+.menu-btn:focus {
+  outline: 3px solid rgba(168,117,247,0.18);
+  outline-offset: 2px;
+}
+
+/* Mobile dropdown: keep nav hidden by default (your file already hides it in the mobile media query);
+   show it when the .open class is set by JS. */
+@media (max-width: 600px) {
+  .menu-btn { display: inline-flex; }
+
+  /* make the nav-links into a dropdown panel for mobile */
+  .nav-links {
+    display: none; /* keep this to match your file's existing rule */
+    position: absolute;
+    top: 84px; /* height of the navbar */
+    right: 16px;
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(2,6,23,0.12);
+    flex-direction: column;
+    gap: 6px;
+    min-width: 200px;
+    z-index: 1002;
+  }
+
+  /* when the script toggles .open, show the menu */
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px 12px;
+    border-radius: 8px;
+    display: block;
+    color: #111827;
+    font-weight: 700;
+  }
+  .nav-links a:hover {
+    background: rgba(139,92,246,0.06);
+    color: var(--purple-2);
+  }
+}
+
+/* Smooth rotation animation */
+.menu-btn {
+  transition: transform 0.3s ease;
+}
+
+/* When active, rotate 90° (you can change angle) */
+.menu-btn.active {
+  transform: rotate(90deg);
+}
+
+/* Base button */
+.menu-btn {
+  display: none; /* visible only on mobile */
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  z-index: 1003;
+}
+
+/* Bars */
+.menu-btn .bar {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  height: 3px;
+  background: #000;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+/* Top bar */
+.menu-btn .bar:nth-child(1) {
+  top: 8px;
+}
+
+/* Middle bar */
+.menu-btn .bar:nth-child(2) {
+  top: 14px;
+}
+
+/* Bottom bar */
+.menu-btn .bar:nth-child(3) {
+  top: 20px;
+}
+
+/* ---- ACTIVE STATE (Transforms into X) ---- */
+.menu-btn.active .bar:nth-child(1) {
+  top: 14px;
+  transform: rotate(45deg);
+}
+
+.menu-btn.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active .bar:nth-child(3) {
+  top: 14px;
+  transform: rotate(-45deg);
+}
+
+/* Show button on mobile */
+@media (max-width: 600px) {
+  .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+.quality-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: #8b5cf6;
+  margin-top: 10px;
+}
+/* QUALITY STAT CARD 
+.quality-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.1);
+  margin-top: 20px;
+}
+
+.quality-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: #8b5cf6;
+  margin-top: 10px;
+}
+
+.quality-icon {
+  margin-bottom: 10px;
+}
+*/
