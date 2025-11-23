@@ -183,7 +183,7 @@ body {
 }
 .hero-bg{
   position:absolute;inset:0;
-  background:url('https://cledrallifesciences.com/wp-content/uploads/2025/02/two-pharmacists-working-together-at-pharmacy.jpg') center/cover no-repeat;
+  background:url('../assets/home_page.jpeg') center/cover no-repeat;
   z-index:0;
   filter:brightness(0.65);
 }
