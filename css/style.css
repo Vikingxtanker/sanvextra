@@ -348,6 +348,12 @@ body {
   flex:1; min-width:300px; background:#faf8ff; border-radius:16px; padding:40px; box-shadow:0 8px 20px rgba(0,0,0,0.05);
 }
 .vision-card h2, .mission-card h2{ font-family:Cardo,serif; font-size:30px; margin-bottom:14px; color:#1f1f1f; }
+.vision-card p, .mission-card p{
+	text-align: justify;
+}
+.vision-card h3, .mission-card h3{
+	text-align: center;
+}
 
 /* ---------- Partner Section ---------- */
 .partner-section{ background:#fff; padding:100px 24px; }
