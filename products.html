@@ -17,86 +17,138 @@
     .product .button { background: #8b5cf6; color: #fff; padding: 9px 12px; border-radius: 8px; text-decoration: none; display: inline-block; }
     @media (max-width: 1000px) { ul.products { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 600px) { ul.products { grid-template-columns: 1fr; } .menu-btn{ display:inline-flex !important; } }
-	.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  margin-top: 30px;
-}
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-top: 30px;
+    }
 
-.product-card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(2,6,23,0.06);
-}
+    .product-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(2,6,23,0.06);
+    }
 
-.product-card img {
-  width: 230px;
-  height: 230px;
-  object-fit: contain;
-  margin-bottom: 12px;
-}
+    .product-card img {
+      width: 230px;
+      height: 230px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
 
-.product-card h2 {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 10px 0;
-  color: #0b1220;
-}
+    .product-card h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 10px 0;
+      color: #0b1220;
+    }
 
-.product-btn {
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 8px;
-  background: #8b5cf6;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 8px;
-}
+    .product-btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #8b5cf6;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 8px;
+    }
 
-.product-btn:hover {
-  opacity: 0.9;
-}
+    .product-btn:hover {
+      opacity: 0.9;
+    }
 
-@media (max-width: 900px){
-  .products-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-}
+    @media (max-width: 900px){
+      .products-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
 
-@media (max-width: 600px){
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
-}
+    @media (max-width: 600px){
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Product detail styles */
+    .product-detail {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 24px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.04);
+      line-height: 1.6;
+    }
+
+    .product-detail .grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .product-detail img { width: 100%; border-radius: 8px; object-fit: contain; }
+
+    .badge {
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:6px;
+      background:#f3f4f6;
+      font-weight:700;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+
+    .small-note { font-size:13px; color:#555; margin-top:10px; }
+
+    .product-section h3 { margin-top:18px; margin-bottom:8px; font-size:18px; color:#0b1220; }
+    .product-section ul { margin-left:18px; }
+    .product-section li { margin-bottom:6px; }
+
+    @media (max-width: 900px) {
+      .product-detail .grid { grid-template-columns: 1fr; }
+    }
 
   </style>
 </head>
 <body>
 
-  <!-- CERT STRIP -->
+  <!-- ====== CERTIFICATES + CONTACT STRIP (COPIED/ADAPTED FROM CLEDral) ====== -->
   <div class="cert-strip">
     <div class="cert-inner">
       <div class="cert-left">
-        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/who.png" alt="WHO" class="cert-img who">
-        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/gmp.png" alt="GMP" class="cert-img gmp">
-        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/iso.png" alt="ISO" class="cert-img iso">
+        <!-- Using same links for images as provided in Cledral code -->
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/who.png" alt="WHO Certification" class="cert-img who">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/gmp.png" alt="GMP Certification" class="cert-img gmp">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/iso.png" alt="ISO Certification" class="cert-img iso">
       </div>
+
       <div class="cert-right">
-        <div class="cert-item"><a href="mailto:sanvextra@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-          <div class="cert-text"><div class="cert-label">Email</div><div class="cert-value">sanvextra@gmail.com</div></div>
+        <div class="cert-item">
+          <a href="mailto:info@sanvextra.com"><i class="fa-solid fa-envelope"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Email</div>
+            <div class="cert-value">info@sanvextra.com</div>
+          </div>
         </div>
-        <div class="cert-item"><a href="tel:+918380827361"><i class="fa-solid fa-phone"></i></a>
-          <div class="cert-text"><div class="cert-label">Phone</div><div class="cert-value">+91 8380827361</div></div>
+
+        <div class="cert-item">
+          <a href="tel:+918380827361"><i class="fa-solid fa-phone"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Phone</div>
+            <div class="cert-value">+91 8380827361</div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
+  <!-- ====== END CERT STRIP ====== -->
 
-  <!-- NAVBAR -->
   <div class="topbar">
     <div class="nav">
       <div class="brand">
@@ -106,76 +158,69 @@
         </div>
       </div>
 
+      <!-- Mobile menu button (visible on small screens) -->
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
 
       <nav class="nav-links" id="mainMenu">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="#services">Services</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact-us.html">Contact</a>
       </nav>
+
     </div>
   </div>
 
   <!-- MAIN CONTENT (Products) -->
   <main id="primary" class="content-area">
-  <div class="products-section" style="padding-top:40px; padding-bottom:60px;">
+  <div class="products-section">
     <div class="products-inner" style="max-width:1200px;margin:0 auto;padding:0 20px;">
 
-      <div class="products-breadcrumb">
+      <div class="products-breadcrumb" style="margin-bottom:10px;color:#666;">
         <a href="index.html">Home</a> / <span>Products</span>
       </div>
 
       <h1 class="products-title">Products</h1>
 
-      <!-- <div class="products-grid"> -->
-        
-        <!-- <!-- PRODUCT CARD --> -->
-        <!-- <div class="product-card"> -->
-          <!-- <img src="https://m.media-amazon.com/images/I/61E71alDL2L._AC_UF1000,1000_QL80_.jpg"  -->
-               <!-- alt="Chocolate Calcium Suspension"> -->
-          <!-- <h2>Chocolate Calcium Suspension</h2> -->
-          <!-- <a href="#" class="product-btn">Read more</a> -->
-        <!-- </div> -->
+      <div class="products-grid" role="list" aria-label="Products list">
 
-        <!-- <div class="product-card"> -->
-          <!-- <img src="https://m.media-amazon.com/images/I/61E71alDL2L._AC_UF1000,1000_QL80_.jpg"  -->
-               <!-- alt="Chocolate Calcium Suspension"> -->
-          <!-- <h2>Chocolate Calcium Suspension</h2> -->
-          <!-- <a href="#" class="product-btn">Read more</a> -->
-        <!-- </div> -->
+        <!-- ASERRO-SP PRODUCT CARD -->
+        <div class="product-card" role="listitem" aria-labelledby="aserro-title">
+          <img src="assets/products/aserro.jpg" alt="ASERRO-SP Tablet" onerror="this.src='https://placeholder.pics/svg/300/DC8CFF-8778B3/Error'">
+          <h2 id="aserro-title">ASERRO™-SP Tablet</h2>
+          <div class="badge">Prescription Required</div>
+          <p style="font-size:13px;margin:6px 0 12px 0;color:#444;">Aceclofenac 100 mg • Paracetamol 325 mg • Serratiopeptidase 15 mg</p>
+          <a class="product-btn" href="products/aserro-sp-tablet.html">Read details</a>
+        </div>
 
-        <!-- <div class="product-card"> -->
-          <!-- <img src="https://m.media-amazon.com/images/I/61E71alDL2L._AC_UF1000,1000_QL80_.jpg"  -->
-               <!-- alt="Chocolate Calcium Suspension"> -->
-          <!-- <h2>Chocolate Calcium Suspension</h2> -->
-          <!-- <a href="#" class="product-btn">Read more</a> -->
-        <!-- </div> -->
+        <!-- Placeholder / other product slots (you can add more cards here) -->
+        <div class="product-card" style="opacity:0.0;pointer-events:none;"></div>
+        <div class="product-card" style="opacity:0.0;pointer-events:none;"></div>
+        <div class="product-card" style="opacity:0.0;pointer-events:none;"></div>
 
-        <!-- <div class="product-card"> -->
-          <!-- <img src="https://m.media-amazon.com/images/I/61E71alDL2L._AC_UF1000,1000_QL80_.jpg"  -->
-               <!-- alt="Chocolate Calcium Suspension"> -->
-          <!-- <h2>Chocolate Calcium Suspension</h2> -->
-          <!-- <a href="#" class="product-btn">Read more</a> -->
-        <!-- </div> -->
-
-      <!-- </div> -->
+      </div>
+        </div> <!-- grid -->
+      </section>
 
     </div>
   </div>
 </main>
 
   <!-- SIMPLE FOOTER -->
-  <footer class="sanvextra-footer">
-    <div class="elementor-container">
-      <div class="left-copy"><p>Copyright © 2025 Sanvextra Industries. All rights reserved.</p></div>
-      <div class="right-copy"><p>Developed &amp; Designed By: Gaurav Gaikwad &amp; Kumkum Gaikwad</p></div>
-    </div>
+  <footer class="elementor-section sanvextra-footer">
+          <div class="elementor-container">
+        <div class="left-copy">
+          <p>Copyright © 2025 Sanvextra Industries. All rights reserved.</p>
+        </div>
+        <div class="right-copy">
+          <p>Developed &amp; Designed By: <a href="https://gauravgaikwad.ddns.net/" target="_blank" class="dev-link">Gaurav Gaikwad & Kumkum Gaikwad</a></p>
+        </div>
+      </div>
   </footer>
 
   <!-- MENU BUTTON SCRIPT -->

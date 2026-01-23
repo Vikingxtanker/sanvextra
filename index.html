@@ -550,10 +550,10 @@
     <section class="elementor-section sanvextra-footer">
       <div class="elementor-container">
         <div class="left-copy">
-          <p>Copyright © 2025 <strong>Sanvextra Industries</strong>. All rights reserved.</p>
+          <p>Copyright © 2025 Sanvextra Industries. All rights reserved.</p>
         </div>
         <div class="right-copy">
-          <p>Developed &amp; Designed By: <a href="#" target="_blank" class="dev-link">Gaurav Gaikwad & Kumkum Gaikwad</a></p>
+          <p>Developed &amp; Designed By: <a href="https://gauravgaikwad.ddns.net/" target="_blank" class="dev-link">Gaurav Gaikwad & Kumkum Gaikwad</a></p>
         </div>
       </div>
     </section>
@@ -609,7 +609,7 @@
   #whatsapp-float {
     position: fixed;
     right: 15px;
-    bottom: 15px;
+    bottom: 80px;
     z-index: 99999999;
     display: flex;
     align-items: center;
@@ -659,8 +659,8 @@
   }
 
   /* Smaller icon on tiny screens */
-  @media (max-width: 360px) {
-    #whatsapp-float { right: 10px; bottom: 10px; }
+  @media (max-width: 600px) {
+    #whatsapp-float { right: 10px; bottom: 80px; }
     #whatsapp-float .wpa-icon { height:44px; width:44px; font-size:20px; }
   }
 
@@ -671,6 +671,7 @@
     100% { box-shadow: 0 8px 22px rgba(32,176,56,0.18); transform: scale(1); }
   }
   #whatsapp-float.pulse .wpa-icon { animation: wpaPulse 2.8s infinite; }
+
 </style>
 
 <script>

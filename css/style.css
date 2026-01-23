@@ -438,8 +438,8 @@ body {
   background:#f9f6ff;
   border-top:1px solid rgba(138,109,175,0.2);
   color:#333;
-  padding:20px 0;
-  font-size:15px;
+  padding:6px 0;
+  font-size:12px;
   text-align:center;
   position:relative;
   bottom:0;
@@ -475,7 +475,7 @@ body {
   .cert-label{ font-size:9px; }
 }
 @media(max-width:768px){
-  .sanvextra-footer .elementor-container{ flex-direction:column; text-align:center; gap:6px; }
+  .sanvextra-footer .elementor-container{ min-height: auto; align-items: center; flex-direction:column; text-align:center; gap:6px; }
   .cert-inner{ padding:8px 12px; }
   .cert-item { gap:6px; }
   .cert-item a, .cert-item i { font-size:16px; width:22px; }
@@ -606,8 +606,8 @@ body {
 /* ---------- Popup mobile optimization ---------- */
 @media (max-width: 768px) {
   .popup-box {
-    max-width: 90%;          /* shrink width */
-    max-height: 90vh;        /* keep some space top/bottom */
+    max-width: 80%;          /* shrink width */
+    max-height: 80vh;        /* keep some space top/bottom */
     overflow: auto;        /* allow scrolling inside if needed */
     border-radius: 12px;     /* smaller corners */
   }
@@ -620,13 +620,13 @@ body {
 	flex: 0 0 auto;
 	width: 100%;
     height: auto;           /* smaller image area */
-	padding: 8px 12px;
+	padding: 2px 6px;
   }
   
   .popup-image img {
 	width: 100%;
 	height: auto;
-	max-height: 36vh;
+	max-height: 24vh;
 	object-fit: contain;
   }
 
@@ -1551,3 +1551,84 @@ section.visible {
   margin-bottom: 10px;
 }
 */
+/* ===========================
+   PRODUCT PAGE FIX
+   =========================== */
+
+/* Always show product sections */
+.product-hero section {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ---- Fixed bottom footer (like dypcoppharmacypractice.in) ---- */
+/* Add this at the end of css/style.css (or replace the existing .sanvextra-footer rules) */
+
+.sanvextra-footer {
+  position: fixed !important;   /* keep it always visible */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 99999;               /* sit on top of other content */
+  background: linear-gradient(135deg, #f9f6ff, #f3e8ff);
+  border-top: 1px solid rgba(138,109,175,0.25);
+  padding: 3px 0;              /* slightly smaller padding for a slim bar */
+  box-shadow: 0 -6px 20px rgba(2,6,23,0.08);
+  min-height: auto;
+}
+
+/* keep the inner layout the same but ensure spacing fits */
+.sanvextra-footer .elementor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* avoid page content being hidden under the fixed bar */
+body {
+  /* existing padding-top should remain; add enough padding-bottom for the fixed footer */
+  padding-bottom: 45px; /* adjust (60–90px) if you change footer height */
+}
+
+/* ===========================
+   Footer smaller on mobile
+   =========================== */
+@media (max-width: 600px) {
+
+  /* Make bottom footer bar slimmer */
+  .sanvextra-footer {
+    padding: 4px 0 !important;
+    font-size: 11px !important;
+  }
+
+  /* Reduce inner container spacing */
+  .sanvextra-footer .elementor-container {
+    padding: 0 10px !important;
+    gap: 3px !important;
+  }
+
+  /* Reduce text size + spacing */
+  .sanvextra-footer .left-copy p,
+  .sanvextra-footer .right-copy p {
+    margin: 2px 0 !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Because footer becomes smaller, reduce body padding-bottom */
+  body {
+    padding-bottom: 55px !important;
+  }
+}
+
+
+/* ---- Disable ALL footer animations & transitions ---- */
+.site-footer,
+.sanvextra-footer,
+.site-footer *,
+.sanvextra-footer * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
