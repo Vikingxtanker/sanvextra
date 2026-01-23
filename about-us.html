@@ -446,7 +446,11 @@
   .csr-grid{ grid-template-columns: 1fr; }
 }
 
-/* ===== Responsive Vertical Timeline (brand-styled) ===== */
+/* ===== Responsive Vertical Timeline (CLEAN + FIXED) ===== */
+:root{
+  --timeline-gap: 18px; /* ✅ desktop spacing from center line */
+}
+
 .timeline-vertical{
   position: relative;
   margin-top: 22px;
@@ -454,7 +458,7 @@
   max-width: 1100px;
 }
 
-/* central line */
+/* center line */
 .timeline-vertical::before{
   content: "";
   position: absolute;
@@ -468,12 +472,11 @@
   z-index: 1;
 }
 
-/* item */
+/* card base */
 .timeline-item{
   position: relative;
-  width: calc(50% - 40px);
+  width: calc(50% - var(--timeline-gap));
   padding: 18px 22px;
-  box-sizing: border-box;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(17,24,39,0.06);
@@ -484,11 +487,17 @@
   transition: all 0.6s cubic-bezier(.22,.9,.31,1);
 }
 
-/* left / right placement */
-.timeline-item.left{ left: 0; margin-right: auto; }
-.timeline-item.right{ margin-left: auto; left: 50%; transform-origin: left center; }
+/* left */
+.timeline-item.left{
+  margin-right: auto;
+}
 
-/* connector circle */
+/* ✅ right (THIS is what actually positions it) */
+.timeline-item.right{
+  margin-left: calc(50% + var(--timeline-gap));
+}
+
+/* bullet */
 .timeline-bullet{
   position: absolute;
   top: 24px;
@@ -503,7 +512,7 @@
   border: 3px solid #fff;
 }
 
-/* internal content */
+/* text */
 .timeline-item .date{
   font-weight:800;
   color:#1f1140;
@@ -521,57 +530,62 @@
   font-size:14.5px;
 }
 
-/* icon box (small) */
+/* icon box */
 .timeline-icon{
   width:44px; height:44px; border-radius:10px;
   display:inline-grid; place-items:center;
   background: linear-gradient(135deg,#f6efff,#f3e8ff);
-  color:#6b21a8; margin-right:10px;
+  color:#6b21a8;
+  margin-right:10px;
   border:1px solid rgba(138,109,175,0.08);
   box-shadow: 0 8px 18px rgba(17,24,39,0.04);
 }
 
-/* animation visible state */
+/* animation visible */
 .timeline-item.in-view{
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+.timeline-item.left.in-view{
+  transform: translateX(-8px) translateY(0) scale(1);
+}
+.timeline-item.right.in-view{
+  transform: translateX(8px) translateY(0) scale(1);
+}
 
-/* alternate transform for right items for a slight slide-in */
-.timeline-item.left.in-view{ transform: translateX(-8px) translateY(0) scale(1); }
-.timeline-item.right.in-view{ transform: translateX(8px) translateY(0) scale(1); }
-
-/* responsive: stack on small screens */
+/* ✅ MOBILE: stack centered (NO left/right shifting) */
 @media (max-width: 900px){
-  .timeline-vertical::before{ left: 16px; width:4px; }
-  .timeline-item{ width: 100%; margin-left: 40px; left: 0; }
-  .timeline-item.right{ left: 0; margin-left: 40px; }
-  .timeline-bullet{ left: 16px; transform: translate(-50%, -50%); }
-}
 
-/* optional small accent date pill for mobile */
-.timeline-item .date-pill{
-  display:inline-block;
-  background: linear-gradient(90deg,#8a6daf,#a875f7);
-  color:#fff;
-  padding:6px 10px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:10px;
-}
+  .timeline-vertical::before{
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+  }
 
-:root{
-  --timeline-gap: 18px;
-}
+  .timeline-bullet{
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+  }
 
-.timeline-item{
-  width: calc(50% - var(--timeline-gap));
-}
+  .timeline-item{
+    width: calc(100% - 30px);
+    margin: 12px auto;
+    padding: 14px 14px;
+    border-radius: 10px;
+  }
 
-.timeline-item.right{
-  left: auto !important;
-  margin-left: calc(50% + var(--timeline-gap)) !important;
+  /* ✅ KEY: stop right from using desktop margin-left */
+  .timeline-item.right{
+    margin-left: auto !important;
+  }
+
+  .timeline-item h4{ font-size: 15px; margin-bottom: 6px; }
+  .timeline-item .date{ font-size: 13px; margin-bottom: 4px; }
+  .timeline-item p{ font-size: 13px; line-height: 1.45; }
+  .timeline-icon{ width: 36px; height: 36px; border-radius: 9px; margin-right: 8px; }
 }
 
 /* ===== Premium CTA (Contact) ===== */
