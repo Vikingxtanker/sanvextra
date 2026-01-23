@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FEZEST™ Suspension — Sanvextra Industries</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Cardo:ital,wght@0,400;0,0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+
+    /* --- Page layout --- */
+    .hero {
+      background: linear-gradient(180deg, rgba(139,92,246,0.06), rgba(139,92,246,0.02));
+      padding:28px 20px;
+      border-bottom:1px solid rgba(0,0,0,0.03);
+    }
+    .container { max-width:1200px; margin:0 auto; padding:28px 20px; }
+
+.product-hero {
+  display: grid;
+  grid-template-columns: 360px 1fr; /* matches products.html */
+  gap: 24px; /* same as products.html */
+  align-items: start;
+}
+
+    .product-hero img { width:100%; border-radius:10px; object-fit:contain; box-shadow:0 8px 24px rgba(2,6,23,0.04); }
+	.product-hero img {
+  max-height: 420px;
+}
+
+    @media (max-width:900px) { .product-hero { grid-template-columns: 1fr; } }
+
+    .badge { display:inline-block; padding:6px 10px; border-radius:6px; background:#f3f4f6; font-weight:700; font-size:12px; }
+
+    h1,h2,h3 { color:#0b1220; margin:0 0 10px 0; }
+    p, li { color:#333; line-height:1.6; }
+
+    .product-section { margin-top:18px; }
+    .product-section ul { margin-left:18px; }
+    .note { font-size:13px; color:#555; margin-top:8px; }
+	
+	/* Match Products page typography */
+.product-section h3 {
+  font-size: 18px;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.product-section p,
+.product-section li {
+  font-size: 15px;
+}
+
+
+    /* small actions */
+    .btn-primary { display:inline-block; padding:10px 14px; border-radius:8px; background:#8b5cf6; color:white; text-decoration:none; font-weight:700; }
+    .meta-grid { display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; }
+    .meta-item { background:#f8f8fb; padding:8px 10px; border-radius:8px; font-size:13px; color:#333; }
+
+    /* accessibility focus */
+    a:focus, button:focus { outline:3px solid rgba(139,92,246,0.25); outline-offset:2px; }
+  </style>
+</head>
+<body>
+
+  <!-- ====== CERTIFICATES + CONTACT STRIP (COPIED/ADAPTED FROM CLEDral) ====== -->
+  <div class="cert-strip">
+    <div class="cert-inner">
+      <div class="cert-left">
+        <!-- Using same links for images as provided in Cledral code -->
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/who.png" alt="WHO Certification" class="cert-img who">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/gmp.png" alt="GMP Certification" class="cert-img gmp">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/iso.png" alt="ISO Certification" class="cert-img iso">
+      </div>
+
+      <div class="cert-right">
+        <div class="cert-item">
+          <a href="mailto:info@sanvextra.com"><i class="fa-solid fa-envelope"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Email</div>
+            <div class="cert-value">info@sanvextra.com</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <a href="tel:+918380827361"><i class="fa-solid fa-phone"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Phone</div>
+            <div class="cert-value">+91 8380827361</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ====== END CERT STRIP ====== -->
+
+  <div class="topbar">
+    <div class="nav">
+      <a class="brand" href="https://sanvextra.com/" style="text-decoration:none;">
+        <img src="../brand_icon.jpg" alt="Sanvextra Icon" class="brand-icon">
+        <div class="brand-text-wrapper">
+          <img src="../brand_text_nobg.png" alt="Sanvextra Logo" class="brand-text-img">
+        </div>
+      </a>
+
+      <!-- Mobile menu button (visible on small screens) -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
+
+      <nav class="nav-links" id="mainMenu">
+        <a href="https://sanvextra.com/">Home</a>
+        <a href="https://sanvextra.com/products">Products</a>
+        <a href="#services">Services</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact-us.html">Contact</a>
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- MAIN PRODUCT DETAIL -->
+  <main class="container" role="main">
+    <article class="product-hero" aria-labelledby="productTitle">
+      <div>
+	    <h2 style="font-size:26px; font-weight:700; margin-bottom:10px;">
+    FEZEST™ Suspension
+  </h2>
+        <img src="../assets/products/fezest.jpg" alt="FEZEST Suspension" onerror="this.src='https://placeholder.pics/svg/300/DC8CFF-8778B3/Error'">
+        <p class="note"><strong>Generic name:</strong> Liposomal Iron (Ferric Diphosphate) with Folic Acid &amp; Vitamin B12 (Sugar Free | Tamarind Flavour)</p>
+        <p class="note"><strong>Storage:</strong> Store in a dry place below 30°C. Protect from moisture and direct sunlight. Shake well before each use. Keep out of reach of children.</p>
+      </div>
+
+      <div>
+        <h2 id="productTitle">Product overview</h2>
+        <p>
+          <strong>FEZEST™ Suspension</strong> is a liposomal iron-based health supplement enriched with folic acid and vitamin B12,
+          formulated to support healthy haemoglobin levels and red blood cell (RBC) formation.
+        </p>
+
+        <p>
+          The liposomal iron technology enhances iron absorption while being gentle on the stomach, reducing common side effects such as gastric irritation,
+          constipation, and metallic taste. Its sugar-free tamarind flavour ensures excellent palatability and better compliance.
+        </p>
+
+        <section class="product-section" aria-labelledby="supplementFactsHeading">
+          <h3 id="supplementFactsHeading">Supplement facts</h3>
+          <p class="note"><strong>Serving Size:</strong> 15 ml &nbsp; | &nbsp; <strong>Pack Size:</strong> 150 ml</p>
+          <ul>
+            <li><strong>Energy:</strong> 26.40 kcal</li>
+            <li><strong>Carbohydrate:</strong> 9.75 g</li>
+            <li><strong>Protein:</strong> 0.00 g</li>
+            <li><strong>Sugar:</strong> 0.00 g</li>
+            <li><strong>Fat:</strong> 0.00 g</li>
+          </ul>
+        </section>
+
+        <section class="product-section" aria-labelledby="compositionHeading">
+          <h3 id="compositionHeading">Nutrient composition (per 15 ml serving)</h3>
+          <ul>
+            <li><strong>Elemental Iron</strong> (from Ferric Pyrophosphate / Ferric Diphosphate – 362.5 mg as Liposomal Iron) — <strong>29 mg</strong> (100% RDA*)</li>
+            <li><strong>Folic Acid</strong> — <strong>130 mcg</strong> (100% RDA*)</li>
+            <li><strong>Vitamin B12</strong> — <strong>2.2 mcg</strong> (100% RDA*)</li>
+          </ul>
+          <p class="note">*% RDA values are based on recommended daily allowance.</p>
+        </section>
+
+        <section class="product-section" aria-labelledby="usesHeading">
+          <h3 id="usesHeading">Indications / Uses</h3>
+          <ul>
+            <li>Iron deficiency</li>
+            <li>Iron deficiency anemia</li>
+            <li>Low haemoglobin levels</li>
+            <li>Nutritional anemia</li>
+            <li>Increased iron requirement in women</li>
+            <li>Fatigue and weakness due to iron deficiency</li>
+            <li>Support during menstruation</li>
+          </ul>
+        </section>
+
+        <section class="product-section" aria-labelledby="benefitsHeading">
+          <h3 id="benefitsHeading">Benefits</h3>
+          <p><strong>In Iron Deficiency &amp; Anemia:</strong> Liposomal iron helps restore iron stores efficiently and supports haemoglobin synthesis.</p>
+          <p><strong>Better Absorption &amp; Gut Friendly:</strong> Advanced liposomal delivery improves bioavailability and minimizes gastrointestinal discomfort.</p>
+          <p><strong>In RBC Formation:</strong> Folic acid and vitamin B12 support healthy red blood cell production and maturation.</p>
+          <p><strong>Improved Energy Levels:</strong> Helps reduce tiredness, weakness, and fatigue associated with low iron levels.</p>
+          <p class="note">Regular intake as recommended helps maintain optimal iron status.</p>
+        </section>
+
+        <section class="product-section" aria-labelledby="howHeading">
+          <h3 id="howHeading">How it works</h3>
+          <p>
+            <strong>FEZEST™ Suspension</strong> works by providing essential nutrients required for blood health:
+          </p>
+          <ul>
+            <li><strong>Liposomal Iron</strong> supports haemoglobin formation and oxygen transport</li>
+            <li><strong>Folic Acid</strong> helps in RBC production</li>
+            <li><strong>Vitamin B12</strong> aids cell maturation and helps prevent megaloblastic anemia</li>
+          </ul>
+          <p>
+            The liposomal formulation ensures enhanced absorption with minimal gastric irritation.
+          </p>
+        </section>
+
+        <section class="product-section" aria-labelledby="doseHeading">
+          <h3 id="doseHeading">Dosage &amp; administration</h3>
+          <p>
+            <strong>Recommended usage:</strong> Take <strong>15 ml once daily</strong> or as directed by your healthcare professional.
+          </p>
+          <ul>
+            <li>Shake well before use</li>
+            <li>Use a measuring cup or spoon for accurate dosing</li>
+            <li>Do not exceed the recommended daily usage</li>
+          </ul>
+        </section>
+
+        <section class="product-section" aria-labelledby="sideHeading">
+          <h3 id="sideHeading">Side effects</h3>
+          <p>FEZEST™ Suspension is generally well tolerated.</p>
+          <p><strong>Possible side effects:</strong></p>
+          <ul>
+            <li>Mild nausea</li>
+            <li>Abdominal discomfort (rare)</li>
+          </ul>
+          <p class="note">These effects are uncommon due to the liposomal formulation.</p>
+        </section>
+
+        <section class="product-section" aria-labelledby="safetyHeading">
+          <h3 id="safetyHeading">Safety information</h3>
+          <ul>
+            <li><strong>Health Supplement:</strong> Not for medicinal use</li>
+            <li>Not intended to diagnose, treat, cure, or prevent any disease</li>
+            <li>Should not be used as a substitute for a varied diet</li>
+            <li>Consult your physician if you are taking any medication before consuming this product</li>
+          </ul>
+        </section>
+
+        <section class="product-section" aria-labelledby="suitabilityHeading">
+          <h3 id="suitabilityHeading">Suitability</h3>
+          <ul>
+            <li>Suitable for vegetarians</li>
+            <li>Sugar free</li>
+            <li>Easy on gut</li>
+            <li>Best tasting iron liquid</li>
+          </ul>
+        </section>
+
+        <section class="product-section" aria-labelledby="storageHeading">
+          <h3 id="storageHeading">Storage &amp; packaging</h3>
+          <p class="note"><strong>Storage:</strong> Store in a dry place below 30°C. Protect from moisture and direct sunlight. Keep out of reach of children.</p>
+          <p class="note"><strong>Packaging:</strong> Pack size and carton artwork may vary — refer to the product label supplied with the pack.</p>
+        </section>
+
+        <section class="product-section" aria-labelledby="disclaimerHeading">
+          <h3 id="disclaimerHeading">Disclaimer &amp; source</h3>
+          <p class="note">
+            Product information above is taken from the manufacturer document provided by the user and is intended for informational purposes only.
+            For prescribing, dosing and safety in specific patients, always follow your physician's instructions and the official product labeling.
+            Source: user-provided product document.
+          </p>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- SIMPLE FOOTER (same as products.html) -->
+  <footer class="sanvextra-footer">
+    <div class="elementor-container">
+      <div class="left-copy"><p>Copyright © 2025 Sanvextra Industries. All rights reserved.</p></div>
+      <div class="right-copy">
+          <p>Developed &amp; Designed By: <a href="https://gauravgaikwad.ddns.net/" target="_blank" class="dev-link">Gaurav Gaikwad & Kumkum Gaikwad</a></p>
+        </div>
+    </div>
+  </footer>
+
+</body>
+</html>
