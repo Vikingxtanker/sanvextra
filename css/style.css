@@ -631,18 +631,24 @@ body {
   }
 
   .popup-form-section {
-    padding: 20px;      /* reduce padding for better fit */
+    padding: 18px 16px;      /* reduce padding for better fit */
+  }  
+  
+  .popup-form-section h2 {
+    font-size: 20px;
+	margin-bottom: 12px;
   }
+  
 
   .popup-form input,
   .popup-form textarea {
-    font-size: 14px;
-    padding: 10px 12px;
+    font-size: 12px;
+    padding: 9px 10px;
   }
 
   .popup-submit {
     padding: 10px;
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
