@@ -3,103 +3,236 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy — Sanvextra Industries</title>
+  <title>Privacy Policy — Sanvextra Industries Pvt. Ltd.</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
   <style>
-    body { font-family: Inter, sans-serif; color:#000; }
-    .policy-container { max-width: 900px; margin: 80px auto; padding: 20px; }
-    .footer { background:#f5f5f5; padding:40px 20px; margin-top:60px; }
-    .footer a { text-decoration:none; color:#000; }
-	/* Make footer section visible (override global section hide used for scroll animations) */
-.sanvextra-footer {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
-}
+    :root{ --brand-grad-start:#8a6daf; --brand-grad-end:#a875f7; }
+    body{
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color:#111827;
+      background: #fff;
+    }
+    a{ color: #6b21a8; }
 
-/* ensure text is readable */
-.sanvextra-footer,
-.sanvextra-footer .elementor-container,
-.sanvextra-footer p,
-.sanvextra-footer a {
-  color: #333 !important;
-}
+    .policy-hero{
+      background: linear-gradient(135deg, var(--brand-grad-start), var(--brand-grad-end));
+      color: #fff;
+      padding: 36px 20px;
+      border-radius: 12px;
+      max-width: 1200px;
+      margin: 28px auto 14px;
+      box-shadow: 0 14px 40px rgba(138,109,175,0.12);
+    }
 
+    .policy-container{
+      max-width: 1100px;
+      margin: 20px auto 80px;
+      padding: 28px;
+      line-height: 1.7;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #f3f4f6;
+    }
+
+    .policy-container h1{ font-weight:800; letter-spacing:-0.02em; }
+    .policy-container h2{ font-size:20px; margin-top:20px; font-weight:700; }
+    .policy-container p, .policy-container li{ color:#374151; font-size:15px; }
+    .policy-container ul{ padding-left: 20px; }
+
+    /* Table of contents styling */
+    .toc{
+      background:#fafafa;
+      border:1px solid #f3f4f6;
+      padding:16px;
+      border-radius:8px;
+    }
+    .toc strong{
+      display:block; margin-bottom:10px; color:#111827; font-weight:700;
+    }
+    .toc a{
+      display:block; padding:6px 0; color:#4b5563; text-decoration:none; font-size:14px;
+    }
+    .toc a:hover, .toc a:focus{ text-decoration:underline; }
+
+    /* Print-friendly */
+    @media print{
+      .topbar, footer, .menu-btn{ display:none !important; }
+      .policy-container{ border:none; box-shadow:none; }
+    }
+    @media (max-width: 768px){ .policy-hero{ padding:22px; } }
+
+    /* ========== FIXES (override global 'section { opacity:0 }') ========== */
+    /* Ensure hero and policy page sections are visible */
+    .policy-hero,
+    #policy-main section,
+    #policy-main,
+    .policy-container {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* Ensure footer is visible (your style.css targets section globally) */
+    footer .sanvextra-footer,
+    footer .sanvextra-footer * {
+      opacity: 1 !important;
+      transform: none !important;
+    }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR FROM INDEX.HTML -->
-<div class="topbar">
-  <div class="nav">
-    <div class="brand">
-      <img src="brand_icon.jpg" alt="Sanvextra Icon" class="brand-icon">
-      <div class="brand-text-wrapper">
-        <img src="brand_text_nobg.png" alt="Sanvextra Logo" class="brand-text-img">
+  <!-- ====== CERTIFICATES + CONTACT STRIP (COPIED/ADAPTED FROM CLEDral) ====== -->
+  <div class="cert-strip">
+    <div class="cert-inner">
+      <div class="cert-left">
+        <!-- Using same links for images as provided in Cledral code -->
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/who.png" alt="WHO Certification" class="cert-img who">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/gmp.png" alt="GMP Certification" class="cert-img gmp">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/iso.png" alt="ISO Certification" class="cert-img iso">
+      </div>
+
+      <div class="cert-right">
+        <div class="cert-item">
+          <a href="mailto:info@sanvextra.com"><i class="fa-solid fa-envelope"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Email</div>
+            <div class="cert-value">info@sanvextra.com</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <a href="tel:+918380827361"><i class="fa-solid fa-phone"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Phone</div>
+            <div class="cert-value">+91 8380827361</div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-    <nav class="nav-links" id="mainMenu">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="#services">Services</a>
-      <a href="#about">About Us</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </div>
-</div>
+  <!-- ====== END CERT STRIP ====== -->
 
-<br><br><br>
+  <div class="topbar">
+    <div class="nav">
+      <a class="brand" href="https://sanvextra.com/" style="text-decoration:none;">
+        <img src="brand_icon.jpg" alt="Sanvextra Icon" class="brand-icon">
+        <div class="brand-text-wrapper">
+          <img src="brand_text_nobg.png" alt="Sanvextra Logo" class="brand-text-img">
+        </div>
+      </a>
 
-<!-- PRIVACY POLICY CONTENT -->
-<div class="policy-container">
-  <h1 class="text-center mb-2">Privacy Policy</h1>
-  <hr class="my-4">
+      <!-- Mobile menu button (visible on small screens) -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
 
-  <p>
-    SANVEXTRA INDUSTRIES PVT. LTD. is committed to protecting the privacy of our customers. This policy outlines how we
-    collect, use, and safeguard your personal information.
-  </p>
+      <nav class="nav-links" id="mainMenu">
+      <a href="https://sanvextra.com/">Home</a>
+      <a href="https://sanvextra.com/products">Products</a>
+      <a href="https://sanvextra.com/">Services</a>
+      <a href="https://sanvextra.com/about-us">About Us</a>
+      <a href="https://sanvextra.com/contact-us">Contact</a>
+    </nav>
 
-  <h3 class="mt-4">1. Information We Collect</h3>
-  <p>We collect personal information you provide when you place an order, create an account, or contact us. This may include your name, address, email, phone number, and payment details.</p>
-  <p>We may also collect non-personal information such as your IP address, browser type, and browsing patterns to improve our services.</p>
+    </div>
+  </div>
 
-  <h3 class="mt-4">2. How We Use Your Information</h3>
-  <ul>
-    <li><strong>Order Fulfillment:</strong> To process orders, shipping, and customer support.</li>
-    <li><strong>Communication:</strong> To send confirmations, updates, and promotional material.</li>
-    <li><strong>Improvements:</strong> To enhance our website and services.</li>
-  </ul>
+<!-- HERO -->
+<section class="policy-hero" aria-labelledby="policyTitle">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-9">
+        <h1 id="policyTitle" class="mb-1">Privacy Policy — Sanvextra Industries Pvt. Ltd.</h1>
+        <p class="mb-0" style="opacity:0.95;">Last Updated: <strong>24 December 2025</strong></p>
+      </div>
+      <div class="col-md-3 text-md-end mt-3 mt-md-0">
+        <a href="contact-us.html" class="btn btn-light btn-sm">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h3 class="mt-4">3. Data Security</h3>
-  <p>We use industry-standard security measures to protect your personal information.</p>
-  <p>We do not sell or rent your information to third parties.</p>
+<!-- TWO-COLUMN LAYOUT: TOC + POLICY CONTENT -->
+<main class="policy-container" id="policy-main">
+  <div class="row">
+    <aside class="col-lg-4 mb-3">
+      <nav class="toc" aria-label="Privacy policy table of contents">
+        <strong>On this page</strong>
+        <a href="#intro">1. Introduction</a>
+        <a href="#collect">2. Information We Collect</a>
+        <a href="#purpose">3. Purpose of Processing</a>
+        <a href="#legal">4. Legal Basis (DPDP Act 2023)</a>
+        <a href="#cookies">5. Cookies &amp; Tracking</a>
+        <a href="#sharing">6. Data Sharing</a>
+        <a href="#storage">7. Data Storage &amp; Security</a>
+        <a href="#retention">8. Data Retention</a>
+        <a href="#rights">9. Your Rights (DPDP Act)</a>
+        <a href="#children">10. Children’s Data</a>
+        <a href="#transfers">11. International Transfers</a>
+        <a href="#changes">12. Changes to Policy</a>
+        <a href="#contact">13. Contact Information</a>
+      </nav>
+    </aside>
 
-  <h3 class="mt-4">4. Additional Information</h3>
-  <p><strong>Cookies:</strong> Used to improve user experience and analytics.</p>
-  <p><strong>Third-Party Services:</strong> Trusted service providers may assist in website operations.</p>
+    <section class="col-lg-8" aria-live="polite">
 
-  <h3 class="mt-4">5. Contact Us</h3>
-  <p>For privacy-related inquiries, contact:</p>
-  <p>
-    <strong>SANVEXTRA INDUSTRIES PVT. LTD.</strong><br>
-    Email: <a href="mailto:sanvextra@gmail.com">sanvextra@gmail.com</a><br>
-    Phone: +91 8380827361
-  </p>
+      <h2 id="intro">1. Introduction</h2>
+      <p>Sanvextra Industries Pvt. Ltd. protects personal data in accordance with India’s DPDP Act 2023 and global privacy standards.</p>
 
-  <p class="text-muted mt-4">This Privacy Policy may be updated periodically. Please review this page for changes.</p>
-</div>
+      <h2 id="collect">2. Information We Collect</h2>
+      <p><strong>A. You Provide:</strong> Name, email, phone, organization details.</p>
+      <p><strong>B. Automatically Collected:</strong> IP, browser data, cookies.</p>
+      <p><strong>C. Industry Data:</strong> HCP details, compliance records.</p>
 
-  <!-- FOOTER SECTION -->
+      <h2 id="purpose">3. Purpose of Processing</h2>
+      <p>We process data to respond to inquiries, provide services, improve functionality, send updates, and comply with laws.</p>
+
+      <h2 id="legal">4. Legal Basis (DPDP Act 2023)</h2>
+      <p>Processing is based on consent, legitimate business interest, contractual necessity, or legal obligations.</p>
+
+      <h2 id="cookies">5. Cookies &amp; Tracking</h2>
+      <p>We use cookies for analytics, functionality, and user experience improvement.</p>
+
+      <h2 id="sharing">6. Data Sharing</h2>
+      <p>Data may be shared with internal teams, trusted service providers, or regulators when required.</p>
+
+      <h2 id="storage">7. Data Storage &amp; Security</h2>
+      <p>We use secure servers, encryption, and access controls to safeguard information.</p>
+
+      <h2 id="retention">8. Data Retention</h2>
+      <p>Data is retained only as long as necessary for legal or operational purposes.</p>
+
+      <h2 id="rights">9. Your Rights (DPDP Act)</h2>
+      <p>You may request access, correction, erasure, or withdraw consent.</p>
+
+      <h2 id="children">10. Children’s Data</h2>
+      <p>We do not knowingly collect data from individuals under 18.</p>
+
+      <h2 id="transfers">11. International Transfers</h2>
+      <p>Transfers outside India use appropriate safeguards.</p>
+
+      <h2 id="changes">12. Changes to Policy</h2>
+      <p>Policy updates will be posted on the website.</p>
+
+      <h2 id="contact">13. Contact Information</h2>
+      <p>
+        <strong>Sanvextra Industries Pvt. Ltd.</strong><br>
+        Email: <a href="mailto:admin@sanvextra.com">admin@sanvextra.com</a><br>
+        Address: Arjun Nagar, Beed, Maharashtra - 431122
+      </p>
+
+    </section>
+  </div>
+</main>
+
+<!-- FOOTER -->
 <footer>
   <section class="elementor-section sanvextra-footer">
     <div class="elementor-container">

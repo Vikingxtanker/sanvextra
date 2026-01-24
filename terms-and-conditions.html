@@ -3,134 +3,242 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms & Conditions — Sanvextra Industries</title>
+  <title>Terms & Conditions — Sanvextra Industries Pvt. Ltd.</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    body { font-family: Inter, sans-serif; color:#000; }
-
-    .terms-container {
-      max-width: 900px;
-      margin: 80px auto;
-      padding: 20px;
-      line-height: 1.8;
+    /* Match About Us styling, improved for accessibility and print */
+    :root{ --brand-grad-start:#8a6daf; --brand-grad-end:#a875f7; }
+    body{
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color:#111827;
+      background: #fff;
     }
 
-    h1, h2, h3 { font-weight: 700; }
+    a{ color: #6b21a8; }
 
-    /* Footer visibility fix */
-    .sanvextra-footer {
+    .terms-hero{
+      background: linear-gradient(135deg, var(--brand-grad-start), var(--brand-grad-end));
+      color: #fff;
+      padding: 36px 20px;
+      border-radius: 12px;
+      max-width: 1200px;
+      margin: 28px auto 14px;
+      box-shadow: 0 14px 40px rgba(138,109,175,0.12);
+    }
+
+    .terms-container{
+      max-width: 1100px;
+      margin: 20px auto 80px;
+      padding: 28px;
+      line-height: 1.7;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #f3f4f6;
+    }
+
+    .terms-container h1{ font-weight:800; letter-spacing: -0.02em; }
+    .terms-container h2{ font-size:20px; margin-top:24px; font-weight:700; }
+    .terms-container p, .terms-container li{ color:#374151; font-size:15px; }
+    .terms-container ul{ padding-left: 20px; }
+
+    /* Table of contents styling */
+    .toc{
+      background:#fafafa;
+      border:1px solid #f3f4f6;
+      padding:16px;
+      border-radius:8px;
+    }
+
+    .toc strong{
+      display:block;
+      margin-bottom: 10px;
+      color:#111827;
+      font-weight:700;
+    }
+
+    .toc a{
+      display:block;
+      padding:6px 0;
+      color:#4b5563;
+      text-decoration:none;
+      font-size: 14px;
+    }
+
+    .toc a:hover,
+    .toc a:focus{
+      text-decoration: underline;
+    }
+
+    /* Print-friendly */
+    @media print{
+      .topbar, footer, .menu-btn{ display:none !important; }
+      .terms-container{ border:none; box-shadow:none; }
+    }
+
+    @media (max-width: 768px){
+      .terms-hero{ padding:22px; }
+    }
+
+    /* ✅ FIX: show Terms page sections (avoid global section animation hiding text) */
+    .terms-hero,
+    #terms-main section{
       opacity: 1 !important;
       transform: none !important;
-      transition: none !important;
     }
-
-    .sanvextra-footer,
-    .sanvextra-footer .elementor-container,
-    .sanvextra-footer p,
-    .sanvextra-footer a {
-      color: #333 !important;
+	
+	    /* ========== NEW: Ensure footer is visible ========== */
+    /* Your style.css sets `section { opacity: 0 }`, which hides the footer because it's a <section>.
+       This rule forces the footer (and its contents) to be visible on this page. */
+    footer .sanvextra-footer,
+    footer .sanvextra-footer *{
+      opacity: 1 !important;
+      transform: none !important;
     }
+	
   </style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<div class="topbar">
-  <div class="nav">
-    <div class="brand">
-      <img src="brand_icon.jpg" alt="Sanvextra Icon" class="brand-icon">
-      <div class="brand-text-wrapper">
-        <img src="brand_text_nobg.png" alt="Sanvextra Logo" class="brand-text-img">
+  <!-- ====== CERTIFICATES + CONTACT STRIP (COPIED/ADAPTED FROM CLEDral) ====== -->
+  <div class="cert-strip">
+    <div class="cert-inner">
+      <div class="cert-left">
+        <!-- Using same links for images as provided in Cledral code -->
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/who.png" alt="WHO Certification" class="cert-img who">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/gmp.png" alt="GMP Certification" class="cert-img gmp">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/iso.png" alt="ISO Certification" class="cert-img iso">
+      </div>
+
+      <div class="cert-right">
+        <div class="cert-item">
+          <a href="mailto:info@sanvextra.com"><i class="fa-solid fa-envelope"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Email</div>
+            <div class="cert-value">info@sanvextra.com</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <a href="tel:+918380827361"><i class="fa-solid fa-phone"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Phone</div>
+            <div class="cert-value">+91 8380827361</div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-    <nav class="nav-links" id="mainMenu">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="#services">Services</a>
-      <a href="about-us.html">About Us</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </div>
-</div>
+  <!-- ====== END CERT STRIP ====== -->
 
-<br><br><br>
+  <div class="topbar">
+    <div class="nav">
+      <a class="brand" href="https://sanvextra.com/" style="text-decoration:none;">
+        <img src="brand_icon.jpg" alt="Sanvextra Icon" class="brand-icon">
+        <div class="brand-text-wrapper">
+          <img src="brand_text_nobg.png" alt="Sanvextra Logo" class="brand-text-img">
+        </div>
+      </a>
 
-<!-- TERMS & CONDITIONS CONTENT -->
-<div class="terms-container">
+      <!-- Mobile menu button (visible on small screens) -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
 
-  <h1 class="text-center mb-2">Terms & Conditions</h1>
-  <hr class="my-4">
+      <nav class="nav-links" id="mainMenu">
+      <a href="https://sanvextra.com/">Home</a>
+      <a href="https://sanvextra.com/products">Products</a>
+      <a href="https://sanvextra.com/">Services</a>
+      <a href="https://sanvextra.com/about-us">About Us</a>
+      <a href="https://sanvextra.com/contact-us">Contact</a>
+    </nav>
 
-  <!-- Section 1 -->
-  <h3>1. Product Information & Disclaimers</h3>
+    </div>
+  </div>
 
-  <p><strong>Product Descriptions:</strong>  
-    SANVEXTRA INDUSTRIES PVT. LTD. acts as a distributor and seller of pharmaceutical products manufactured by third-party companies.  
-    While we strive to ensure the accuracy of product descriptions, images, and specifications, we do not guarantee that all content is
-    free from errors. All information provided is intended solely for commercial and informational purposes.
-  </p>
+<!-- HERO -->
+<section class="terms-hero" aria-labelledby="termsTitle">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-9">
+        <h1 id="termsTitle" class="mb-1">Terms &amp; Conditions — Sanvextra Industries Pvt. Ltd.</h1>
+        <p class="mb-0" style="opacity:0.95;">Last Updated: <strong>24 December 2025</strong></p>
+      </div>
+      <div class="col-md-3 text-md-end mt-3 mt-md-0">
+        <a href="https://sanvextra.com/contact-us" class="btn btn-light btn-sm">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <p><strong>Liability:</strong>  
-    The Company is not liable for side effects, adverse reactions, or damages arising from the use of products purchased from our platform.  
-    All pharmaceutical products should be used only under the supervision of a licensed and qualified healthcare professional.
-  </p>
+<!-- TWO-COLUMN LAYOUT: TOC + CONTENT -->
+<main class="terms-container" id="terms-main">
+  <div class="row">
 
-  <p><strong>Non-Medical Advice:</strong>  
-    Information provided on our website or by our team is <em>not</em> a substitute for professional medical advice, diagnosis, or treatment.
-    Always consult a healthcare expert before using any pharmaceutical product.
-  </p>
+    <!-- TOC -->
+    <aside class="col-lg-4 mb-3">
+      <nav class="toc" aria-label="Terms table of contents">
+        <strong>On this page</strong>
+        <a href="#acceptance">1. Acceptance of Terms</a>
+        <a href="#about">2. About Sanvextra Industries Pvt. Ltd.</a>
+        <a href="#nomedical">3. No Medical Advice</a>
+        <a href="#ip">4. Intellectual Property Rights</a>
+        <a href="#userobligations">5. User Obligations</a>
+        <a href="#thirdparty">6. Third-Party Links</a>
+        <a href="#accuracy">7. Accuracy &amp; Updates</a>
+        <a href="#limitation">8. Limitation of Liability</a>
+        <a href="#indemnification">9. Indemnification</a>
+        <a href="#governing">10. Governing Law &amp; Jurisdiction</a>
+        <a href="#amendments">11. Amendments</a>
+      </nav>
+    </aside>
 
-  <!-- Section 2 -->
-  <h3 class="mt-4">2. Orders & Payments</h3>
+    <!-- CONTENT -->
+    <section class="col-lg-8" aria-live="polite">
 
-  <p><strong>Order Acceptance:</strong>  
-    All orders placed on our website are subject to acceptance by the Company.  
-    We reserve the right to refuse or cancel any order for reasons including but not limited to:  
-  </p>
-  <ul>
-    <li>Product unavailability</li>
-    <li>Errors in pricing or product information</li>
-    <li>Suspected fraudulent activity</li>
-  </ul>
+      <h2 id="acceptance">1. Acceptance of Terms</h2>
+      <p>By accessing this website, you agree to these Terms &amp; Conditions and all applicable laws.</p>
 
-  <p><strong>Pricing:</strong>  
-    All prices are listed in <strong>INR</strong> and may change without prior notice.  
-    Prices do not include shipping charges, taxes, or duties unless explicitly stated.
-  </p>
+      <h2 id="about">2. About Sanvextra Industries Pvt. Ltd.</h2>
+      <p>Sanvextra Industries Pvt. Ltd. is engaged in pharmaceutical marketing, distribution, and related services.</p>
 
-  <p><strong>Payment:</strong>  
-    We accept payments via credit cards, bank transfers, and other trusted payment gateways.  
-    All transactions are securely processed to ensure data safety.
-  </p>
+      <h2 id="nomedical">3. No Medical Advice</h2>
+      <p>All website content is informational only and not a substitute for medical advice, diagnosis, or treatment.</p>
 
-  <!-- Section 3 -->
-  <h3 class="mt-4">3. Shipping & Delivery</h3>
+      <h2 id="ip">4. Intellectual Property Rights</h2>
+      <p>All materials on this website are the exclusive property of Sanvextra Industries Pvt. Ltd. Unauthorized use is prohibited.</p>
 
-  <p><strong>Shipping Policy:</strong>  
-    Orders are processed and dispatched as quickly as possible. Delivery times may vary depending on destination and product stock availability.
-  </p>
+      <h2 id="userobligations">5. User Obligations</h2>
+      <p>Users must not misuse the website, attempt unauthorized access, introduce malicious code, or copy content illegally.</p>
 
-  <p><strong>Risk of Loss:</strong>  
-    Ownership and risk for all products transfer to the customer once the order is handed over to the shipping carrier.
-  </p>
+      <h2 id="thirdparty">6. Third-Party Links</h2>
+      <p>We are not responsible for the content or policies of external linked websites.</p>
 
-  <p><strong>Damaged or Incorrect Items:</strong>  
-    If you receive defective, damaged, or incorrect products, you must inform us within <strong>2 days</strong> of delivery
-    to qualify for a replacement or refund.
-  </p>
+      <h2 id="accuracy">7. Accuracy &amp; Updates</h2>
+      <p>Information may be updated, corrected, or modified at any time without notice.</p>
 
-</div>
+      <h2 id="limitation">8. Limitation of Liability</h2>
+      <p>We are not liable for losses arising from website use, errors, or downtime.</p>
+
+      <h2 id="indemnification">9. Indemnification</h2>
+      <p>Users agree to indemnify the Company against claims arising from misuse or violations.</p>
+
+      <h2 id="governing">10. Governing Law &amp; Jurisdiction</h2>
+      <p>These Terms are governed by Indian law. Disputes fall under the jurisdiction of courts in Beed.</p>
+
+      <h2 id="amendments">11. Amendments</h2>
+      <p>Terms may be updated anytime. Continued use signifies acceptance.</p>
+
+    </section>
+  </div>
+</main>
 
 <!-- FOOTER -->
 <footer>
