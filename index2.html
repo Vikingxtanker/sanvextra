@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanvextra Industries — Innovating Health, Connecting Lives</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <!-- moved styles to external file -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+  #preloader-overlay{
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999;
+  transition: opacity .4s ease, visibility .4s ease;
+}
+
+#preloader-overlay.hidden{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#preloader-video{
+  width: 160px;
+  height: 160px;
+  max-width: 40vmin;
+  max-height: 40vmin;
+  object-fit: contain;
+}
+
+  </style>
+</head>
+<body>
+
+<div id="preloader-overlay">
+  <video id="preloader-video" autoplay muted playsinline loop>
+    <source src="preloader.webm" type="video/webm">
+    <source src="preloader.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+  <!-- ====== CERTIFICATES + CONTACT STRIP (COPIED/ADAPTED FROM CLEDral) ====== -->
+  <div class="cert-strip">
+    <div class="cert-inner">
+      <div class="cert-left">
+        <!-- Using same links for images as provided in Cledral code -->
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/who.png" alt="WHO Certification" class="cert-img who">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/gmp.png" alt="GMP Certification" class="cert-img gmp">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/iso.png" alt="ISO Certification" class="cert-img iso">
+      </div>
+
+      <div class="cert-right">
+        <div class="cert-item">
+          <a href="mailto:info@sanvextra.com"><i class="fa-solid fa-envelope"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Email</div>
+            <div class="cert-value">info@sanvextra.com</div>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <a href="tel:+918380827361"><i class="fa-solid fa-phone"></i></a>
+          <div class="cert-text">
+            <div class="cert-label">Phone</div>
+            <div class="cert-value">+91 8380827361</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ====== END CERT STRIP ====== -->
+
+  <div class="topbar">
+    <div class="nav">
+      <a class="brand" href="https://sanvextra.com/" style="text-decoration:none;">
+        <img src="brand_icon.jpg" alt="Sanvextra Icon" class="brand-icon">
+        <div class="brand-text-wrapper">
+          <img src="brand_text_nobg.png" alt="Sanvextra Logo" class="brand-text-img">
+        </div>
+      </a>
+
+      <!-- Mobile menu button (visible on small screens) -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
+
+      <nav class="nav-links" id="mainMenu">
+      <a href="https://sanvextra.com/">Home</a>
+      <a href="https://sanvextra.com/products">Products</a>
+      <a href="https://sanvextra.com/">Services</a>
+      <a href="https://sanvextra.com/about-us">About Us</a>
+      <a href="https://sanvextra.com/contact-us">Contact</a>
+    </nav>
+
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Innovating Health,<br><span class="accent-text">Connecting Lives</span></h1>
+      <p class="hero-sub">Sanvextra Industries is committed to delivering high-quality pharmaceutical products through strategic partnerships and innovative solutions for better patient outcomes.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" onclick="window.location.href='products.html'">Explore Products</button>
+        <button class="btn btn-outline">Partner With Us</button>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+        <path d="M0,80 C300,180 900,0 1200,100 L1200,200 L0,200 Z"></path>
+      </svg>
+    </div>
+  </header>
+
+  <!-- FEATURE CARDS -->
+  <section class="features">
+    <div class="feature-card"><span>⚕️</span><h3>Quality & Safety</h3><p>Trusted suppliers and high manufacturing standards ensure our consistent product quality.</p></div>
+    <div class="feature-card"><span>💊</span><h3>General Medicine</h3><p>Comprehensive treatment and prevention solutions across various therapeutic areas.</p></div>
+    <div class="feature-card"><span>🩺</span><h3>Pharmacy Support</h3><p>Advisory and guidance for dosage, storage, and pharmaceutical care optimization.</p></div>
+    <!-- <div class="feature-card feature-card-promo"> -->
+  <!-- <div class="promo-badge">Promo 35% Off</div> -->
+  <!-- <div class="feature-content"> -->
+    <!-- <h3>Multivitamin</h3> -->
+    <!-- <p>Pharma Manufacturing</p> -->
+  <!-- </div> -->
+  <!-- <img -->
+    <!-- src="https://cledrallifesciences.com/wp-content/uploads/2025/02/medicine-9.png" -->
+    <!-- alt="Multivitamin Product" -->
+    <!-- class="feature-img" -->
+  <!-- /> -->
+<!-- </div> -->
+
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-inner-wrapper">
+      <div class="about-left">
+        <img src="assets/about_us.jpeg" 
+             alt="Sanvextra Team Working" class="about-left-img">
+      </div>
+
+      <div class="about-right">
+        <h2>About Sanvextra Industries</h2>
+        <p class="about-paragraph"><strong>Sanvextra Industries</strong> is a trusted provider of high-quality pharmaceutical and nutraceutical products. We collaborate with leading manufacturers to offer a diverse range of formulations that are safe, effective, and affordable.</p>
+        <p class="about-paragraph">Founded by <strong>Mr. Rameshwar Shinde</strong> and <strong>Dr. Abhay Shinde</strong>, Sanvextra Industries is built on the vision of making healthcare accessible, innovative, and consumer-friendly. We combine pharmaceutical integrity with creative formulation to bring meaningful impact to people’s lives.</p>
+      </div>
+	    <!-- ASSURED QUALITY CERTIFICATIONS (insert inside .about-inner-wrapper, after .about-left & .about-right) -->
+  <div class="assured-certifications">
+    <h3>Assured Quality Certifications</h3>
+    <p class="assured-sub">Maintaining the highest international standards.</p>
+
+    <div class="cert-grid">
+      <div class="cert-box">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/who.png" class="cert-icon" alt="WHO Certification">
+        <div class="cert-name">WHO-GMP Certified</div>
+      </div>
+
+      <div class="cert-box">
+        <img src="https://images.seeklogo.com/logo-png/30/1/fssai-logo-png_seeklogo-304263.png" class="cert-icon" alt="FSSAI Certification">
+        <div class="cert-name">FSSAI Licensed</div>
+      </div>
+
+      <div class="cert-box">
+        <img src="https://cledrallifesciences.com/wp-content/uploads/2025/02/iso.png" class="cert-icon" alt="ISO Certification">
+        <div class="cert-name">ISO 9001:2015</div>
+      </div>
+
+      <div class="cert-box">
+        <img src="https://cdnbbsr.s3waas.gov.in/s3e14d02262d6510598edccb6180462efd/uploads/2025/05/202505142076008444.jpeg" class="cert-icon" alt="FDA Certification">
+        <div class="cert-name">FDA Compliant</div>
+      </div>
+
+      <div class="cert-box">
+        <img src="https://cdsco.gov.in/opencms/export/sites/CDSCO_WEB/Image_folder/logo/cdscologo_lbg.png" class="cert-icon" alt="CDSCO Certification">
+        <div class="cert-name">CDSCO Approved</div>
+      </div>
+    </div>
+  </div>
+  <!-- END ASSURED QUALITY CERTIFICATIONS -->
+    </div>
+  </section>
+  
+<!-- LEADING HEALTHCARE INNOVATION (with scroll-triggered stats) -->
+<section id="third-party" class="third-party-section">
+  <div class="third-party-wrapper">
+
+    <div class="third-party-content">
+      <h2 class="lp-title">Leading Healthcare Innovation</h2>
+      <p class="lp-sub">Founded in 2025 with a clear mission to innovate &amp; deliver high-quality pharmaceutical products through strategic partnership and ethical practices.</p>
+
+      <div class="mission-vision-wrapper">
+        <div class="vision-card">
+          <h3>Our Vision</h3>
+          <p>To become a trusted leader in pharmaceutical marketing by delivering high-quality and innovative solutions that improve patient well-being and strengthen healthcare access.</p>
+        </div>
+
+        <div class="mission-card">
+          <h3>Our Mission</h3>
+          <p>To market high-quality and innovative pharmaceutical products through strong partnerships, ensuring ethical practices and wider healthcare access for improved outcomes.</p>
+        </div>
+      </div>
+
+      <!-- STATS (Satisfied Clients + Partnerships) -->
+      <div class="stats-wrapper">
+
+        <!-- Satisfied Clients (left) -->
+        <div class="stat-card clients-card" aria-labelledby="clients-title">
+          <h3 id="clients-title">Satisfied Clients</h3>
+
+          <div class="graph-area">
+            <svg id="clients-svg" viewBox="0 0 600 200" preserveAspectRatio="none" role="img" aria-label="Client growth chart">
+              <defs>
+                <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="#6b21a8" stop-opacity="0.7" />
+                </linearGradient>
+              </defs>
+
+              <!-- Bars behind curve -->
+              <g id="clients-bars-group" class="bars-group">
+                <rect class="bar-rect" data-value="50"></rect>
+                <rect class="bar-rect" data-value="120"></rect>
+                <rect class="bar-rect" data-value="200"></rect>
+                <rect class="bar-rect" data-value="300"></rect>
+                <rect class="bar-rect" data-value="380"></rect>
+                <rect class="bar-rect" data-value="489"></rect>
+              </g>
+
+              <!-- Smooth curve line -->
+              <path id="clients-path" class="clients-line" fill="none" stroke="#6b21a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+
+          <!-- Animated number -->
+          <div class="stat-number-wrap">
+            <div class="stat-number" aria-live="polite"><span id="clients-count">0</span></div>
+            <div class="stat-label">Total satisfied clients</div>
+          </div>
+        </div>
+
+        <!-- Partnerships (right) -->
+        <div class="stat-card partners-card" aria-labelledby="partners-title">
+          <h3 id="partners-title">Expert Pharmacists</h3>
+
+          <div class="partner-visual">
+            <svg class="partner-icon" viewBox="0 0 64 64" width="80" height="80" aria-hidden="true">
+              <path d="M32 6a10 10 0 1 0 0 20 10 10 0 1 0 0-20zM6 58c0-8.8 7.2-16 16-16h20c8.8 0 16 7.2 16 16" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="partner-number-wrap">
+            <div class="partner-number"><span id="partners-count">0</span><span class="plus">+ Pharmacists</span></div>
+        
+          </div>
+        </div>
+		
+		<!-- Quality (new bottom stat) -->
+<div class="stat-card partners-card quality-card" aria-labelledby="quality-title">
+  <h3 id="quality-title">Quality</h3>
+
+  <div class="quality-visual">
+    <svg class="quality-icon" viewBox="0 0 64 64" width="80" height="80" aria-hidden="true">
+      <circle cx="32" cy="32" r="28" stroke="#6b21a8" stroke-width="3" fill="none"/>
+      <path d="M20 33l7 7 17-17" stroke="#8b5cf6" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="quality-number-wrap">
+    <div class="quality-number"><span id="quality-count">0</span>%</div>
+    <div class="stat-label">Product quality standard</div>
+  </div>
+</div>
+
+
+      </div>
+      <!-- end stats-wrapper -->
+
+    </div>
+
+  </div>
+</section>
+<!-- END LEADING HEALTHCARE INNOVATION -->
+
+  <!-- WHY CHOOSE US -->
+  <section id="why-choose-us" class="why-choose-section">
+    <div class="why-choose-wrapper">
+      <div class="why-left">
+        <img src="assets/why.jpeg" alt="Pharma Expert" class="why-left-img">
+      </div>
+
+      <div class="why-right">
+        <h2>Why Top Pharma Businesses Choose Us</h2>
+        <p>At <strong>Sanvextra Industries</strong>, we take pride in our ability to deliver high-quality, reliable, and compliant products through a network of trusted partners and manufacturers. Our focus on innovation, consistency, and client satisfaction makes us a preferred choice among leading pharmaceutical and nutraceutical brands.</p>
+
+        <div class="icon-boxes">
+          <div class="icon-box">
+            <div class="icon-circle">🏅</div>
+            <div class="icon-box-content">
+              <h3>Top Quality Assurance</h3>
+              <p>We ensure world-class quality and safety standards in every formulation, from sourcing to packaging.</p>
+            </div>
+          </div>
+
+          <div class="icon-box">
+            <div class="icon-circle">💊</div>
+            <div class="icon-box-content">
+              <h3>Diverse Product Range</h3>
+              <p>We offer a wide portfolio of pharmaceutical and nutraceutical products across multiple therapeutic categories.</p>
+            </div>
+          </div>
+
+          <div class="icon-box">
+            <div class="icon-circle">🧬</div>
+            <div class="icon-box-content">
+              <h3>Top-Tier Safety Measures</h3>
+              <p>We maintain stringent safety and testing standards to ensure every product meets global compliance benchmarks.</p>
+            </div>
+          </div>
+		  
+		  <div class="icon-box">
+            <div class="icon-circle">🚚</div>
+            <div class="icon-box-content">
+              <h3>Authorized Distributors</h3>
+              <p>We provide a comprehensive range of high-quality pharmaceutical and nutraceutical products, backed by exclusive distribution rights across various therapeutic sectors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PARTNER SECTION -->
+  <section id="partner" class="partner-section">
+    <div class="partner-wrapper">
+      <div class="partner-left">
+        <img src="assets/trusted.jpeg" alt="Sanvextra Partnership" class="partner-left-img">
+      </div>
+
+      <div class="partner-right">
+        <h2>Your Trusted Partner in Pharmaceutical Marketing & Distribution</h2>
+        <p>Sanvextra Industries is your trusted partner in marketing and distribution, offering reliable and high-quality pharmaceutical products. We ensure seamless logistics, compliance, and customer satisfaction — empowering healthcare businesses to thrive with integrity and efficiency.</p>
+
+        <div class="partner-features">
+          <div class="partner-feature hidden">
+            <div class="pf-icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div>
+              <h3>Free Delivery</h3>
+              <p>Fast and secure delivery to your facility at no extra cost.</p>
+            </div>
+          </div>
+
+          <div class="partner-feature">
+            <div class="pf-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <h3>24/7 Support</h3>
+              <p>Dedicated assistance whenever you need it.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="partner-contact-link">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- <!-- PRODUCTS SECTION --> 
+  <!-- <section id="products" class="products-section"> -->
+    <!-- <div class="products-inner"> -->
+      <!-- <h2>Our Products</h2> -->
+      <!-- <p>Our products are manufactured in WHO-GMP certified units ensuring quality, safety, and compliance with international standards.</p> -->
+
+      <!-- <!-- Swiper --> 
+      <!-- <div class="swiper productSwiper"> -->
+        <!-- <div class="swiper-wrapper"> -->
+
+          <!-- <!-- Product Slide --> 
+          <!-- <div class="swiper-slide"> -->
+            <!-- <div class="product-card"> -->
+              <!-- <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-06-at-10.42.17-PM.jpeg" alt="Amoxycillin"> -->
+              <!-- <h3>Amoxycillin & Potassium Clavulanate IP</h3> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+          <!-- <div class="swiper-slide"> -->
+            <!-- <div class="product-card"> -->
+              <!-- <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-06-at-10.42.19-PM.jpeg" alt="Pregabalin"> -->
+              <!-- <h3>Pregabalin Capsules IP</h3> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+          <!-- <div class="swiper-slide"> -->
+            <!-- <div class="product-card"> -->
+              <!-- <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/vitamin-A-syrup-2.jpg" alt="Vitamin A Syrup"> -->
+              <!-- <h3>Vitamin A Syrup</h3> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+          <!-- <div class="swiper-slide"> -->
+            <!-- <div class="product-card"> -->
+              <!-- <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-06-at-10.42.15-PM-2.jpeg" alt="Nimesulide"> -->
+              <!-- <h3>Nimesulide & Paracetamol</h3> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+          <!-- <div class="swiper-slide"> -->
+            <!-- <div class="product-card"> -->
+              <!-- <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-06-at-10.42.16-PM-1.jpeg" alt="Ferrous Ascorbate"> -->
+              <!-- <h3>Ferrous Ascorbate, Folic Acid & Zinc</h3> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+        <!-- </div> -->
+
+        <!-- <!-- Swiper Controls --> 
+        <!-- <div class="swiper-button-next product-next"></div> -->
+        <!-- <div class="swiper-button-prev product-prev"></div> -->
+        <!-- <div class="swiper-pagination"></div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </section> -->
+
+
+	
+  <!-- CLIENT REVIEWS SECTION -->
+  <section id="reviews" class="reviews-section">
+    <div class="reviews-inner">
+      <h2>What Our Clients Say</h2>
+      <p>Our partners and clients value Sanvextra Industries for our quality, professionalism, and commitment to timely delivery. Here’s what they have to say.</p>
+
+      <div class="swiper reviewSwiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-head">
+                <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/human-150x150.png" alt="" class="review-avatar">
+                <div>
+                  <strong>Gargi Vaze</strong><br>
+                  <span class="review-role">Pharmaceutical Distributor</span>
+                </div>
+              </div>
+              <p>“Sanvextra Industries has been a reliable partner for our distribution network. Their product quality and customer service are exceptional.”</p>
+              <div class="review-rating">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-head">
+                <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/man-150x150.png" alt="" class="review-avatar">
+                <div>
+                  <strong>Santosh Kapse</strong><br>
+                  <span class="review-role">Retail Partner</span>
+                </div>
+              </div>
+              <p>“We’ve been working with Sanvextra for over a year. Their professionalism and ethical business approach make them a trusted partner.”</p>
+              <div class="review-rating">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="review-card">
+              <div class="review-head">
+                <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/man-150x150.png" alt="" class="review-avatar">
+                <div>
+                  <strong>Priya Deshmukh</strong><br>
+                  <span class="review-role">Manufacturing Partner</span>
+                </div>
+              </div>
+              <p>“Sanvextra’s dedication to quality assurance and timely delivery helps us maintain strong relationships with our clients.”</p>
+              <div class="review-rating">★★★★☆</div>
+            </div>
+          </div>
+		  
+		  <div class="swiper-slide">
+  <div class="review-card">
+    <div class="review-head">
+      <img src="https://cledrallifesciences.com/wp-content/uploads/2025/03/human-150x150.png" alt="" class="review-avatar">
+      <div>
+        <strong>Dr. Rohan Kulkarni</strong><br>
+        <span class="review-role">Clinical Practitioner</span>
+      </div>
+    </div>
+    <p>“As a healthcare practitioner, I value products backed by consistency and compliance. Sanvextra Industries ensures high-quality formulations that support better patient outcomes.”</p>
+    <div class="review-rating">★★★★★</div>
+  </div>
+</div>
+
+
+        </div>
+
+        <!-- Swiper Controls -->
+        <div class="swiper-button-next review-next"></div>
+        <div class="swiper-button-prev review-prev"></div>
+        <div class="swiper-pagination review-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-grid">
+
+        <div class="footer-about">
+          <h2>About</h2>
+          <p>Sanvextra Industries provides high-quality, ethical, and innovative pharmaceutical products through strong partnerships. We are committed to making healthcare accessible and consumer-friendly.</p>
+          <hr>
+          <h3>Social Media</h3>
+          <div class="social-icons">
+            <a href="#" class="social"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="https://sanvextra.com/about-us">› About</a></li>
+            <li><a href="https://sanvextra.com/products">› Products</a></li>
+            <li><a href="https://sanvextra.com/contact-us">› Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-support">
+          <h2>Support</h2>
+          <ul>
+            <li><a href="https://sanvextra.com/privacy-policy">› Privacy Policy</a></li>
+            <li><a href="https://sanvextra.com/terms-and-conditions">› Terms & Conditions</a></li>
+            <li><a href="https://sanvextra.com/contact-us">› Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h2>Contact</h2>
+          <ul>
+            <li>📍 RH-16, Arjun Nagar, Pimparghavan Road, Ambika Chowk, Beed - 431122</li>
+            <li>✉️ info@sanvextra.com</li>
+            <li>📞 +91 8380827361</li>
+            <li>🕒 Mon-Sat: 9:00 AM – 6:00 PM</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+	
+<!-- GOOGLE MAP LOCATION -->
+<div class="footer-map" style="margin: 40px auto; max-width: 100%; text-align: center;">
+  <h2>Our Location</h2>
+  <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3772.407658983375!2d75.7347778!3d19.001749999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDAwJzA2LjMiTiA3NcKwNDQnMDUuMiJF!5e0!3m2!1sen!2sin!4v1763911139287!5m2!1sen!2sin"
+      width="100%" 
+      height="350" 
+      style="border:0; border-radius:10px;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+
+
+    <div class="footer-newsletter">
+      <h2>Subscribe to Newsletter</h2>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your Email" required class="newsletter-input">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+
+    <section class="elementor-section sanvextra-footer">
+      <div class="elementor-container">
+        <div class="left-copy">
+          <p>Copyright © 2025 Sanvextra Industries. All rights reserved.</p>
+        </div>
+        <div class="right-copy">
+          <p>Developed &amp; Designed By: <a href="https://gauravgaikwad.ddns.net/" target="_blank" class="dev-link">Gaurav Gaikwad & Kumkum Gaikwad</a></p>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+  <!-- Swiper CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/swiper.js"></script>
+
+<!-- Popup Dialog -->
+<div id="popupDialog" class="popup-overlay">
+  <div class="popup-box">
+    <button class="popup-close" id="closePopup">&times;</button>
+
+    <div class="popup-content">
+      <!-- Left Side Image -->
+      <div class="popup-image">
+        <img src="assets/pop_up.jpeg" 
+             alt="Pharmacist Working">
+      </div>
+
+      <!-- Right Side Form -->
+      <div class="popup-form-section">
+        <h2>Get in touch with us!</h2>
+        <form class="popup-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="tel" placeholder="Phone Number" required pattern="[0-9()#&+*-=.]+" title="Only numbers and phone characters are accepted.">
+          <input type="email" placeholder="Email Address" required>
+          <input type="text" placeholder="City">
+          <input type="text" placeholder="Company (Optional)">
+          <textarea rows="4" placeholder="Message"></textarea>
+          <button type="submit" class="popup-submit">Submit Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a id="whatsapp-float"
+   href="https://wa.me/918380827361?text=Hello%20Sanvextra%20Industries%2C%20I%20would%20like%20more%20information"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat on WhatsApp">
+  <span class="wpa-cta">WhatsApp us</span>
+  <span class="wpa-icon" aria-hidden="true"><i class="fab fa-whatsapp"></i></span>
+</a>
+
+<style>
+  /* WhatsApp floating button */
+  #whatsapp-float {
+    position: fixed;
+    right: 15px;
+    bottom: 80px;
+    z-index: 99999999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .15s ease;
+    pointer-events: auto;
+  }
+
+  /* CTA label (hidden on narrow screens) */
+  #whatsapp-float .wpa-cta {
+    display: none;
+    background: linear-gradient(180deg,#25d366,#20b038);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    box-shadow: 0 6px 18px rgba(32,176,56,0.18);
+    line-height: 1;
+    white-space: nowrap;
+    transform-origin: right center;
+  }
+
+  /* Icon circle */
+  #whatsapp-float .wpa-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(180deg,#25d366,#20b038);
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(2,60,27,0.18);
+    font-size: 22px;
+  }
+
+  /* Hover / active effects */
+  #whatsapp-float:hover { transform: translateY(-4px); }
+  #whatsapp-float:active { transform: translateY(-1px) scale(.99); }
+
+  /* Show CTA on medium+ screens */
+  @media (min-width: 640px) {
+    #whatsapp-float .wpa-cta { display: inline-block; }
+  }
+
+  /* Smaller icon on tiny screens */
+  @media (max-width: 600px) {
+    #whatsapp-float { right: 10px; bottom: 80px; }
+    #whatsapp-float .wpa-icon { height:44px; width:44px; font-size:20px; }
+  }
+
+  /* Optional pulse animation (subtle) */
+  @keyframes wpaPulse {
+    0% { box-shadow: 0 8px 22px rgba(32,176,56,0.18); transform: scale(1); }
+    70% { box-shadow: 0 18px 38px rgba(32,176,56,0.12); transform: scale(1.04); }
+    100% { box-shadow: 0 8px 22px rgba(32,176,56,0.18); transform: scale(1); }
+  }
+  #whatsapp-float.pulse .wpa-icon { animation: wpaPulse 2.8s infinite; }
+
+</style>
+
+<script>
+  // small behaviour helpers: add pulse for a little attention, remove after some time
+  (function(){
+    const btn = document.getElementById('whatsapp-float');
+    if(!btn) return;
+
+    // Add pulse for 8 seconds then remove
+    btn.classList.add('pulse');
+    setTimeout(()=> btn.classList.remove('pulse'), 8000);
+
+    // Optional: show a quick toast on first click (unobtrusive)
+    btn.addEventListener('click', function(){
+      // analytics or other logic could go here
+    });
+  })();
+</script>
+
+
+<!-- main popup dialog script -->
+<script>
+  // Show popup when page loads
+  window.addEventListener("load", function() {
+    const popup = document.getElementById("popupDialog");
+    popup.style.display = "flex"; // show
+  });
+
+  // Close button logic
+  document.getElementById("closePopup").addEventListener("click", function() {
+    document.getElementById("popupDialog").style.display = "none";
+  });
+
+  // Click outside popup to close
+  document.getElementById("popupDialog").addEventListener("click", function(e) {
+    if (e.target === this) this.style.display = "none";
+  });
+</script>
+
+<!-- button popup script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  
+  const popup = document.getElementById("popupDialog");
+  const partnerBtn = document.querySelector(".hero-cta .btn.btn-outline");
+  const contactBtn = document.querySelector(".partner-contact-link");
+
+  function openPopup() {
+    popup.style.display = "flex";
+  }
+
+  // Open popup on both button clicks
+  if (partnerBtn) partnerBtn.addEventListener("click", openPopup);
+  if (contactBtn) contactBtn.addEventListener("click", openPopup);
+
+});
+</script>
+
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const section = document.querySelector('#third-party');
+  if (!section) return;
+
+  // Data points (final 489)
+  const data = [50, 120, 200, 300, 380, 489];
+  const maxVal = Math.max(...data);
+
+  const svg       = document.getElementById('clients-svg');
+  const pathEl    = document.getElementById('clients-path');
+  const barsGroup = document.getElementById('clients-bars-group');
+  const barRects  = barsGroup ? Array.from(barsGroup.querySelectorAll('.bar-rect')) : [];
+
+  const clientsTarget  = 489;
+  const partnersTarget = 4;
+
+  let chartSetupDone = false;
+  let hasAnimated    = false;
+
+  // Build smooth curve path using quadratic segments
+  function buildSmoothPath(points){
+    if (points.length < 2) return '';
+    if (points.length === 2){
+      const p0 = points[0], p1 = points[1];
+      return `M ${p0.x} ${p0.y} L ${p1.x} ${p1.y}`;
+    }
+
+    let d = `M ${points[0].x} ${points[0].y}`;
+    for (let i = 1; i < points.length - 1; i++){
+      const p0 = points[i];
+      const p1 = points[i + 1];
+      const xc = (p0.x + p1.x) / 2;
+      const yc = (p0.y + p1.y) / 2;
+      d += ` Q ${p0.x} ${p0.y} ${xc} ${yc}`;
+    }
+    const pn_1 = points[points.length - 1];
+    const pn_2 = points[points.length - 2];
+    d += ` Q ${pn_1.x} ${pn_1.y} ${pn_1.x} ${pn_1.y}`;
+    return d;
+  }
+
+  // Prepare chart geometry (points, bars positions)
+  let points = [];
+  let barTargets = [];
+
+  function setupChart(){
+    if (chartSetupDone) return;
+    if (!svg || !pathEl) return;
+
+    const viewBox = svg.viewBox.baseVal;
+    const svgW = viewBox && viewBox.width  ? viewBox.width  : 600;
+    const svgH = viewBox && viewBox.height ? viewBox.height : 200;
+
+    const paddingTop    = 20;
+    const paddingBottom = 24;
+    const paddingLeft   = 24;
+    const paddingRight  = 24;
+
+    const innerW = svgW - paddingLeft - paddingRight;
+    const innerH = svgH - paddingTop - paddingBottom;
+
+    const stepX = innerW / (data.length - 1);
+
+    // Points for line
+    points = data.map((v, i) => {
+      const x = paddingLeft + i * stepX;
+      const y = paddingTop + (1 - v / maxVal) * innerH;
+      return { x, y, value: v };
+    });
+
+    // Apply smooth path
+    const d = buildSmoothPath(points);
+    pathEl.setAttribute('d', d);
+
+    // Bars behind curve
+    barTargets = [];
+    barRects.forEach((rect, i) => {
+      const value = Number(rect.getAttribute('data-value')) || 0;
+      const xCenter = paddingLeft + i * stepX;
+      const barWidth = Math.min(40, stepX * 0.5);
+      const height = (value / maxVal) * innerH;
+
+      const x = xCenter - barWidth / 2;
+      const y = paddingTop + (innerH - height);
+
+      rect.setAttribute('x', x);
+      rect.setAttribute('width', barWidth);
+      rect.setAttribute('y', paddingTop + innerH); // start from bottom (0 height)
+      rect.setAttribute('height', 0);
+
+      barTargets.push({ rect, x, y, height });
+    });
+
+    chartSetupDone = true;
+  }
+
+  // Animate curve drawing
+  function animatePath(duration = 1400){
+    const totalLen = pathEl.getTotalLength();
+    pathEl.style.strokeDasharray  = totalLen;
+    pathEl.style.strokeDashoffset = totalLen;
+    pathEl.getBoundingClientRect(); // force layout
+
+    const start = performance.now();
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      pathEl.style.strokeDashoffset = totalLen * (1 - t);
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // Animate bars up to their target heights
+  function animateBars(duration = 1400){
+    const start = performance.now();
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      barTargets.forEach(({ rect, y, height }) => {
+        const curH = height * t;
+        const curY = y + (height - curH);
+        rect.setAttribute('y', curY);
+        rect.setAttribute('height', curH);
+      });
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // Number counters
+  function animateCounter(id, target, duration = 1600){
+    const el = document.getElementById(id);
+    if (!el) return;
+    const start = performance.now();
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      const cur = Math.floor(target * t);
+      el.textContent = cur.toLocaleString('en-IN');
+      if (t < 1) requestAnimationFrame(frame);
+      else el.textContent = target.toLocaleString('en-IN');
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function animatePartnerCounter(id, target, duration = 1500){
+    const el = document.getElementById(id);
+    if (!el) return;
+    const start = performance.now();
+    function frame(now){
+      const t = Math.min(1, (now - start) / duration);
+      const cur = Math.floor(target * t);
+      el.textContent = cur.toString();
+      if (t < 1) requestAnimationFrame(frame);
+      else el.textContent = target.toString();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // Combine everything, triggered when section is in view
+  function runStatsAnimation(){
+    if (hasAnimated) return;
+    hasAnimated = true;
+
+    setupChart();
+    animatePath(8000);
+    animateBars(8000);
+    animateCounter('clients-count',  clientsTarget, 8000);
+    animatePartnerCounter('partners-count', partnersTarget, 8000);
+  }
+
+  // IntersectionObserver to trigger when visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        runStatsAnimation();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.35
+  });
+
+  observer.observe(section);
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // QUALITY ANIMATION
+  const qualityCountEl = document.getElementById("quality-count");
+  let qualityValue = 0;
+  const finalQuality = 99.9;
+  const qualitySpeed = 14; // lower = faster
+
+  function animateQuality() {
+    const update = setInterval(() => {
+      qualityValue += 0.3;
+      if (qualityValue >= finalQuality) {
+        qualityValue = finalQuality;
+        clearInterval(update);
+      }
+      qualityCountEl.textContent = qualityValue.toFixed(1);
+    }, qualitySpeed);
+  }
+
+  // Trigger when section is visible
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateQuality();
+      }
+    });
+  }, { threshold: 0.4 });
+
+  observer.observe(document.querySelector('.quality-card'));
+
+});
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.getElementById('menuBtn');
+    const mainMenu = document.getElementById('mainMenu');
+
+    if (!menuBtn || !mainMenu) return;
+
+    // Toggle menu + button animation
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const opened = mainMenu.classList.toggle('open');
+
+      // 🔥 rotate animation toggle
+      menuBtn.classList.toggle('active', opened);
+
+      menuBtn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!mainMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+        if (mainMenu.classList.contains('open')) {
+          mainMenu.classList.remove('open');
+          menuBtn.classList.remove('active'); // reset rotation
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+
+    // Close when a link is tapped
+    mainMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (mainMenu.classList.contains('open')) {
+          mainMenu.classList.remove('open');
+          menuBtn.classList.remove('active'); // reset rotation
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+const MIN_TIME = 8000;
+const startTime = Date.now();
+
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader-overlay");
+
+  const elapsed = Date.now() - startTime;
+  const remaining = Math.max(0, MIN_TIME - elapsed);
+
+  setTimeout(() => {
+    preloader.classList.add("hidden");
+    setTimeout(() => preloader.remove(), 500);
+  }, remaining);
+});
+</script>
+
+
+
+
+</body>
+</html>
