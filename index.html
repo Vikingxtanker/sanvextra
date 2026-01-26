@@ -565,34 +565,41 @@
   <script src="js/swiper.js"></script>
 
 <!-- Popup Dialog -->
-<div id="popupDialog" class="popup-overlay">
+<div id="popupDialog" class="popup-overlay" style="display:none;">
   <div class="popup-box">
-    <button class="popup-close" id="closePopup">&times;</button>
+    <button class="popup-close" id="closePopup" aria-label="Close popup">&times;</button>
 
     <div class="popup-content">
       <!-- Left Side Image -->
       <div class="popup-image">
-        <img src="assets/pop_up.jpeg" 
-             alt="Pharmacist Working">
+        <img src="assets/pop_up.jpeg" alt="Pharmacist Working">
       </div>
 
       <!-- Right Side Form -->
       <div class="popup-form-section">
         <h2>Get in touch with us!</h2>
-        <form class="popup-form">
-          <input type="text" placeholder="Full Name" required>
-          <input type="tel" placeholder="Phone Number" required pattern="[0-9()#&+*-=.]+" title="Only numbers and phone characters are accepted.">
-          <input type="email" placeholder="Email Address" required>
-          <input type="text" placeholder="City">
-          <input type="text" placeholder="Company (Optional)">
-          <textarea rows="4" placeholder="Message"></textarea>
+
+        <!-- IMPORTANT: id + name attributes so EmailJS can read values -->
+        <form class="popup-form" id="popupContactForm">
+          <input type="text" name="name" placeholder="Full Name" required>
+
+          <input type="tel" name="phone" placeholder="Phone Number" required
+            pattern="[0-9()#&+*-=.]+" title="Only numbers and phone characters are accepted.">
+
+          <input type="email" name="email" placeholder="Email Address" required>
+
+          <input type="text" name="city" placeholder="City">
+
+          <input type="text" name="company" placeholder="Company (Optional)">
+
+          <textarea name="message" rows="4" placeholder="Message"></textarea>
+
           <button type="submit" class="popup-submit">Submit Now</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-
 
 
 <!-- WHATSAPP FLOAT BUTTON -->
@@ -674,6 +681,10 @@
 
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
   // small behaviour helpers: add pulse for a little attention, remove after some time
   (function(){
@@ -728,6 +739,100 @@ document.addEventListener("DOMContentLoaded", function () {
   if (contactBtn) contactBtn.addEventListener("click", openPopup);
 
 });
+</script>
+
+<script>
+  (function () {
+    // RE-USE your existing public key and service/template IDs
+    // emailjs.init(...) is already called earlier in the page; if not, you can call it here:
+    if (typeof emailjs === 'undefined') {
+      console.error('EmailJS not loaded. Make sure <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> is included.');
+      return;
+    }
+
+    // Elements
+    const popupDialog = document.getElementById('popupDialog');
+    const popupForm   = document.getElementById('popupContactForm');
+    const closeBtn    = document.getElementById('closePopup');
+
+    if (!popupForm) return; // nothing to do
+
+    // helper: close popup
+    function closePopup() {
+      if (popupDialog) popupDialog.style.display = 'none';
+    }
+
+    // Close button already exists in your page; keep behavior
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closePopup);
+    }
+
+    // Click outside to close (keeps current behavior)
+    if (popupDialog) {
+      popupDialog.addEventListener('click', function (e) {
+        if (e.target === popupDialog) closePopup();
+      });
+    }
+
+    // Submission handler
+    popupForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const submitBtn = popupForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      // Show SweetAlert loader
+      Swal.fire({
+        title: 'Sending Message...',
+        html: 'Please wait while we send your message.',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        didOpen: () => Swal.showLoading()
+      });
+
+      try {
+        // Send to owner
+        await emailjs.sendForm('service_7ant25z', 'template_djvaruo', popupForm);
+
+        // Send auto-reply to visitor
+        await emailjs.sendForm('service_7ant25z', 'template_9hl6s28', popupForm);
+
+        // Success popup (auto-close after 2s)
+        await Swal.fire({
+          icon: 'success',
+          title: 'Sent Successfully!',
+          text: 'Thank you — your message has been delivered.',
+          timer: 2000,
+          showConfirmButton: false
+        });
+
+        // reset & close
+        popupForm.reset();
+        closePopup();
+
+      } catch (err) {
+        console.error('EmailJS (popup) error:', err);
+
+        await Swal.fire({
+          icon: 'error',
+          title: 'Message Not Sent',
+          text: 'Something went wrong. Please try again later.',
+          confirmButtonText: 'OK'
+        });
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Now';
+        }
+      }
+    });
+
+    // If you already show popup on load, nothing more to do.
+    // If you want to show it after X seconds instead of immediately, uncomment:
+    // window.addEventListener('load', () => setTimeout(() => { popupDialog.style.display = 'flex'; }, 2500));
+  })();
 </script>
 
 
