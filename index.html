@@ -705,150 +705,100 @@
 
 <!-- main popup dialog script -->
 <script>
-  // Show popup when page loads
-  window.addEventListener("load", function() {
-    const popup = document.getElementById("popupDialog");
-    popup.style.display = "flex"; // show
-  });
+  // ✅ EmailJS init
+  emailjs.init("IrvX3tO_XfSb6cPmE");
 
-  // Close button logic
-  document.getElementById("closePopup").addEventListener("click", function() {
-    document.getElementById("popupDialog").style.display = "none";
-  });
+  document.addEventListener("DOMContentLoaded", () => {
+    const popupDialog = document.getElementById("popupDialog");
+    const popupForm = document.getElementById("popupContactForm");
+    const closeBtn = document.getElementById("closePopup");
 
-  // Click outside popup to close
-  document.getElementById("popupDialog").addEventListener("click", function(e) {
-    if (e.target === this) this.style.display = "none";
-  });
-</script>
+    const partnerBtn = document.querySelector(".hero-cta .btn.btn-outline");
+    const contactBtn = document.querySelector(".partner-contact-link");
 
-<!-- button popup script -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  
-  const popup = document.getElementById("popupDialog");
-  const partnerBtn = document.querySelector(".hero-cta .btn.btn-outline");
-  const contactBtn = document.querySelector(".partner-contact-link");
+    if (!popupDialog) return;
 
-  function openPopup() {
-    popup.style.display = "flex";
-  }
-
-  // Open popup on both button clicks
-  if (partnerBtn) partnerBtn.addEventListener("click", openPopup);
-  if (contactBtn) contactBtn.addEventListener("click", openPopup);
-
-});
-</script>
-
-<!-- Popup form handler - make sure this is placed after emailjs & sweetalert scripts -->
-<script>
-(function () {
-  // Ensure dependencies are loaded
-  if (typeof emailjs === 'undefined') {
-    console.error('EmailJS not loaded. Include: <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> before this script.');
-    return;
-  }
-  if (typeof Swal === 'undefined') {
-    console.error('SweetAlert2 not loaded. Include: <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> before this script.');
-    return;
-  }
-
-  // (Optional) initialize EmailJS if not already initialized
-  try {
-    if (!emailjs.__INITIALIZED__) { // non-standard flag; harmless if not present
-      emailjs.init("IrvX3tO_XfSb6cPmE");
+    function openPopup() {
+      popupDialog.style.display = "flex";
     }
-  } catch (e) {
-    // fallback init (safe)
-    try { emailjs.init("IrvX3tO_XfSb6cPmE"); } catch (err) {}
-  }
 
-  // Elements
-  const popupDialog = document.getElementById('popupDialog');
-  const popupForm   = document.getElementById('popupContactForm');
-  const closeBtn    = document.getElementById('closePopup');
+    function closePopup() {
+      popupDialog.style.display = "none";
+    }
 
-  if (!popupForm) return; // nothing to do
+    // ✅ Show popup when page loads
+    window.addEventListener("load", () => {
+      openPopup();
+    });
 
-  // helper: close popup
-  function closePopup() {
-    if (popupDialog) popupDialog.style.display = 'none';
-  }
+    // ✅ Close button
+    if (closeBtn) closeBtn.addEventListener("click", closePopup);
 
-  // Close button behavior
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closePopup);
-  }
-
-  // Click outside to close
-  if (popupDialog) {
-    popupDialog.addEventListener('click', function (e) {
+    // ✅ Outside click closes popup
+    popupDialog.addEventListener("click", (e) => {
       if (e.target === popupDialog) closePopup();
     });
-  }
 
-  // Submission handler
-  popupForm.addEventListener('submit', async function (e) {
-    e.preventDefault();
+    // ✅ Buttons open popup
+    if (partnerBtn) partnerBtn.addEventListener("click", openPopup);
+    if (contactBtn) contactBtn.addEventListener("click", openPopup);
 
-    const submitBtn = popupForm.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.dataset.origText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-    }
+    // ✅ Handle Popup Form Submit
+    if (!popupForm) return;
 
-    // Show SweetAlert loader
-    Swal.fire({
-      title: 'Sending Message...',
-      html: 'Please wait while we send your message.',
-      allowOutsideClick: false,
-      allowEscapeKey: false,
-      didOpen: () => Swal.showLoading()
-    });
+    popupForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    try {
-      // 1) Send message to Owner (Sanvextra)
-      await emailjs.sendForm('service_7ant25z', 'template_djvaruo', popupForm);
-
-      // 2) Send auto-reply confirmation to customer
-      await emailjs.sendForm('service_7ant25z', 'template_9hl6s28', popupForm);
-
-      // Success popup (auto-close after 2s)
-      await Swal.fire({
-        icon: 'success',
-        title: 'Sent Successfully!',
-        text: 'Thank you — your message has been delivered.',
-        timer: 2000,
-        showConfirmButton: false
-      });
-
-      // reset & close
-      popupForm.reset();
-      closePopup();
-
-    } catch (err) {
-      console.error('EmailJS (popup) error:', err);
-
-      await Swal.fire({
-        icon: 'error',
-        title: 'Message Not Sent',
-        text: 'Something went wrong. Please try again later.',
-        confirmButtonText: 'OK'
-      });
-    } finally {
+      const submitBtn = popupForm.querySelector('button[type="submit"]');
       if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = submitBtn.dataset.origText || 'Submit Now';
-        delete submitBtn.dataset.origText;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
       }
-    }
-  });
 
-  // Optional: show popup after N seconds (uncomment if needed)
-  // window.addEventListener('load', () => setTimeout(() => { if (popupDialog) popupDialog.style.display = 'flex'; }, 2500));
-})();
+      Swal.fire({
+        title: "Sending Message...",
+        html: "Please wait while we send your message.",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        didOpen: () => Swal.showLoading()
+      });
+
+      try {
+        // ✅ owner mail
+        await emailjs.sendForm("service_7ant25z", "template_djvaruo", popupForm);
+
+        // ✅ auto-reply
+        await emailjs.sendForm("service_7ant25z", "template_9hl6s28", popupForm);
+
+        await Swal.fire({
+          icon: "success",
+          title: "Sent Successfully!",
+          text: "Thank you - your message has been delivered.",
+          timer: 2000,
+          showConfirmButton: false
+        });
+
+        popupForm.reset();
+        closePopup();
+
+      } catch (err) {
+        console.error("Popup EmailJS Error:", err);
+
+        await Swal.fire({
+          icon: "error",
+          title: "Message Not Sent",
+          text: "Something went wrong. Please try again later.",
+          confirmButtonText: "OK"
+        });
+
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Submit Now";
+        }
+      }
+    });
+  });
 </script>
 
 
