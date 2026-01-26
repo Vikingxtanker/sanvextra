@@ -301,7 +301,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <script>
   emailjs.init("IrvX3tO_XfSb6cPmE");
@@ -312,8 +313,20 @@
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
+    // ✅ Disable button
     btn.disabled = true;
     btn.textContent = "Sending...";
+
+    // ✅ SweetAlert Loading Popup
+    Swal.fire({
+      title: "Sending Message...",
+      html: "Please wait while we send your message.",
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      didOpen: () => {
+        Swal.showLoading(); // ✅ loader animation
+      }
+    });
 
     try {
       // ✅ 1) Send message to Owner (Sanvextra)
@@ -322,12 +335,26 @@
       // ✅ 2) Send auto-reply confirmation to customer
       await emailjs.sendForm("service_7ant25z", "template_9hl6s28", form);
 
-      alert("✅ Thank you! Your message has been sent successfully.");
+      // ✅ Success Popup (replaces loader)
+      await Swal.fire({
+        icon: "success",
+        title: "Sent Successfully!",
+        text: "Thank you! Your message has been delivered. Check you inbox for confirmation.",
+        confirmButtonText: "OK"
+      });
+
       form.reset();
 
     } catch (error) {
       console.error("EmailJS Error:", error);
-      alert("❌ Message failed to send. Please try again later.");
+
+      // ❌ Failed Popup
+      await Swal.fire({
+        icon: "error",
+        title: "Message Not Sent",
+        text: "Something went wrong. Please try again later.",
+        confirmButtonText: "Try Again"
+      });
 
     } finally {
       btn.disabled = false;
@@ -335,6 +362,7 @@
     }
   });
 </script>
+
 
 
 </body>
