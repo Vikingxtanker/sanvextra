@@ -7,7 +7,6 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Cardo:ital,wght@0,400;0,0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
@@ -63,47 +62,6 @@
 
     /* accessibility focus */
     a:focus, button:focus { outline:3px solid rgba(139,92,246,0.25); outline-offset:2px; }
-	
-		  /* small, focused styling for the drug slider */
-  .drug-slider { max-width: 520px; margin: 0 auto; }
-  .drug-slider h2 { font-size:26px; font-weight:700; margin-bottom:10px; text-align:left; }
-  .drug-slider .swiper { width: 100%; }
-  .drug-slider .swiper-slide { display:flex; align-items:center; justify-content:center; }
-  /* hide nav if not needed (JS will toggle class) */
-  .drug-slider .swiper-button-prev,
-  .drug-slider .swiper-button-next { color: #333; }
-  .drug-slider {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.drug-slider .swiper {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 12px;   /* space so it won’t merge with text */
-}
-
-.drug-slider .swiper-wrapper {
-  align-items: center;
-}
-
-.drug-slider .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.drug-slider .swiper-slide img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-  @media (max-width: 576px) {
-    .drug-slider img { height: 220px; }
-  }
-  
   </style>
 </head>
 <body>
@@ -170,37 +128,14 @@
   <!-- MAIN PRODUCT DETAIL -->
   <main class="container" role="main">
     <article class="product-hero" aria-labelledby="productTitle">
-<div class="drug-slider">
-  <h2>DOMVEX-PLUS™ Capsules</h2>
-
-  <!-- Swiper -->
-  <div class="swiper myDrugSwiper">
-    <div class="swiper-wrapper">
-      <!-- slide 1 -->
-      <div class="swiper-slide">
-        <img loading="lazy" src="../assets/products/domvex.jpg"
-             alt="DOMVEX-PLUS™ Capsules"
-             onerror="this.onerror=null;this.src='https://placeholder.pics/svg/300/DC8CFF-8778B3/Error'">
-      </div>
-
-      <!-- slide 2 -->
-      <div class="swiper-slide">
-        <img loading="lazy" src="../assets/products/domvex-side.jpg"
-             alt="DOMVEX-PLUS™ Capsules - side view"
-             onerror="this.onerror=null;this.src='https://placeholder.pics/svg/300/DC8CFF-8778B3/Error'">
-      </div>
-      <!-- add more slides here -->
-    </div>
-
-    <!-- pagination + navigation -->
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev" aria-label="Previous slide"></div>
-    <div class="swiper-button-next" aria-label="Next slide"></div>
-  </div>
-
-          <p class="note"><strong>Generic name:</strong> Esomeprazole 40 mg (Enteric Coated) + Domperidone 10 mg (Immediate Release) + Domperidone 20 mg (Sustained Release)</p>
+      <div>
+	    <h2 style="font-size:26px; font-weight:700; margin-bottom:10px;">
+    DOMVEX-PLUS™ Capsules
+  </h2>
+        <img src="../assets/products/domvex.jpg" alt="DOMVEX-PLUS Capsule" onerror="this.src='https://placeholder.pics/svg/300/DC8CFF-8778B3/Error'">
+        <p class="note"><strong>Generic name:</strong> Esomeprazole 40 mg (Enteric Coated) + Domperidone 10 mg (Immediate Release) + Domperidone 20 mg (Sustained Release)</p>
         <p class="note"><strong>Storage:</strong> Store in a cool, dry and dark place. Store below 30°C. Protect from moisture and heat. Keep out of reach of children.</p>
-</div>
+      </div>
 
       <div>
         <h2 id="productTitle">Product overview</h2>
@@ -308,45 +243,6 @@
       </div>
     </section>
 </footer>
-
-<script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
-<script>
-  (function() {
-    const swiperEl = document.querySelector('.myDrugSwiper');
-    if (!swiperEl) return;
-
-    // count slides (ignore clones)
-    const initialSlides = swiperEl.querySelectorAll('.swiper-slide').length;
-
-    const options = {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      loop: initialSlides > 1,
-      autoplay: initialSlides > 1 ? { delay: 3000, disableOnInteraction: false } : false,
-      pagination: { el: swiperEl.querySelector('.swiper-pagination'), clickable: true },
-      navigation: {
-        nextEl: swiperEl.querySelector('.swiper-button-next'),
-        prevEl: swiperEl.querySelector('.swiper-button-prev')
-      },
-      lazy: { loadPrevNext: true, loadOnTransitionStart: true },
-      preloadImages: false,
-      a11y: true
-    };
-
-    const mySwiper = new Swiper('.myDrugSwiper', options);
-
-    // hide navigation if only one slide (visual cleanup)
-    if (initialSlides <= 1) {
-      const next = swiperEl.querySelector('.swiper-button-next');
-      const prev = swiperEl.querySelector('.swiper-button-prev');
-      const pag = swiperEl.querySelector('.swiper-pagination');
-      if (next) next.style.display = 'none';
-      if (prev) prev.style.display = 'none';
-      if (pag) pag.style.display = 'none';
-    }
-  })();
-</script>
-
 
 </body>
 </html>
