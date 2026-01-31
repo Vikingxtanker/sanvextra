@@ -745,13 +745,14 @@ section.visible {
 .feature-card-promo .feature-img {
   position: absolute;
   bottom: -85px; /* pushes it further out of the box */
-  right: -80px;
+  right: -50px;
   width: 250px; /* bigger bottle */
   height: auto;
   transform: scale(1);
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 5;
   pointer-events: none;
+  width:100%; max-width:160px; height:auto;
 }
 
 .feature-card-promo:hover .feature-img {
@@ -850,6 +851,26 @@ section.visible {
   .cert-grid { gap: 10px; }
   .cert-box { min-width: 120px; padding: 10px 12px; font-size: 13px; }
 }
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .feature-card-promo .feature-img {
+    width: 130px;     /* smaller bottle */
+    bottom: -50px;    /* less out of box */
+    right: 10px;     /* bring it inside a bit */
+  }
+}
+
+
+/* @media (max-width: 480px) { */
+  /* .feature-card-promo .feature-img { */
+    /* width: 130px; */
+    /* bottom: -40px; */
+    /* right: -15px; */
+  /* } */
+/* } */
+
+
 
 /* ---------- Leading Healthcare Innovation (replacement for Third Party) ---------- */
 .third-party-section{
