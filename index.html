@@ -813,244 +813,255 @@ document.querySelectorAll('section').forEach(sec => observer.observe(sec));
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const section = document.querySelector('#third-party');
-  if (!section) {
-    console.warn("❌ #third-party section not found");
-    return;
-  }
-
-  // ✅ Your CounterAPI endpoint
-  const COUNTER_UP_URL = "https://api.counterapi.dev/v2/sanvextra-counter/sanvextra-counter/up";
-
-  // Data points (final 489)
-  const data = [50, 120, 200, 300, 380, 489];
-  const maxVal = Math.max(...data);
-
-  const svg       = document.getElementById('clients-svg');
-  const pathEl    = document.getElementById('clients-path');
-  const barsGroup = document.getElementById('clients-bars-group');
-  const barRects  = barsGroup ? Array.from(barsGroup.querySelectorAll('.bar-rect')) : [];
-
-  const partnersTarget = 4;
-
-  let chartSetupDone = false;
-  let hasAnimated    = false;
-
-  // -----------------------------
-  // Build smooth curve path
-  // -----------------------------
-  function buildSmoothPath(points){
-    if (points.length < 2) return '';
-    if (points.length === 2){
-      const p0 = points[0], p1 = points[1];
-      return `M ${p0.x} ${p0.y} L ${p1.x} ${p1.y}`;
-    }
-
-    let d = `M ${points[0].x} ${points[0].y}`;
-    for (let i = 1; i < points.length - 1; i++){
-      const p0 = points[i];
-      const p1 = points[i + 1];
-      const xc = (p0.x + p1.x) / 2;
-      const yc = (p0.y + p1.y) / 2;
-      d += ` Q ${p0.x} ${p0.y} ${xc} ${yc}`;
-    }
-
-    const pn_1 = points[points.length - 1];
-    d += ` Q ${pn_1.x} ${pn_1.y} ${pn_1.x} ${pn_1.y}`;
-    return d;
-  }
-
-  // Prepare chart geometry
-  let points = [];
-  let barTargets = [];
-
-  function setupChart(){
-    if (chartSetupDone) return;
-    if (!svg || !pathEl) return;
-
-    const viewBox = svg.viewBox.baseVal;
-    const svgW = viewBox && viewBox.width  ? viewBox.width  : 600;
-    const svgH = viewBox && viewBox.height ? viewBox.height : 200;
-
-    const paddingTop    = 20;
-    const paddingBottom = 24;
-    const paddingLeft   = 24;
-    const paddingRight  = 24;
-
-    const innerW = svgW - paddingLeft - paddingRight;
-    const innerH = svgH - paddingTop - paddingBottom;
-
-    const stepX = innerW / (data.length - 1);
-
-    // Points for line
-    points = data.map((v, i) => {
-      const x = paddingLeft + i * stepX;
-      const y = paddingTop + (1 - v / maxVal) * innerH;
-      return { x, y, value: v };
-    });
-
-    // Smooth path
-    const d = buildSmoothPath(points);
-    pathEl.setAttribute('d', d);
-
-    // Bars behind curve
-    barTargets = [];
-    barRects.forEach((rect, i) => {
-      const value = Number(rect.getAttribute('data-value')) || 0;
-      const xCenter = paddingLeft + i * stepX;
-      const barWidth = Math.min(40, stepX * 0.5);
-      const height = (value / maxVal) * innerH;
-
-      const x = xCenter - barWidth / 2;
-      const y = paddingTop + (innerH - height);
-
-      rect.setAttribute('x', x);
-      rect.setAttribute('width', barWidth);
-      rect.setAttribute('y', paddingTop + innerH);
-      rect.setAttribute('height', 0);
-
-      barTargets.push({ rect, x, y, height });
-    });
-
-    chartSetupDone = true;
-  }
-
-  // Animate curve drawing
-  function animatePath(duration = 1400){
-    const totalLen = pathEl.getTotalLength();
-    pathEl.style.strokeDasharray  = totalLen;
-    pathEl.style.strokeDashoffset = totalLen;
-    pathEl.getBoundingClientRect();
-
-    const start = performance.now();
-    function frame(now){
-      const t = Math.min(1, (now - start) / duration);
-      pathEl.style.strokeDashoffset = totalLen * (1 - t);
-      if (t < 1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  }
-
-  // Animate bars up
-  function animateBars(duration = 1400){
-    const start = performance.now();
-    function frame(now){
-      const t = Math.min(1, (now - start) / duration);
-      barTargets.forEach(({ rect, y, height }) => {
-        const curH = height * t;
-        const curY = y + (height - curH);
-        rect.setAttribute('y', curY);
-        rect.setAttribute('height', curH);
-      });
-      if (t < 1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  }
-
-  // Counter animation
-  function animateCounter(id, target, duration = 1600){
-    const el = document.getElementById(id);
-    if (!el) {
-      console.warn("❌ Counter element not found:", id);
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('#third-party');
+    if (!section) {
+      console.warn("❌ #third-party section not found");
       return;
     }
 
-    const start = performance.now();
-    function frame(now){
-      const t = Math.min(1, (now - start) / duration);
-      const cur = Math.floor(target * t);
-      el.textContent = cur.toLocaleString('en-IN');
+    // ✅ CounterAPI endpoint (increment)
+    const COUNTER_UP_URL = "https://api.counterapi.dev/v2/sanvextra-counter/sanvextra-counter/up";
 
-      if (t < 1) requestAnimationFrame(frame);
-      else el.textContent = target.toLocaleString('en-IN');
+    // Data points used for the chart (unchanged)
+    const data = [50, 120, 200, 300, 380, 489];
+    const maxVal = Math.max(...data);
+
+    const svg       = document.getElementById('clients-svg');
+    const pathEl    = document.getElementById('clients-path');
+    const barsGroup = document.getElementById('clients-bars-group');
+    const barRects  = barsGroup ? Array.from(barsGroup.querySelectorAll('.bar-rect')) : [];
+
+    const partnersTarget = 4;
+
+    let chartSetupDone = false;
+    let hasAnimated    = false;
+
+    // ---------- chart helpers (unchanged) ----------
+    function buildSmoothPath(points){
+      if (points.length < 2) return '';
+      if (points.length === 2){
+        const p0 = points[0], p1 = points[1];
+        return `M ${p0.x} ${p0.y} L ${p1.x} ${p1.y}`;
+      }
+      let d = `M ${points[0].x} ${points[0].y}`;
+      for (let i = 1; i < points.length - 1; i++){
+        const p0 = points[i];
+        const p1 = points[i + 1];
+        const xc = (p0.x + p1.x) / 2;
+        const yc = (p0.y + p1.y) / 2;
+        d += ` Q ${p0.x} ${p0.y} ${xc} ${yc}`;
+      }
+      const pn_1 = points[points.length - 1];
+      d += ` Q ${pn_1.x} ${pn_1.y} ${pn_1.x} ${pn_1.y}`;
+      return d;
     }
-    requestAnimationFrame(frame);
-  }
 
-  function animatePartnerCounter(id, target, duration = 1500){
-    const el = document.getElementById(id);
-    if (!el) return;
+    let points = [];
+    let barTargets = [];
 
-    const start = performance.now();
-    function frame(now){
-      const t = Math.min(1, (now - start) / duration);
-      const cur = Math.floor(target * t);
-      el.textContent = cur.toString();
+    function setupChart(){
+      if (chartSetupDone) return;
+      if (!svg || !pathEl) return;
 
-      if (t < 1) requestAnimationFrame(frame);
-      else el.textContent = target.toString();
+      const viewBox = svg.viewBox.baseVal;
+      const svgW = viewBox && viewBox.width  ? viewBox.width  : 600;
+      const svgH = viewBox && viewBox.height ? viewBox.height : 200;
+
+      const paddingTop    = 20;
+      const paddingBottom = 24;
+      const paddingLeft   = 24;
+      const paddingRight  = 24;
+
+      const innerW = svgW - paddingLeft - paddingRight;
+      const innerH = svgH - paddingTop - paddingBottom;
+
+      const stepX = innerW / (data.length - 1);
+
+      points = data.map((v, i) => {
+        const x = paddingLeft + i * stepX;
+        const y = paddingTop + (1 - v / maxVal) * innerH;
+        return { x, y, value: v };
+      });
+
+      const d = buildSmoothPath(points);
+      pathEl.setAttribute('d', d);
+
+      barTargets = [];
+      barRects.forEach((rect, i) => {
+        const value = Number(rect.getAttribute('data-value')) || 0;
+        const xCenter = paddingLeft + i * stepX;
+        const barWidth = Math.min(40, stepX * 0.5);
+        const height = (value / maxVal) * innerH;
+
+        const x = xCenter - barWidth / 2;
+        const y = paddingTop + (innerH - height);
+
+        rect.setAttribute('x', x);
+        rect.setAttribute('width', barWidth);
+        rect.setAttribute('y', paddingTop + innerH);
+        rect.setAttribute('height', 0);
+
+        barTargets.push({ rect, x, y, height });
+      });
+
+      chartSetupDone = true;
     }
-    requestAnimationFrame(frame);
-  }
 
-  // ✅ increment + get count
-  async function incrementGlobalClientsCount(){
-    try {
-      const res = await fetch(COUNTER_UP_URL);
-      const json = await res.json();
+    function animatePath(duration = 1400){
+      const totalLen = pathEl.getTotalLength();
+      pathEl.style.strokeDasharray  = totalLen;
+      pathEl.style.strokeDashoffset = totalLen;
+      pathEl.getBoundingClientRect();
 
-      console.log("✅ CounterAPI response:", json);
+      const start = performance.now();
+      function frame(now){
+        const t = Math.min(1, (now - start) / duration);
+        pathEl.style.strokeDashoffset = totalLen * (1 - t);
+        if (t < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
 
-      // Try every common key pattern
-      const extracted =
-        json?.data?.count ??
-        json?.data?.value ??
-        json?.count ??
-        json?.value ??
-        json?.data ??
-        null;
+    function animateBars(duration = 1400){
+      const start = performance.now();
+      function frame(now){
+        const t = Math.min(1, (now - start) / duration);
+        barTargets.forEach(({ rect, y, height }) => {
+          const curH = height * t;
+          const curY = y + (height - curH);
+          rect.setAttribute('y', curY);
+          rect.setAttribute('height', curH);
+        });
+        if (t < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
 
-      const count = Number(extracted);
-
-      if (!Number.isFinite(count)) {
-        console.warn("❌ Could not extract count from response");
-        return null;
+    // ---------- number animations ----------
+    function animateCounter(id, target, duration = 1600){
+      const el = document.getElementById(id);
+      if (!el) {
+        console.warn("❌ Counter element not found:", id);
+        return;
       }
 
-      return count;
-    } catch (err) {
-      console.error("❌ CounterAPI fetch error:", err);
+      const start = performance.now();
+      function frame(now){
+        const t = Math.min(1, (now - start) / duration);
+        const cur = Math.floor(target * t);
+        el.textContent = cur.toLocaleString('en-IN');
+
+        if (t < 1) requestAnimationFrame(frame);
+        else el.textContent = target.toLocaleString('en-IN');
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function animatePartnerCounter(id, target, duration = 1500){
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const start = performance.now();
+      function frame(now){
+        const t = Math.min(1, (now - start) / duration);
+        const cur = Math.floor(target * t);
+        el.textContent = cur.toString();
+
+        if (t < 1) requestAnimationFrame(frame);
+        else el.textContent = target.toString();
+      }
+      requestAnimationFrame(frame);
+    }
+
+    // ---------- robust extractor ----------
+    function findFirstNumberDeep(obj) {
+      if (obj === null || obj === undefined) return null;
+      if (typeof obj === "number" && Number.isFinite(obj)) return obj;
+      if (typeof obj === "string" && obj.trim() !== "" && Number.isFinite(Number(obj))) return Number(obj);
+      if (Array.isArray(obj)) {
+        for (const item of obj) {
+          const found = findFirstNumberDeep(item);
+          if (found !== null) return found;
+        }
+      }
+      if (typeof obj === "object") {
+        for (const key in obj) {
+          if (!Object.prototype.hasOwnProperty.call(obj, key)) continue;
+          const found = findFirstNumberDeep(obj[key]);
+          if (found !== null) return found;
+        }
+      }
       return null;
     }
-  }
 
-  // Run animation
-  async function runStatsAnimation(){
-    if (hasAnimated) return;
-    hasAnimated = true;
+    // ---------- fetch + extract count ----------
+    async function incrementGlobalClientsCount(){
+      try {
+        const res = await fetch(COUNTER_UP_URL);
+        const json = await res.json();
 
-    setupChart();
-    animatePath(8000);
-    animateBars(8000);
+        console.log("✅ CounterAPI response FULL:", json);
+        console.log("✅ CounterAPI response DATA:", json.data);
 
-    // ✅ fetch + animate
-    const count = await incrementGlobalClientsCount();
+        // first, try the explicit CounterAPI fields we saw in your response:
+        const explicit =
+          json?.data?.up_count ??          // <--- your actual key (observed)
+          json?.data?.upCount ??
+          json?.data?.count ??
+          json?.data?.value ??
+          null;
 
-    if (count !== null) {
-      animateCounter("clients-count", count, 8000);
-    } else {
-      animateCounter("clients-count", 489, 8000); // fallback
+        if (Number.isFinite(Number(explicit))) return Number(explicit);
+
+        // fallback: find first numeric value nested in json.data
+        const deep = findFirstNumberDeep(json?.data);
+        if (Number.isFinite(Number(deep))) return Number(deep);
+
+        console.warn("❌ Could not extract a numeric count from API response. json.data:", json.data);
+        return null;
+      } catch (err) {
+        console.error("❌ CounterAPI fetch error:", err);
+        return null;
+      }
     }
 
-    animatePartnerCounter("partners-count", partnersTarget, 8000);
-  }
+    // ---------- run animation when section visible ----------
+    async function runStatsAnimation(){
+      if (hasAnimated) return;
+      hasAnimated = true;
 
-  // Observer trigger
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting){
-        console.log("✅ Section entered view, running animation");
-        runStatsAnimation();
-        observer.unobserve(entry.target);
+      setupChart();
+      animatePath(8000);
+      animateBars(8000);
+
+      const count = await incrementGlobalClientsCount();
+
+      if (count !== null) {
+        animateCounter("clients-count", count, 8000);
+      } else {
+        // fallback if unable to read API result
+        animateCounter("clients-count", 489, 8000);
       }
-    });
-  }, {
-    threshold: 0.35
-  });
 
-  observer.observe(section);
-});
+      animatePartnerCounter("partners-count", partnersTarget, 8000);
+    }
+
+    // Use a uniquely-named observer to avoid colliding with any other
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          console.log("✅ Section entered view, running animation");
+          runStatsAnimation();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    statsObserver.observe(section);
+  });
+})();
 </script>
 
 
