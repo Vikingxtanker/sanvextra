@@ -745,7 +745,7 @@ section.visible {
 .feature-card-promo .feature-img {
   position: absolute;
   bottom: -85px; /* pushes it further out of the box */
-  right: -50px;
+  right: -80px;
   width: 250px; /* bigger bottle */
   height: auto;
   transform: scale(1);
