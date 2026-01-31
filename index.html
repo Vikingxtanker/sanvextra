@@ -817,6 +817,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const section = document.querySelector('#third-party');
   if (!section) return;
 
+  // =========================
+  // ✅ CounterAPI.dev Settings
+  // =========================
+  const COUNTER_BASE_URL = "https://api.counterapi.dev/v2/sanvextra-counter";
+  const COUNTER_NAME = "satisfied-clients"; // you can change this to anything
+  const API_KEY = "ut_QuAZJcXwtVbBgdBxVZnv7qkckrEHN9c4wCqUuqcm";
+
+  // 🔥 increments global count by +1
+  const COUNTER_UP_URL = `${COUNTER_BASE_URL}/${COUNTER_NAME}/up`;
+
   // Data points (final 489)
   const data = [50, 120, 200, 300, 380, 489];
   const maxVal = Math.max(...data);
@@ -826,13 +836,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const barsGroup = document.getElementById('clients-bars-group');
   const barRects  = barsGroup ? Array.from(barsGroup.querySelectorAll('.bar-rect')) : [];
 
-  const clientsTarget  = 489;
   const partnersTarget = 4;
 
   let chartSetupDone = false;
   let hasAnimated    = false;
 
-  // Build smooth curve path using quadratic segments
+  // -----------------------------
+  // Build smooth curve path
+  // -----------------------------
   function buildSmoothPath(points){
     if (points.length < 2) return '';
     if (points.length === 2){
@@ -848,13 +859,13 @@ document.addEventListener('DOMContentLoaded', function () {
       const yc = (p0.y + p1.y) / 2;
       d += ` Q ${p0.x} ${p0.y} ${xc} ${yc}`;
     }
+
     const pn_1 = points[points.length - 1];
-    const pn_2 = points[points.length - 2];
     d += ` Q ${pn_1.x} ${pn_1.y} ${pn_1.x} ${pn_1.y}`;
     return d;
   }
 
-  // Prepare chart geometry (points, bars positions)
+  // Prepare chart geometry
   let points = [];
   let barTargets = [];
 
@@ -883,7 +894,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return { x, y, value: v };
     });
 
-    // Apply smooth path
+    // Smooth path
     const d = buildSmoothPath(points);
     pathEl.setAttribute('d', d);
 
@@ -900,7 +911,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       rect.setAttribute('x', x);
       rect.setAttribute('width', barWidth);
-      rect.setAttribute('y', paddingTop + innerH); // start from bottom (0 height)
+      rect.setAttribute('y', paddingTop + innerH);
       rect.setAttribute('height', 0);
 
       barTargets.push({ rect, x, y, height });
@@ -914,7 +925,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const totalLen = pathEl.getTotalLength();
     pathEl.style.strokeDasharray  = totalLen;
     pathEl.style.strokeDashoffset = totalLen;
-    pathEl.getBoundingClientRect(); // force layout
+    pathEl.getBoundingClientRect();
 
     const start = performance.now();
     function frame(now){
@@ -925,7 +936,7 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(frame);
   }
 
-  // Animate bars up to their target heights
+  // Animate bars up
   function animateBars(duration = 1400){
     const start = performance.now();
     function frame(now){
@@ -941,15 +952,17 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(frame);
   }
 
-  // Number counters
+  // Counter animation
   function animateCounter(id, target, duration = 1600){
     const el = document.getElementById(id);
     if (!el) return;
+
     const start = performance.now();
     function frame(now){
       const t = Math.min(1, (now - start) / duration);
       const cur = Math.floor(target * t);
       el.textContent = cur.toLocaleString('en-IN');
+
       if (t < 1) requestAnimationFrame(frame);
       else el.textContent = target.toLocaleString('en-IN');
     }
@@ -959,30 +972,69 @@ document.addEventListener('DOMContentLoaded', function () {
   function animatePartnerCounter(id, target, duration = 1500){
     const el = document.getElementById(id);
     if (!el) return;
+
     const start = performance.now();
     function frame(now){
       const t = Math.min(1, (now - start) / duration);
       const cur = Math.floor(target * t);
       el.textContent = cur.toString();
+
       if (t < 1) requestAnimationFrame(frame);
       else el.textContent = target.toString();
     }
     requestAnimationFrame(frame);
   }
 
-  // Combine everything, triggered when section is in view
-  function runStatsAnimation(){
+  // ✅ Global increment + get new value from CounterAPI.dev
+  async function incrementGlobalClientsCount(){
+    try {
+      const res = await fetch(COUNTER_UP_URL, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${API_KEY}`
+        }
+      });
+
+      const json = await res.json();
+
+      // CounterAPI response might be stored in different keys depending on version
+      const newCount =
+        json?.data?.count ??
+        json?.count ??
+        json?.value ??
+        json?.data ??
+        0;
+
+      return Number(newCount) || 0;
+    } catch (err) {
+      console.error("CounterAPI.dev error:", err);
+      return null;
+    }
+  }
+
+  // Trigger everything when visible
+  async function runStatsAnimation(){
     if (hasAnimated) return;
     hasAnimated = true;
 
     setupChart();
     animatePath(8000);
     animateBars(8000);
-    animateCounter('clients-count',  clientsTarget, 8000);
-    animatePartnerCounter('partners-count', partnersTarget, 8000);
+
+    // ✅ increment global count by +1, then animate to that value
+    const newGlobalCount = await incrementGlobalClientsCount();
+
+    if (newGlobalCount !== null) {
+      animateCounter("clients-count", newGlobalCount, 8000);
+    } else {
+      // fallback if api fails
+      animateCounter("clients-count", 489, 8000);
+    }
+
+    animatePartnerCounter("partners-count", partnersTarget, 8000);
   }
 
-  // IntersectionObserver to trigger when visible
+  // IntersectionObserver
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting){
@@ -997,6 +1049,7 @@ document.addEventListener('DOMContentLoaded', function () {
   observer.observe(section);
 });
 </script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
