@@ -818,14 +818,17 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!section) return;
 
   // =========================
-  // ✅ CounterAPI.dev Settings
+  // CounterAPI.dev Settings
   // =========================
-  const COUNTER_BASE_URL = "https://api.counterapi.dev/v2/sanvextra-counter";
-  const COUNTER_NAME = "sanvextra-counter"; // you can change this to anything
-  const API_KEY = "ut_QuAZJcXwtVbBgdBxVZnv7qkckrEHN9c4wCqUuqcm";
+  // Public direct endpoint (no Authorization header) - avoids CORS preflight
+  // Docs base: https://api.counterapi.dev/v2/sanvextra-counter/sanvextra-counter
+  const COUNTER_PUBLIC_UP = "https://api.counterapi.dev/v2/sanvextra-counter/sanvextra-counter/up";
 
-  // 🔥 increments global count by +1
-  const COUNTER_UP_URL = `${COUNTER_BASE_URL}/${COUNTER_NAME}/up`;
+  // PROXY_URL: OPTIONAL - use this if direct public call fails or you want to hide API key.
+  // Deploy a Cloudflare Worker (code provided below) and set PROXY_URL to that worker URL.
+  // Example: const PROXY_URL = "https://your-worker-subdomain.workers.dev/up";
+  // If you don't have a proxy yet, leave it null.
+  const PROXY_URL = null;
 
   // Data points (final 489)
   const data = [50, 120, 200, 300, 380, 489];
@@ -985,31 +988,56 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(frame);
   }
 
-  // ✅ Global increment + get new value from CounterAPI.dev
-  async function incrementGlobalClientsCount(){
+  // Try the public direct CounterAPI call (no Authorization header)
+  async function tryPublicCounterUp(){
     try {
-      const res = await fetch(COUNTER_UP_URL, {
-        method: "GET",
-        headers: {
-          "Authorization": `Bearer ${API_KEY}`
-        }
-      });
-
+      const res = await fetch(COUNTER_PUBLIC_UP, { method: 'GET' });
+      // if CORS blocked, this will throw or res.ok will be false
+      if (!res || !res.ok) {
+        // return an object indicating failure but include status for debugging
+        return { ok: false, status: res ? res.status : 0, body: null };
+      }
       const json = await res.json();
-
-      // CounterAPI response might be stored in different keys depending on version
-      const newCount =
-        json?.data?.count ??
-        json?.count ??
-        json?.value ??
-        json?.data ??
-        0;
-
-      return Number(newCount) || 0;
+      // Counter payload may vary: extract available fields
+      const value = Number(json?.data?.count ?? json?.count ?? json?.value ?? json?.data ?? 0) || 0;
+      return { ok: true, value };
     } catch (err) {
-      console.error("CounterAPI.dev error:", err);
-      return null;
+      // network / CORS error
+      console.warn("Public counter up failed:", err);
+      return { ok: false, status: 0, body: err };
     }
+  }
+
+  // Proxy fallback: call your own proxy that holds the API key server-side.
+  // You must deploy the proxy (Cloudflare Worker example provided below) and set PROXY_URL variable.
+  async function tryProxyCounterUp(){
+    if (!PROXY_URL) return { ok: false, status: 0, body: "No proxy configured" };
+    try {
+      const res = await fetch(PROXY_URL, { method: 'GET' });
+      if (!res || !res.ok) return { ok: false, status: res ? res.status : 0, body: null };
+      const json = await res.json();
+      const value = Number(json?.data?.count ?? json?.count ?? json?.value ?? json?.data ?? 0) || 0;
+      return { ok: true, value };
+    } catch (err) {
+      console.warn("Proxy counter up failed:", err);
+      return { ok: false, status: 0, body: err };
+    }
+  }
+
+  // High-level increment function: tries public then proxy
+  async function incrementGlobalClientsCount(){
+    // Try public no-auth request first (fastest, zero-config)
+    const pub = await tryPublicCounterUp();
+    if (pub.ok) return pub.value;
+
+    // If public failed and proxy configured, try proxy
+    if (PROXY_URL) {
+      const prox = await tryProxyCounterUp();
+      if (prox.ok) return prox.value;
+    }
+
+    // Both failed — return null so caller can fallback to a safe number
+    return null;
   }
 
   // Trigger everything when visible
@@ -1021,7 +1049,7 @@ document.addEventListener('DOMContentLoaded', function () {
     animatePath(8000);
     animateBars(8000);
 
-    // ✅ increment global count by +1, then animate to that value
+    // increment global count by +1, then animate to that value
     const newGlobalCount = await incrementGlobalClientsCount();
 
     if (newGlobalCount !== null) {
