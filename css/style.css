@@ -1659,3 +1659,11 @@ body {
   transition: none !important;
   transform: none !important;
 }
+
+/* ✅ FORCE Footer Text Visible */
+.sanvextra-footer,
+.sanvextra-footer p,
+.sanvextra-footer a {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
