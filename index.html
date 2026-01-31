@@ -815,20 +815,13 @@ document.querySelectorAll('section').forEach(sec => observer.observe(sec));
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const section = document.querySelector('#third-party');
-  if (!section) return;
+  if (!section) {
+    console.warn("❌ #third-party section not found");
+    return;
+  }
 
-  // =========================
-  // CounterAPI.dev Settings
-  // =========================
-  // Public direct endpoint (no Authorization header) - avoids CORS preflight
-  // Docs base: https://api.counterapi.dev/v2/sanvextra-counter/sanvextra-counter
-  const COUNTER_PUBLIC_UP = "https://api.counterapi.dev/v2/sanvextra-counter/sanvextra-counter/up";
-
-  // PROXY_URL: OPTIONAL - use this if direct public call fails or you want to hide API key.
-  // Deploy a Cloudflare Worker (code provided below) and set PROXY_URL to that worker URL.
-  // Example: const PROXY_URL = "https://your-worker-subdomain.workers.dev/up";
-  // If you don't have a proxy yet, leave it null.
-  const PROXY_URL = null;
+  // ✅ Your CounterAPI endpoint
+  const COUNTER_UP_URL = "https://api.counterapi.dev/v2/sanvextra-counter/sanvextra-counter/up";
 
   // Data points (final 489)
   const data = [50, 120, 200, 300, 380, 489];
@@ -958,7 +951,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // Counter animation
   function animateCounter(id, target, duration = 1600){
     const el = document.getElementById(id);
-    if (!el) return;
+    if (!el) {
+      console.warn("❌ Counter element not found:", id);
+      return;
+    }
 
     const start = performance.now();
     function frame(now){
@@ -988,59 +984,38 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(frame);
   }
 
-  // Try the public direct CounterAPI call (no Authorization header)
-  async function tryPublicCounterUp(){
-    try {
-      const res = await fetch(COUNTER_PUBLIC_UP, { method: 'GET' });
-      // if CORS blocked, this will throw or res.ok will be false
-      if (!res || !res.ok) {
-        // return an object indicating failure but include status for debugging
-        return { ok: false, status: res ? res.status : 0, body: null };
-      }
-      const json = await res.json();
-      // Counter payload may vary: extract available fields
-      const value = Number(json?.data?.count ?? json?.count ?? json?.value ?? json?.data ?? 0) || 0;
-      return { ok: true, value };
-    } catch (err) {
-      // network / CORS error
-      console.warn("Public counter up failed:", err);
-      return { ok: false, status: 0, body: err };
-    }
-  }
-
-  // Proxy fallback: call your own proxy that holds the API key server-side.
-  // You must deploy the proxy (Cloudflare Worker example provided below) and set PROXY_URL variable.
-  async function tryProxyCounterUp(){
-    if (!PROXY_URL) return { ok: false, status: 0, body: "No proxy configured" };
-    try {
-      const res = await fetch(PROXY_URL, { method: 'GET' });
-      if (!res || !res.ok) return { ok: false, status: res ? res.status : 0, body: null };
-      const json = await res.json();
-      const value = Number(json?.data?.count ?? json?.count ?? json?.value ?? json?.data ?? 0) || 0;
-      return { ok: true, value };
-    } catch (err) {
-      console.warn("Proxy counter up failed:", err);
-      return { ok: false, status: 0, body: err };
-    }
-  }
-
-  // High-level increment function: tries public then proxy
+  // ✅ increment + get count
   async function incrementGlobalClientsCount(){
-    // Try public no-auth request first (fastest, zero-config)
-    const pub = await tryPublicCounterUp();
-    if (pub.ok) return pub.value;
+    try {
+      const res = await fetch(COUNTER_UP_URL);
+      const json = await res.json();
 
-    // If public failed and proxy configured, try proxy
-    if (PROXY_URL) {
-      const prox = await tryProxyCounterUp();
-      if (prox.ok) return prox.value;
+      console.log("✅ CounterAPI response:", json);
+
+      // Try every common key pattern
+      const extracted =
+        json?.data?.count ??
+        json?.data?.value ??
+        json?.count ??
+        json?.value ??
+        json?.data ??
+        null;
+
+      const count = Number(extracted);
+
+      if (!Number.isFinite(count)) {
+        console.warn("❌ Could not extract count from response");
+        return null;
+      }
+
+      return count;
+    } catch (err) {
+      console.error("❌ CounterAPI fetch error:", err);
+      return null;
     }
-
-    // Both failed — return null so caller can fallback to a safe number
-    return null;
   }
 
-  // Trigger everything when visible
+  // Run animation
   async function runStatsAnimation(){
     if (hasAnimated) return;
     hasAnimated = true;
@@ -1049,23 +1024,23 @@ document.addEventListener('DOMContentLoaded', function () {
     animatePath(8000);
     animateBars(8000);
 
-    // increment global count by +1, then animate to that value
-    const newGlobalCount = await incrementGlobalClientsCount();
+    // ✅ fetch + animate
+    const count = await incrementGlobalClientsCount();
 
-    if (newGlobalCount !== null) {
-      animateCounter("clients-count", newGlobalCount, 8000);
+    if (count !== null) {
+      animateCounter("clients-count", count, 8000);
     } else {
-      // fallback if api fails
-      animateCounter("clients-count", 489, 8000);
+      animateCounter("clients-count", 489, 8000); // fallback
     }
 
     animatePartnerCounter("partners-count", partnersTarget, 8000);
   }
 
-  // IntersectionObserver
+  // Observer trigger
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting){
+        console.log("✅ Section entered view, running animation");
         runStatsAnimation();
         observer.unobserve(entry.target);
       }
@@ -1077,6 +1052,7 @@ document.addEventListener('DOMContentLoaded', function () {
   observer.observe(section);
 });
 </script>
+
 
 
 <script>
