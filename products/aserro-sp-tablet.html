@@ -335,6 +335,41 @@
   })();
 </script>
 
+  <!-- MENU BUTTON SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuBtn = document.getElementById('menuBtn');
+      const mainMenu = document.getElementById('mainMenu');
+      if (!menuBtn || !mainMenu) return;
+
+      menuBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const opened = mainMenu.classList.toggle('open');
+        menuBtn.classList.toggle('active', opened);
+        menuBtn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!mainMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+          if (mainMenu.classList.contains('open')) {
+            mainMenu.classList.remove('open');
+            menuBtn.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      mainMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          if (mainMenu.classList.contains('open')) {
+            mainMenu.classList.remove('open');
+            menuBtn.classList.remove('active');
+            menuBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
