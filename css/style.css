@@ -1667,3 +1667,19 @@ body {
   opacity: 1 !important;
   visibility: visible !important;
 }
+
+/* override to make footer non-fixed and flow with document */
+.sanvextra-footer {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100%;
+  z-index: auto !important;
+  margin-top: auto; /* keep existing layout approach */
+}
+
+/* remove extra bottom padding that was added for a fixed footer */
+body {
+  padding-bottom: 0 !important;
+}
